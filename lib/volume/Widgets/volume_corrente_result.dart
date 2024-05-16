@@ -16,7 +16,7 @@ class _VolumeCorrenteResultState extends State<VolumeCorrenteResult> {
     return Column(
       children: [
         Text(
-          "${widget.title}ml/Kg",
+          "${widget.title} ml/Kg",
           style: const TextStyle(
             color: Color(0xFF67ABEB),
             fontSize: 18,
@@ -43,7 +43,7 @@ class _VolumeCorrenteResultState extends State<VolumeCorrenteResult> {
             ],
           ),
           child: Center(
-            child: Text(widget.result == '' ? '' : "${widget.result}ml/Kg"),
+            child: Text(widget.result == '' ? '' : "${widget.result} ml/Kg"),
           ),
         )
       ],

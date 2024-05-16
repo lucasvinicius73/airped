@@ -68,6 +68,10 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
                   ),
                   const SizedBox(height: 17),
                   Calculadora(
+                    onPressedReset: () {
+                      controller.reset();
+                      calculadoraController.reset();
+                    },
                     onPressed: () {
                       if (calculadoraController.idade.text != '' ||
                           calculadoraController.peso.text != '' ||

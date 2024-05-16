@@ -4,6 +4,7 @@ import 'package:airped/Widgets/custom_app_bar.dart';
 import 'package:airped/Widgets/custom_drawer.dart';
 import 'package:airped/tot_pf/Widgets/tot_result.dart';
 import 'package:airped/tot_pf/tot_controller.dart';
+import 'package:airped/widget_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -62,7 +63,10 @@ class TotPFPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 17),
-                  Calculadora(onPressed: () {
+                  Calculadora(onPressedReset: () {
+                    calculadoraController.reset();
+                    controller.reset();
+                  }, onPressed: () {
                     if (calculadoraController.idade.text != '' ||
                         calculadoraController.peso.text != '' ||
                         calculadoraController.altura.text != '') {
@@ -74,6 +78,9 @@ class TotPFPage extends StatelessWidget {
                           calculadoraController.idade.text,
                           calculadoraController.peso.text,
                           calculadoraController.altura.text);
+                      Scrollable.ensureVisible(
+                          WidgetKeys.containerKey.currentContext!,
+                          alignment: BorderSide.strokeAlignCenter);
                     }
                   }),
                   const SizedBox(
@@ -141,6 +148,7 @@ class TotPFPage extends StatelessWidget {
                   Container(
                     width: 317,
                     height: 170,
+                    key: WidgetKeys.containerKey,
                     padding: const EdgeInsets.only(
                         left: 17, bottom: 18, right: 15, top: 16),
                     decoration: ShapeDecoration(

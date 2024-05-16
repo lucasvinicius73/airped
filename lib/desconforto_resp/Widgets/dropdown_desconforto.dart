@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 
 class DropDownDesconfortoResp extends StatelessWidget {
   final String title;
-  final String value;
-  final List<String> values;
+  final int value;
+  final Map<String, int> values;
+  final Function(int?) onChanged;
   const DropDownDesconfortoResp(
       {super.key,
       required this.title,
       required this.value,
-      required this.values});
+      required this.values,
+      required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -45,30 +47,33 @@ class DropDownDesconfortoResp extends StatelessWidget {
                       offset: Offset(0, -3),
                     ),
                   ]),
-              child: Center(
-                child: DropdownButtonHideUnderline(
-                  child: DropdownButton(
-                    dropdownColor: const Color(0xFFF1F5F4),
-                    value: value,
-                    items: values.map<DropdownMenuItem<String>>(
-                      (value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(
-                            value,
-                            style: const TextStyle(
-                              color: Color(0x667C7C7C),
-                              fontSize: 17,
-                              fontFamily: 'Roboto',
-                              fontWeight: FontWeight.w400,
-                              height: 0,
-                            ),
-                          ),
-                        );
-                      },
-                    ).toList(),
-                    onChanged: (String? value) {},
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton(
+                  dropdownColor: const Color(0xFFF1F5F4),
+                  isExpanded: true,
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  style: const TextStyle(
+                    overflow: TextOverflow.ellipsis,
                   ),
+                  value: value,
+                  items: values.entries.map<DropdownMenuItem<int>>(
+                    (MapEntry<String, int> entry) {
+                      return DropdownMenuItem<int>(
+                        value: entry.value,
+                        child: Text(
+                          entry.key,
+                          style: const TextStyle(
+                            color: Color(0x667C7C7C),
+                            fontSize: 17,
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.w400,
+                            height: 0,
+                          ),
+                        ),
+                      );
+                    },
+                  ).toList(),
+                  onChanged: onChanged,
                 ),
               )),
           const SizedBox(

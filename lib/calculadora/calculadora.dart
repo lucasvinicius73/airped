@@ -1,4 +1,4 @@
-import 'package:airped/calculadora/Widgets/custom_button.dart';
+import 'package:airped/Widgets/custom_button.dart';
 import 'package:airped/calculadora/calculadora_controller.dart';
 import 'package:airped/calculadora/Widgets/custom_text_form.dart';
 import 'package:flutter/material.dart';
@@ -6,18 +6,18 @@ import 'package:provider/provider.dart';
 
 class Calculadora extends StatelessWidget {
   final Function() onPressed;
+  final Function() onPressedReset;
 
   const Calculadora({
     super.key,
     required this.onPressed,
+    required this.onPressedReset,
   });
 
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<CalculadoraController>(context);
 
-    List sexos = ['Masculino', 'Feminino'];
-    String sexo = sexos.first;
     return Container(
       padding: const EdgeInsets.only(left: 22, right: 22, bottom: 14, top: 15),
       decoration: ShapeDecoration(
@@ -58,7 +58,7 @@ class Calculadora extends StatelessWidget {
               CustomTextFormCalculadora(
                   controller: controller.altura,
                   hintText: 'Altura',
-                  suffixText: '',
+                  suffixText: 'cm',
                   icon: Icons.height)
             ],
           ),
@@ -74,37 +74,57 @@ class Calculadora extends StatelessWidget {
               Container(
                 width: 130,
                 height: 40,
+                padding: const EdgeInsets.symmetric(horizontal: 12),
                 decoration: ShapeDecoration(
                   color: const Color(0xFFF1F5F4),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(100),
                   ),
                 ),
-                child: Center(
-                  child: DropdownButtonHideUnderline(
-                    child: DropdownButton(
-                      dropdownColor: const Color(0xFFF1F5F4),
-                      value: sexo,
-                      items: sexos.map<DropdownMenuItem<String>>(
-                        (value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(
-                              value,
-                              style: const TextStyle(
-                                color: Color(0x667C7C7C),
-                                fontSize: 17,
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w400,
-                                height: 0,
-                              ),
-                            ),
-                          );
-                        },
-                      ).toList(),
-                      onChanged: (String? value) {},
+                child: Row(
+                  children: [
+                    Icon(
+                      controller.sexo == 'Masculino'
+                          ? Icons.male
+                          : Icons.female,
+                      color: const Color(0x667C7C7C),
                     ),
-                  ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    SizedBox(
+                      width: 77,
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton(
+                          dropdownColor: const Color(0xFFF1F5F4),
+                          value: controller.sexo,
+                          isExpanded: true,
+                          style: const TextStyle(
+                              overflow: TextOverflow.ellipsis, fontSize: 20),
+                          items: controller.sexos.map<DropdownMenuItem<String>>(
+                            (value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(
+                                  value,
+                                  style: const TextStyle(
+                                      color: Color(0x667C7C7C),
+                                      fontSize: 18,
+                                      fontFamily: 'Roboto',
+                                      fontWeight: FontWeight.w400,
+                                      height: 0,
+                                      overflow: TextOverflow.ellipsis),
+                                ),
+                              );
+                            },
+                          ).toList(),
+                          onChanged: (String? value) {
+                            controller.changeDropDown(value);
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
@@ -115,11 +135,7 @@ class Calculadora extends StatelessWidget {
           Row(
             children: [
               CustomButtonCalculadora(
-                onPressed: () {
-                  controller.altura.text = '';
-                  controller.idade.text = '';
-                  controller.peso.text = '';
-                },
+                onPressed: onPressedReset,
                 title: 'Reset',
                 color: const Color(0xFFF84040),
               ),

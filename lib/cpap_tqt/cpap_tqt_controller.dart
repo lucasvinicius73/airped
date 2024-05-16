@@ -27,8 +27,11 @@ class CpapTqtController extends ChangeNotifier {
     notifyListeners();
   }
 
-  calcularTamTQT(String idadeText, String idadeMesText){
-    
-
+  calcularTamTQT(String idadeText, String idadeMesText) {}
+  
+  reset() {
+    tamCanulaCPAP = '';
+    canulaTQT = '';
+    notifyListeners();
   }
 }

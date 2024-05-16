@@ -14,7 +14,6 @@ class VolumeCorrenteController extends ChangeNotifier {
     double peso = double.parse(pesoText);
     double altura = double.parse(alturaText);
 
-    // Calcula a frequência respiratória
     if (idade < 1) {
       frequencia = '30-60 ipm';
     } else if (idade <= 3) {
@@ -41,6 +40,20 @@ class VolumeCorrenteController extends ChangeNotifier {
     vc7 = '${peso * 7}';
 
     vc8 = '${peso * 8}';
+    notifyListeners();
+  }
+
+  reset() {
+    vc4 = '';
+
+    vc5 = '';
+
+    vc6 = '';
+
+    vc7 = '';
+
+    vc8 = '';
+    frequencia = '';
     notifyListeners();
   }
 }

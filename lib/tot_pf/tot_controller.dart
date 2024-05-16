@@ -28,4 +28,12 @@ class TotController extends ChangeNotifier {
 
   calcularPontoFixacaoComCUFF(
       String idadeText, String pesoText, String alturaText) {}
+
+  reset() {
+    escolhaTOTcomCUFF = '';
+    escolharTOTsemCUFF = '';
+    pontoFixacaoComCUFF = '';
+    pontoFixacaoSemCUFF = '';
+    notifyListeners();
+  }
 }

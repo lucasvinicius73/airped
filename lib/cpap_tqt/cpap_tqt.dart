@@ -3,6 +3,7 @@ import 'package:airped/calculadora/calculadora_controller.dart';
 import 'package:airped/Widgets/custom_app_bar.dart';
 import 'package:airped/Widgets/custom_drawer.dart';
 import 'package:airped/cpap_tqt/cpap_tqt_controller.dart';
+import 'package:airped/widget_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -61,13 +62,19 @@ class CpapTqtPage extends StatelessWidget {
                         ),
                       )),
                   const SizedBox(height: 25),
-                  Calculadora(onPressed: () {
+                  Calculadora(onPressedReset: () {
+                    calculadoraController.reset();
+                    controller.reset();
+                  }, onPressed: () {
                     if (calculadoraController.idade.text != '' ||
                         calculadoraController.peso.text != '' ||
                         calculadoraController.altura.text != '') {
                       controller.calcularTamCanulaCPAP(
                           calculadoraController.peso.text,
                           calculadoraController.idade.text);
+                      Scrollable.ensureVisible(
+                          WidgetKeys.containerKey.currentContext!,
+                          alignment: BorderSide.strokeAlignCenter);
                     }
                   }),
                   const SizedBox(
@@ -217,6 +224,7 @@ class CpapTqtPage extends StatelessWidget {
                   Container(
                     width: 317,
                     height: 146,
+                    key: WidgetKeys.containerKey,
                     padding: const EdgeInsets.only(
                         left: 17, bottom: 18, right: 15, top: 16),
                     decoration: ShapeDecoration(
