@@ -23,186 +23,191 @@ class TotPFPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: ListenableBuilder(
           listenable: controller,
-          builder: (context, child) => Padding(
-            padding:
-                const EdgeInsets.only(top: 25, left: 21, right: 22, bottom: 24),
-            child: Container(
-              width: 347,
-              height: 791,
-              padding: const EdgeInsets.only(top: 24),
-              decoration: ShapeDecoration(
-                color: const Color(0xFFFBFAFA),
-                shape: RoundedRectangleBorder(
-                  side: const BorderSide(width: 1, color: Color(0xFFFCF7F7)),
-                  borderRadius: BorderRadius.circular(10),
+          builder: (context, child) => Center(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                  top: 25, left: 21, right: 22, bottom: 24),
+              child: Container(
+                width: 347,
+                height: 791,
+                padding: const EdgeInsets.only(top: 24),
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFFBFAFA),
+                  shape: RoundedRectangleBorder(
+                    side: const BorderSide(width: 1, color: Color(0xFFFCF7F7)),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  shadows: const [
+                    BoxShadow(
+                      color: Color(0x19000000),
+                      blurRadius: 4,
+                      offset: Offset(0, 4),
+                      spreadRadius: 0,
+                    )
+                  ],
                 ),
-                shadows: const [
-                  BoxShadow(
-                    color: Color(0x19000000),
-                    blurRadius: 4,
-                    offset: Offset(0, 4),
-                    spreadRadius: 0,
-                  )
-                ],
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(
-                    width: 238,
-                    child: Text(
-                      'TOT e PONTO de FIXAÇÃO',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Color(0xFF1C72C2),
-                        fontSize: 34,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w600,
-                        height: 0,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const SizedBox(
+                      width: 238,
+                      child: Text(
+                        'TOT e PONTO de FIXAÇÃO',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Color(0xFF1C72C2),
+                          fontSize: 34,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.w600,
+                          height: 0,
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 17),
-                  Calculadora(onPressedReset: () {
-                    calculadoraController.reset();
-                    controller.reset();
-                  }, onPressed: () {
-                    if (calculadoraController.idade.text != '' ||
-                        calculadoraController.peso.text != '' ||
-                        calculadoraController.altura.text != '') {
-                      controller.calcularEscolhaTOTcomCUFF(
-                          calculadoraController.idade.text,
-                          calculadoraController.peso.text,
-                          calculadoraController.altura.text);
-                      controller.calcularEscolhaTOTsemCUFF(
-                          calculadoraController.idade.text,
-                          calculadoraController.peso.text,
-                          calculadoraController.altura.text);
-                      Scrollable.ensureVisible(
-                          WidgetKeys.containerKey.currentContext!,
-                          alignment: BorderSide.strokeAlignCenter);
-                    }
-                  }),
-                  const SizedBox(
-                    height: 28,
-                  ),
-                  Container(
-                    width: 317,
-                    height: 170,
-                    padding: const EdgeInsets.only(
-                        left: 17, bottom: 18, right: 15, top: 16.89),
-                    decoration: ShapeDecoration(
-                      color: const Color(0xFFFBFAFA),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      shadows: const [
-                        BoxShadow(
-                          color: Color(0x3F000000),
-                          blurRadius: 4,
-                          offset: Offset(0, 4),
-                          spreadRadius: 0,
-                        )
-                      ],
+                    const SizedBox(height: 17),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      child: Calculadora(onPressedReset: () {
+                        calculadoraController.reset();
+                        controller.reset();
+                      }, onPressed: () {
+                        if (calculadoraController.idade.text != '' ||
+                            calculadoraController.peso.text != '' ||
+                            calculadoraController.altura.text != '') {
+                          controller.calcularEscolhaTOTcomCUFF(
+                              calculadoraController.idade.text,
+                              calculadoraController.peso.text,
+                              calculadoraController.altura.text);
+                          controller.calcularEscolhaTOTsemCUFF(
+                              calculadoraController.idade.text,
+                              calculadoraController.peso.text,
+                              calculadoraController.altura.text);
+                          Scrollable.ensureVisible(
+                              WidgetKeys.containerKey.currentContext!,
+                              alignment: BorderSide.strokeAlignCenter);
+                        }
+                      }),
                     ),
-                    child: Column(
-                      children: [
-                        const Text(
-                          'Escolha do TOT',
-                          style: TextStyle(
-                            color: Color(0xFF67ABEB),
-                            fontSize: 20,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w600,
-                            height: 0,
-                          ),
+                    const SizedBox(
+                      height: 28,
+                    ),
+                    Container(
+                      width: 317,
+                      height: 170,
+                      padding: const EdgeInsets.only(
+                          left: 17, bottom: 18, right: 15, top: 16.89),
+                      decoration: ShapeDecoration(
+                        color: const Color(0xFFFBFAFA),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
                         ),
-                        const SizedBox(
-                          height: 17.11,
-                        ),
-                        Row(
-                          children: [
-                            TotResult(
-                                firstText: 'Canula ',
-                                colorText: 'sem ',
-                                thirdText: 'CUFF (mm DI)',
-                                color: const Color(0xFFFF0000),
-                                result: controller.escolharTOTsemCUFF),
-                            const SizedBox(
-                              width: 25,
+                        shadows: const [
+                          BoxShadow(
+                            color: Color(0x3F000000),
+                            blurRadius: 4,
+                            offset: Offset(0, 4),
+                            spreadRadius: 0,
+                          )
+                        ],
+                      ),
+                      child: Column(
+                        children: [
+                          const Text(
+                            'Escolha do TOT',
+                            style: TextStyle(
+                              color: Color(0xFF67ABEB),
+                              fontSize: 20,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.w600,
+                              height: 0,
                             ),
-                            TotResult(
-                                firstText: 'Canula ',
-                                colorText: 'com ',
-                                thirdText: 'CUFF (cm)',
-                                color: const Color(0xFF0BC212),
-                                result: controller.escolhaTOTcomCUFF),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 28,
-                  ),
-                  Container(
-                    width: 317,
-                    height: 170,
-                    key: WidgetKeys.containerKey,
-                    padding: const EdgeInsets.only(
-                        left: 17, bottom: 18, right: 15, top: 16),
-                    decoration: ShapeDecoration(
-                      color: const Color(0xFFFBFAFA),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      shadows: const [
-                        BoxShadow(
-                          color: Color(0x3F000000),
-                          blurRadius: 4,
-                          offset: Offset(0, 4),
-                          spreadRadius: 0,
-                        )
-                      ],
-                    ),
-                    child: Column(
-                      children: [
-                        const Text(
-                          'Ponto de Fixação',
-                          style: TextStyle(
-                            color: Color(0xFF67ABEB),
-                            fontSize: 20,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w600,
-                            height: 0,
                           ),
-                        ),
-                        const SizedBox(
-                          height: 18,
-                        ),
-                        Row(
-                          children: [
-                            TotResult(
-                                firstText: 'Canula ',
-                                colorText: 'sem ',
-                                thirdText: 'CUFF (cm)',
-                                color: const Color(0xFFFF0000),
-                                result: controller.pontoFixacaoSemCUFF),
-                            const SizedBox(
-                              width: 25,
-                            ),
-                            TotResult(
-                                firstText: 'Canula ',
-                                colorText: 'com ',
-                                thirdText: 'CUFF (cm)',
-                                color: const Color(0xFF0BC212),
-                                result: controller.pontoFixacaoComCUFF),
-                          ],
-                        )
-                      ],
+                          const SizedBox(
+                            height: 17.11,
+                          ),
+                          Row(
+                            children: [
+                              TotResult(
+                                  firstText: 'Canula ',
+                                  colorText: 'sem ',
+                                  thirdText: 'CUFF (mm DI)',
+                                  color: const Color(0xFFFF0000),
+                                  result: controller.escolharTOTsemCUFF),
+                              const SizedBox(
+                                width: 25,
+                              ),
+                              TotResult(
+                                  firstText: 'Canula ',
+                                  colorText: 'com ',
+                                  thirdText: 'CUFF (cm)',
+                                  color: const Color(0xFF0BC212),
+                                  result: controller.escolhaTOTcomCUFF),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                  )
-                ],
+                    const SizedBox(
+                      height: 28,
+                    ),
+                    Container(
+                      width: 317,
+                      height: 170,
+                      key: WidgetKeys.containerKey,
+                      padding: const EdgeInsets.only(
+                          left: 17, bottom: 18, right: 15, top: 16),
+                      decoration: ShapeDecoration(
+                        color: const Color(0xFFFBFAFA),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        shadows: const [
+                          BoxShadow(
+                            color: Color(0x3F000000),
+                            blurRadius: 4,
+                            offset: Offset(0, 4),
+                            spreadRadius: 0,
+                          )
+                        ],
+                      ),
+                      child: Column(
+                        children: [
+                          const Text(
+                            'Ponto de Fixação',
+                            style: TextStyle(
+                              color: Color(0xFF67ABEB),
+                              fontSize: 20,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.w600,
+                              height: 0,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 18,
+                          ),
+                          Row(
+                            children: [
+                              TotResult(
+                                  firstText: 'Canula ',
+                                  colorText: 'sem ',
+                                  thirdText: 'CUFF (cm)',
+                                  color: const Color(0xFFFF0000),
+                                  result: controller.pontoFixacaoSemCUFF),
+                              const SizedBox(
+                                width: 25,
+                              ),
+                              TotResult(
+                                  firstText: 'Canula ',
+                                  colorText: 'com ',
+                                  thirdText: 'CUFF (cm)',
+                                  color: const Color(0xFF0BC212),
+                                  result: controller.pontoFixacaoComCUFF),
+                            ],
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),

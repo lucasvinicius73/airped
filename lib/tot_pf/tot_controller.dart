@@ -16,6 +16,7 @@ class TotController extends ChangeNotifier {
     } else if (idade > 2) {
       escolhaTOTcomCUFF = '${(idade / 4) + 3.5}';
     }
+    calcularPontoFixacaoComCUFF(escolhaTOTcomCUFF);
     notifyListeners();
   }
 
@@ -23,11 +24,17 @@ class TotController extends ChangeNotifier {
       String idadeText, String pesoText, String alturaText) {
     double idade = double.parse(idadeText);
     escolharTOTsemCUFF = '${(idade / 4) + 4}';
+    calcularPontoFixacaoSemCUFF(escolharTOTsemCUFF);
     notifyListeners();
   }
 
-  calcularPontoFixacaoComCUFF(
-      String idadeText, String pesoText, String alturaText) {}
+  calcularPontoFixacaoComCUFF(String text) {
+    pontoFixacaoComCUFF = '${double.parse(text) * 3}';
+  }
+
+  calcularPontoFixacaoSemCUFF(String text) {
+    pontoFixacaoSemCUFF = '${double.parse(text) * 3}';
+  }
 
   reset() {
     escolhaTOTcomCUFF = '';

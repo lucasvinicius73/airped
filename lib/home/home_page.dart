@@ -1,7 +1,5 @@
 import 'package:airped/home/Widgets/menu_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,8 +8,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          centerTitle: true,
-          title: const Text.rich(
+        centerTitle: true,
+        title: const Padding(
+          padding: EdgeInsets.only(top: 23),
+          child: Text.rich(
             TextSpan(
               children: [
                 TextSpan(
@@ -36,55 +36,69 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-          )),
+          ),
+        ),
+        bottom: const PreferredSize(
+          preferredSize: Size(390, 17),
+          child: Divider(
+            // Linha divisória
+            color: Color(0xFFF1F5F4), // Cor da linha
+            height: 1.0, // Espessura da linha
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            //mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 500,
-                padding: const EdgeInsets.only(
-                    top: 30, left: 8, right: 8, bottom: 30),
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFFBFAFA),
-                  shape: RoundedRectangleBorder(
-                    side: const BorderSide(width: 1, color: Color(0x7FF1F5F4)),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  shadows: const [
-                    BoxShadow(
-                      color: Color(0x19000000),
-                      blurRadius: 4,
-                      offset: Offset(0, 4),
-                      spreadRadius: 0,
-                    )
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    const Text(
-                      "PROCEDIMENTOS",
-                      style: TextStyle(
-                        color: Color(0xFF1C72C2),
-                        fontSize: 34,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w700,
-                        height: 0,
-                      ),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 23),
+          child: Center(
+            child: Column(
+              children: [
+                Container(
+                  height: 414,
+                  width: 347,
+                  padding: const EdgeInsets.only(
+                      top: 24, left: 14, right: 14, bottom: 23),
+                  decoration: ShapeDecoration(
+                    color: const Color(0xFFFBFAFA),
+                    shape: RoundedRectangleBorder(
+                      side:
+                          const BorderSide(width: 1, color: Color(0x7FF1F5F4)),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    Expanded(
-                      child: GridView.count(
-                        physics: const NeverScrollableScrollPhysics(),
-                        crossAxisCount: 2,
-                        children: const [
+                    shadows: const [
+                      BoxShadow(
+                        color: Color(0x19000000),
+                        blurRadius: 4,
+                        offset: Offset(0, 4),
+                        spreadRadius: 0,
+                      )
+                    ],
+                  ),
+                  child: const Column(
+                    children: [
+                      Text(
+                        "PROCEDIMENTOS",
+                        style: TextStyle(
+                          color: Color(0xFF1C72C2),
+                          fontSize: 34,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.w700,
+                          height: 0,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 22,
+                      ),
+                      Row(
+                        children: [
                           MenuButton(
                             title: "Volume corrente",
                             route: "/volume_corrente_page",
                             icon: 'assets/home/pulmao.png',
                             color: Colors.white,
+                          ),
+                          SizedBox(
+                            width: 19,
                           ),
                           MenuButton(
                             title: "TOT e Ponto de Fixação",
@@ -92,11 +106,21 @@ class HomePage extends StatelessWidget {
                             icon: 'assets/home/tot.png',
                             color: Color(0xFFFCF6BD),
                           ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 22,
+                      ),
+                      Row(
+                        children: [
                           MenuButton(
                             title: "CPAP e Candula de TQT",
                             route: "/cpap_tqt_page",
                             icon: 'assets/home/tqt.png',
                             color: Color(0xFFA9DEF9),
+                          ),
+                          SizedBox(
+                            width: 19,
                           ),
                           MenuButton(
                             title: "Desconforto Respiratorio",
@@ -106,90 +130,95 @@ class HomePage extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Container(
-                width: double.infinity,
-                height: 150,
-                padding: const EdgeInsets.only(top: 19, bottom: 33),
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFFBFAFA),
-                  shape: RoundedRectangleBorder(
-                    side: const BorderSide(width: 1, color: Color(0x7FF1F5F4)),
-                    borderRadius: BorderRadius.circular(10),
+                    ],
                   ),
-                  shadows: const [
-                    BoxShadow(
-                      color: Color(0x19000000),
-                      blurRadius: 4,
-                      offset: Offset(0, 4),
-                      spreadRadius: 0,
-                    )
-                  ],
                 ),
-                child: Column(
-                  children: [
-                    const Text(
-                      "Informações",
-                      style: TextStyle(
-                        color: Color(0xFF1C72C2),
-                        fontSize: 34,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w700,
-                        height: 0,
-                      ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Container(
+                  width: 347,
+                  height: 160,
+                  padding: const EdgeInsets.only(top: 19, bottom: 33),
+                  decoration: ShapeDecoration(
+                    color: const Color(0xFFFBFAFA),
+                    shape: RoundedRectangleBorder(
+                      side:
+                          const BorderSide(width: 1, color: Color(0x7FF1F5F4)),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    const Spacer(),
-                    InkWell(
-                      onTap: () => Navigator.of(context).pushNamed('/about'),
-                      child: Container(
-                        width: 187,
-                        height: 47,
-                        decoration: ShapeDecoration(
-                          color: Color(0xFFFBFAFA),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(100),
-                          ),
-                          shadows: const [
-                            BoxShadow(
-                              color: Color(0x3F000000),
-                              blurRadius: 4,
-                              offset: Offset(0, 4),
-                              spreadRadius: 0,
-                            )
-                          ],
-                        ),
-                        child: const Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.help),
-                            SizedBox(
-                              width: 7,
-                            ),
-                            Text(
-                              'Sobre',
-                              style: TextStyle(
-                                color: Color(0xFFEFCA30),
-                                fontSize: 20,
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w600,
-                                height: 0,
-                              ),
-                            ),
-                          ],
+                    shadows: const [
+                      BoxShadow(
+                        color: Color(0x19000000),
+                        blurRadius: 4,
+                        offset: Offset(0, 4),
+                        spreadRadius: 0,
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      const Text(
+                        "Informações",
+                        style: TextStyle(
+                          color: Color(0xFF1C72C2),
+                          fontSize: 34,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.w700,
+                          height: 0,
                         ),
                       ),
-                    )
-                  ],
-                ),
-              )
-            ],
+                      const Spacer(),
+                      InkWell(
+                        onTap: () => Navigator.of(context).pushNamed('/about'),
+                        child: Container(
+                          width: 187,
+                          height: 47,
+                          decoration: ShapeDecoration(
+                            color: const Color(0xFFFBFAFA),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            shadows: const [
+                              BoxShadow(
+                                color: Color(0x3F000000),
+                                blurRadius: 4,
+                                offset: Offset(0, 4),
+                                spreadRadius: 0,
+                              )
+                            ],
+                          ),
+                          child: const Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.help_outline,
+                                color: Color(0xFF67ABEB),
+                                size: 22,
+                              ),
+                              SizedBox(
+                                width: 7,
+                              ),
+                              Text(
+                                'Sobre',
+                                style: TextStyle(
+                                  color: Color(0xFFEFCA30),
+                                  fontSize: 20,
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.w600,
+                                  height: 0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
