@@ -6,13 +6,15 @@ class CustomTextFormCalculadora extends StatelessWidget {
   final String hintText;
   final String suffixText;
   final IconData icon;
+  final Function()? onPressed;
 
   const CustomTextFormCalculadora(
       {super.key,
       required this.controller,
       required this.hintText,
       required this.suffixText,
-      required this.icon});
+      required this.icon,
+      this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +44,14 @@ class CustomTextFormCalculadora extends StatelessWidget {
             top: 6,
             right: 10,
           ),
+          suffixStyle: const TextStyle(
+            color: Color(0x667C7C7C),
+            fontSize: 17,
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.w400,
+            height: 0,
+            overflow: TextOverflow.clip,
+          ),
           hintStyle: const TextStyle(
             color: Color(0x667C7C7C),
             fontSize: 20,
@@ -52,11 +62,20 @@ class CustomTextFormCalculadora extends StatelessWidget {
           ),
           fillColor: const Color(0xFFF1F5F4),
           filled: true,
-          prefixIcon: Icon(
-            icon,
-            color: const Color(0x667C7C7C),
-            size: 22,
-          ),
+          prefixIcon: onPressed != null
+              ? IconButton(
+                  icon: Icon(
+                    icon,
+                    color: const Color(0x667C7C7C),
+                    size: 22,
+                  ),
+                  onPressed: onPressed,
+                )
+              : Icon(
+                  icon,
+                  color: const Color(0x667C7C7C),
+                  size: 22,
+                ),
           prefixIconConstraints: const BoxConstraints(
             minHeight: 48,
             minWidth: 38,
