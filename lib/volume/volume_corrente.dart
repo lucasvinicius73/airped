@@ -2,6 +2,7 @@ import 'package:airped/calculadora/calculadora.dart';
 import 'package:airped/calculadora/calculadora_controller.dart';
 import 'package:airped/Widgets/custom_app_bar.dart';
 import 'package:airped/Widgets/Drawer/custom_drawer.dart';
+import 'package:airped/providers.dart';
 import 'package:airped/volume/Widgets/volume_corrente_result.dart';
 import 'package:airped/volume/volume_corrent_controller.dart';
 import 'package:airped/widget_keys.dart';
@@ -20,7 +21,7 @@ FocusNode focusNode = FocusNode();
 class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
   @override
   Widget build(BuildContext context) {
-    final calculadoraController = Provider.of<CalculadoraController>(context);
+    final calculadoraController = getIt<CalculadoraController>();
     final controller = Provider.of<VolumeCorrenteController>(context);
 
     return Scaffold(
@@ -38,7 +39,7 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 24),
                 width: 349,
-                height: 935,
+                height: 938,
                 decoration: ShapeDecoration(
                   color: const Color(0xCCFBFAFA),
                   shape: RoundedRectangleBorder(

@@ -3,7 +3,6 @@ import 'package:airped/calculadora/calculadora_controller.dart';
 import 'package:airped/calculadora/Widgets/custom_text_form.dart';
 import 'package:airped/providers.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class Calculadora extends StatefulWidget {
   final Function() onPressed;

@@ -41,7 +41,7 @@ class CustomTextFormCalculadora extends StatelessWidget {
           suffixText: suffixText,
           contentPadding: const EdgeInsets.only(
             bottom: 5,
-            top: 6,
+            top: 2,
             right: 10,
           ),
           suffixStyle: const TextStyle(
