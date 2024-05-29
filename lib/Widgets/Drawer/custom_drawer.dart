@@ -1,4 +1,4 @@
-import 'package:airped/Widgets/app_bar_item.dart';
+import 'package:airped/Widgets/Drawer/drawer_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -35,23 +35,28 @@ class CustomDrawer extends StatelessWidget {
             const SizedBox(
               height: 29,
             ),
-            const AppBarItem(
+            const DrawerItem(
+              index: 0,
               title: 'Volume Corrente',
               navigator: "/volume_corrente_page",
             ),
-            const AppBarItem(
+            const DrawerItem(
+              index: 1,
               title: 'TOT e Ponto de Fixação',
               navigator: "/tot_pf_page",
             ),
-            const AppBarItem(
+            const DrawerItem(
+              index: 2,
               title: 'CPAP e Cânula de TQT',
               navigator: "/cpap_tqt_page",
             ),
-            const AppBarItem(
+            const DrawerItem(
+              index: 3,
               title: 'Desconforto Respiratório',
               navigator: "/desconforto_resp_page",
             ),
-            const AppBarItem(
+            const DrawerItem(
+              index: 4,
               title: 'Sobre ',
               navigator: "/about",
             ),

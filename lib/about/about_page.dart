@@ -1,5 +1,5 @@
 import 'package:airped/Widgets/custom_app_bar.dart';
-import 'package:airped/Widgets/custom_drawer.dart';
+import 'package:airped/Widgets/Drawer/custom_drawer.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatefulWidget {

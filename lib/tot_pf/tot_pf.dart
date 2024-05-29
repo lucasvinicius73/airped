@@ -1,7 +1,7 @@
 import 'package:airped/calculadora/calculadora.dart';
 import 'package:airped/calculadora/calculadora_controller.dart';
 import 'package:airped/Widgets/custom_app_bar.dart';
-import 'package:airped/Widgets/custom_drawer.dart';
+import 'package:airped/Widgets/Drawer/custom_drawer.dart';
 import 'package:airped/tot_pf/Widgets/tot_result.dart';
 import 'package:airped/tot_pf/tot_controller.dart';
 import 'package:airped/widget_keys.dart';
@@ -82,7 +82,7 @@ class TotPFPage extends StatelessWidget {
                               calculadoraController.peso.text,
                               calculadoraController.altura.text);
                           Scrollable.ensureVisible(
-                              WidgetKeys.containerKey.currentContext!,
+                              WidgetKeys.totKey.currentContext!,
                               alignment: BorderSide.strokeAlignCenter);
                         }
                       }),
@@ -152,7 +152,7 @@ class TotPFPage extends StatelessWidget {
                     Container(
                       width: 317,
                       height: 170,
-                      key: WidgetKeys.containerKey,
+                      key: WidgetKeys.totKey,
                       padding: const EdgeInsets.only(
                           left: 17, bottom: 18, right: 15, top: 16),
                       decoration: ShapeDecoration(
