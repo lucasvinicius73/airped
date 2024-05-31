@@ -11,9 +11,6 @@ class VolumeCorrenteController extends ChangeNotifier {
 
   calcularFrequencia(String idadeText, String pesoText, String alturaText) {
     double idade = double.parse(idadeText);
-    double peso = double.parse(pesoText);
-    double altura = double.parse(alturaText);
-
     if (idade < 1) {
       frequencia = '30-60 ipm';
     } else if (idade <= 3) {
@@ -29,7 +26,7 @@ class VolumeCorrenteController extends ChangeNotifier {
   }
 
   calcularVolumeCorrente(String pesoText) {
-    double peso = double.parse(pesoText);
+    double peso = double.parse(pesoText)/1000;
     // Calcula o volume corrente
     vc4 = '${peso * 4}';
 

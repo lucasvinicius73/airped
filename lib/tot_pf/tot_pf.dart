@@ -2,6 +2,7 @@ import 'package:airped/calculadora/calculadora.dart';
 import 'package:airped/calculadora/calculadora_controller.dart';
 import 'package:airped/Widgets/custom_app_bar.dart';
 import 'package:airped/Widgets/Drawer/custom_drawer.dart';
+import 'package:airped/providers.dart';
 import 'package:airped/tot_pf/Widgets/tot_result.dart';
 import 'package:airped/tot_pf/tot_controller.dart';
 import 'package:airped/widget_keys.dart';
@@ -14,7 +15,7 @@ class TotPFPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<TotController>(context);
-    final calculadoraController = Provider.of<CalculadoraController>(context);
+    final calculadoraController = getIt<CalculadoraController>();
 
     return Scaffold(
       appBar: CustomAppBar(),
@@ -73,12 +74,17 @@ class TotPFPage extends StatelessWidget {
                         if (calculadoraController.idade.text != '' ||
                             calculadoraController.peso.text != '' ||
                             calculadoraController.altura.text != '') {
+                          String idade = calculadoraController.idade.text;
+                          if (calculadoraController.isYear == false) {
+                            idade =
+                                '${double.parse(calculadoraController.idade.text) / 12}';
+                          }
                           controller.calcularEscolhaTOTcomCUFF(
-                              calculadoraController.idade.text,
+                              idade,
                               calculadoraController.peso.text,
                               calculadoraController.altura.text);
                           controller.calcularEscolhaTOTsemCUFF(
-                              calculadoraController.idade.text,
+                              idade,
                               calculadoraController.peso.text,
                               calculadoraController.altura.text);
                           Scrollable.ensureVisible(

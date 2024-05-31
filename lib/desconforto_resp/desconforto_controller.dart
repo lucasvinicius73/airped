@@ -29,7 +29,7 @@ class DesconfortoController extends ChangeNotifier {
   };
   Map<String, int> coscienciaMap = {
     'Normal': 0,
-    'Deprimido o Inquieto': 1,
+    'Deprimido ou Inquieto': 1,
     'Letárgico ou altamente inquieto': 2,
   };
 

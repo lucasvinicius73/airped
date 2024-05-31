@@ -27,8 +27,23 @@ class CpapTqtController extends ChangeNotifier {
     notifyListeners();
   }
 
-  calcularTamTQT(String idadeText, String idadeMesText) {}
-  
+  calcularTamTQT(String idadeText) {
+    double idade = double.parse(idadeText);
+    if (idade < 0.5) {
+      canulaTQT = '3.0 mm - 3.5 mm';
+    }
+    if (idade >= 0.5 && idade < 1) {
+      canulaTQT = '3.5 mm - 4.0 mm';
+    }
+    if (idade >= 1 && idade < 2) {
+      canulaTQT = '4.0 mm - 4.5 mm';
+    }
+    if (idade >= 2) {
+      canulaTQT = '${idade + 16.4} mm';
+    }
+    notifyListeners();
+  }
+
   reset() {
     tamCanulaCPAP = '';
     canulaTQT = '';

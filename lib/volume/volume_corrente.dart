@@ -79,8 +79,13 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
                         if (calculadoraController.idade.text != '' ||
                             calculadoraController.peso.text != '' ||
                             calculadoraController.altura.text != '') {
+                          String idade = calculadoraController.idade.text;
+                          if (calculadoraController.isYear == false) {
+                            idade =
+                                '${double.parse(calculadoraController.idade.text) / 12}';
+                          }
                           controller.calcularFrequencia(
-                              calculadoraController.idade.text,
+                              idade,
                               calculadoraController.peso.text,
                               calculadoraController.altura.text);
                           controller.calcularVolumeCorrente(

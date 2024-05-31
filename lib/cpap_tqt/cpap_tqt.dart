@@ -3,17 +3,18 @@ import 'package:airped/calculadora/calculadora_controller.dart';
 import 'package:airped/Widgets/custom_app_bar.dart';
 import 'package:airped/Widgets/Drawer/custom_drawer.dart';
 import 'package:airped/cpap_tqt/cpap_tqt_controller.dart';
+import 'package:airped/providers.dart';
 import 'package:airped/widget_keys.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class CpapTqtPage extends StatelessWidget {
   const CpapTqtPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final calculadoraController = Provider.of<CalculadoraController>(context);
-    final controller = Provider.of<CpapTqtController>(context);
+    final calculadoraController = getIt<CalculadoraController>();
+    final controller = getIt<CpapTqtController>();
+
     return Scaffold(
       appBar: CustomAppBar(),
       drawer: const CustomDrawer(),
@@ -71,9 +72,15 @@ class CpapTqtPage extends StatelessWidget {
                       if (calculadoraController.idade.text != '' ||
                           calculadoraController.peso.text != '' ||
                           calculadoraController.altura.text != '') {
+                        String idade = calculadoraController.idade.text;
+                        if (calculadoraController.isYear == false) {
+                          idade =
+                              '${double.parse(calculadoraController.idade.text) / 12}';
+                        }
                         controller.calcularTamCanulaCPAP(
-                            calculadoraController.peso.text,
-                            calculadoraController.idade.text);
+                            calculadoraController.peso.text, idade);
+
+                        controller.calcularTamTQT(idade);
                         Scrollable.ensureVisible(
                             WidgetKeys.cpapKey.currentContext!,
                             alignment: BorderSide.strokeAlignCenter);
