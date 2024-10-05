@@ -1,10 +1,10 @@
 //import 'package:flutter/cupertino.dart';
-import 'package:airped/Widgets/Drawer/custom_drawer.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  CustomAppBar({super.key});
+  const CustomAppBar({super.key});
 
+  @override
   Widget build(BuildContext context) {
     return AppBar(
       leading: Padding(
@@ -34,32 +34,36 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         )
       ],
       centerTitle: true,
-      title: const Padding(
-        padding: EdgeInsets.only(top: 23),
-        child: Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
-                text: 'Air',
-                style: TextStyle(
-                  color: Color(0xFF1C72C2),
-                  fontSize: 26,
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.w500,
-                  height: 0,
+      title: Padding(
+        padding: const EdgeInsets.only(top: 23),
+        child: GestureDetector(
+          onTap: () => Navigator.of(context)
+              .pushNamedAndRemoveUntil('/home', (route) => false),
+          child: const Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                  text: 'Air',
+                  style: TextStyle(
+                    color: Color(0xFF1C72C2),
+                    fontSize: 26,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.w500,
+                    height: 0,
+                  ),
                 ),
-              ),
-              TextSpan(
-                text: 'Ped',
-                style: TextStyle(
-                  color: Color(0xFFEFCA30),
-                  fontSize: 26,
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.w500,
-                  height: 0,
+                TextSpan(
+                  text: 'Ped',
+                  style: TextStyle(
+                    color: Color(0xFFEFCA30),
+                    fontSize: 26,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.w500,
+                    height: 0,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

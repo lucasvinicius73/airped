@@ -114,7 +114,7 @@ class HomePage extends StatelessWidget {
                       Row(
                         children: [
                           MenuButton(
-                            title: "CPAP e Candula de TQT",
+                            title: "CPAP e Cânula TQT",
                             route: "/cpap_tqt_page",
                             icon: 'assets/home/tqt.png',
                             color: Color(0xFFA9DEF9),

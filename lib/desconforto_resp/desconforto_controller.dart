@@ -4,7 +4,7 @@ class DesconfortoController extends ChangeNotifier {
   Map<String, int> retracaoMap = {
     'Não': 0,
     'Intercostal': 1,
-    'Intercostal = Esternal': 2,
+    'Intercostal + Esternal': 2,
   };
 
   Map<String, int> disssociacaoMap = {
@@ -20,12 +20,12 @@ class DesconfortoController extends ChangeNotifier {
   Map<String, int> sibilosMap = {
     'Não': 0,
     'Durante a ausculta ': 1,
-    'Severo': 2,
+    'Audivel sem ausculta': 2,
   };
   Map<String, int> cianoseMap = {
     'Não (>92%)': 0,
-    'Durante a ausculta ': 1,
-    'Severo': 2,
+    'Em ar ambiente (<92%)': 1,
+    '<92% Com FiO2 > 0.4': 2,
   };
   Map<String, int> coscienciaMap = {
     'Normal': 0,

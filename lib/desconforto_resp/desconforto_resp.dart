@@ -13,7 +13,7 @@ class DesconfortoRespPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Provider.of<DesconfortoController>(context);
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: const CustomAppBar(),
       drawer: const CustomDrawer(),
       backgroundColor: const Color(0xFFDEF7E8),
       body: SingleChildScrollView(
