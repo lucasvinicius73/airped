@@ -19,7 +19,7 @@ class CustomTextFormCalculadora extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 130,
+      width: 155,
       height: 37,
       child: TextFormField(
         keyboardType: TextInputType.number,
@@ -32,7 +32,7 @@ class CustomTextFormCalculadora extends StatelessWidget {
         style: const TextStyle(
           fontSize: 20,
           fontFamily: 'Roboto',
-          color: Color(0xFF7C7C7C),
+          color: Colors.black,
           fontWeight: FontWeight.w400,
           height: 1,
         ),
@@ -45,7 +45,7 @@ class CustomTextFormCalculadora extends StatelessWidget {
             right: 10,
           ),
           suffixStyle: const TextStyle(
-            color: Color(0x667C7C7C),
+            color: Colors.black,
             fontSize: 17,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w400,
@@ -53,7 +53,7 @@ class CustomTextFormCalculadora extends StatelessWidget {
             overflow: TextOverflow.clip,
           ),
           hintStyle: const TextStyle(
-            color: Color(0x667C7C7C),
+            color: Colors.black,
             fontSize: 20,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w400,
@@ -66,14 +66,14 @@ class CustomTextFormCalculadora extends StatelessWidget {
               ? IconButton(
                   icon: Icon(
                     icon,
-                    color: const Color(0x667C7C7C),
+                    color: Colors.black,
                     size: 22,
                   ),
                   onPressed: onPressed,
                 )
               : Icon(
                   icon,
-                  color: const Color(0x667C7C7C),
+                  color: Colors.black,
                   size: 22,
                 ),
           prefixIconConstraints: const BoxConstraints(

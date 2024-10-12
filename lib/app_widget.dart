@@ -8,6 +8,7 @@ import 'package:airped/tot_pf/tot_pf.dart';
 import 'package:airped/volume/volume_corrente.dart';
 import 'package:flutter/material.dart';
 import 'package:airped/theme.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyApp extends StatefulWidget {
@@ -24,6 +25,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      builder: FToastBuilder(),
       title: 'Air Ped',
       theme: ThemeData(
         useMaterial3: true,

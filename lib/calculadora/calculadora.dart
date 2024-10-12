@@ -1,8 +1,10 @@
 import 'package:airped/Widgets/custom_button.dart';
+import 'package:airped/Widgets/custom_decoration.dart';
 import 'package:airped/calculadora/calculadora_controller.dart';
 import 'package:airped/calculadora/Widgets/custom_text_form.dart';
 import 'package:airped/providers.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Calculadora extends StatefulWidget {
   final Function() onPressed;
@@ -20,11 +22,14 @@ class Calculadora extends StatefulWidget {
 
 class _CalculadoraState extends State<Calculadora> {
   final controller = getIt<CalculadoraController>();
+  late FToast fToast;
 
   @override
   void initState() {
     super.initState();
     controller.idade.addListener(controller.handleTextChanged);
+    fToast = FToast();
+    fToast.init(context);
   }
 
   @override
@@ -32,22 +37,8 @@ class _CalculadoraState extends State<Calculadora> {
     return ListenableBuilder(
       listenable: controller,
       builder: (context, child) => Container(
-        padding:
-            const EdgeInsets.only(left: 22, right: 22, bottom: 14, top: 15),
-        decoration: ShapeDecoration(
-          color: const Color(0xFFFBFAFA),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          shadows: const [
-            BoxShadow(
-              color: Color(0x3F000000),
-              blurRadius: 4,
-              offset: Offset(0, 4),
-              spreadRadius: 0,
-            )
-          ],
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 15),
+        decoration: CustomDecoration.shapeDecoration,
         child: Column(
           children: [
             const Text(
@@ -64,18 +55,20 @@ class _CalculadoraState extends State<Calculadora> {
             Row(
               children: [
                 CustomTextFormCalculadora(
-                  controller: controller.idade,
-                  hintText: 'Idade',
-                  suffixText: controller.showSuffixText
-                      ? ''
-                      : controller.isYear == true
-                          ? 'anos'
-                          : 'meses',
-                  icon: controller.isYear == true
-                      ? Icons.calendar_month
-                      : Icons.calendar_view_day,
-                  onPressed: () => controller.changeAge(),
-                ),
+                    controller: controller.idade,
+                    hintText: 'Idade',
+                    suffixText: controller.showSuffixText
+                        ? ''
+                        : controller.isYear == true
+                            ? 'anos'
+                            : 'meses',
+                    icon: controller.isYear == true
+                        ? Icons.calendar_month
+                        : Icons.calendar_view_day,
+                    onPressed: () {
+                      controller.changeAge();
+                      _showToast();
+                    }),
                 const Spacer(),
                 CustomTextFormCalculadora(
                     controller: controller.altura,
@@ -94,7 +87,7 @@ class _CalculadoraState extends State<Calculadora> {
                     icon: Icons.scale),
                 const Spacer(),
                 Container(
-                  width: 130,
+                  width: 155,
                   height: 40,
                   padding: const EdgeInsets.symmetric(horizontal: 12),
                   decoration: ShapeDecoration(
@@ -109,13 +102,13 @@ class _CalculadoraState extends State<Calculadora> {
                         controller.sexo == 'Masculino'
                             ? Icons.male
                             : Icons.female,
-                        color: const Color(0x667C7C7C),
+                        color: Colors.black,
                       ),
                       const SizedBox(
                         width: 5,
                       ),
                       SizedBox(
-                        width: 77,
+                        width: 97,
                         child: DropdownButtonHideUnderline(
                           child: DropdownButton(
                             dropdownColor: const Color(0xFFF1F5F4),
@@ -131,7 +124,7 @@ class _CalculadoraState extends State<Calculadora> {
                                   child: Text(
                                     value,
                                     style: const TextStyle(
-                                        color: Color(0x667C7C7C),
+                                        color: Colors.black,
                                         fontSize: 18,
                                         fontFamily: 'Roboto',
                                         fontWeight: FontWeight.w400,
@@ -173,6 +166,52 @@ class _CalculadoraState extends State<Calculadora> {
           ],
         ),
       ),
+    );
+  }
+
+  _showToast() {
+    Widget toast = Container(
+      height: 60,
+      width: 300,
+      //padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+      decoration: ShapeDecoration(
+        color: const Color(0xFFFBFAFA),
+        shape: RoundedRectangleBorder(
+          side: const BorderSide(color: Colors.grey, width: 0.5),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        shadows: const [
+          BoxShadow(
+            color: Color(0x3F000000),
+            blurRadius: 4,
+            offset: Offset(0, 4),
+            spreadRadius: 0,
+          )
+        ],
+      ),
+      child: Center(
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(Icons.check),
+            const SizedBox(
+              width: 12.0,
+            ),
+            Text(
+              controller.isYear
+                  ? "Você mudou a Idade para anos!"
+                  : "Você mudou a Idade para meses!",
+              style: const TextStyle(),
+            ),
+          ],
+        ),
+      ),
+    );
+
+    fToast.showToast(
+      child: toast,
+      gravity: ToastGravity.BOTTOM,
+      toastDuration: const Duration(seconds: 2),
     );
   }
 }

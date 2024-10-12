@@ -20,7 +20,7 @@ class DesconfortoController extends ChangeNotifier {
   Map<String, int> sibilosMap = {
     'Não': 0,
     'Durante a ausculta ': 1,
-    'Audivel sem ausculta': 2,
+    'Audível sem ausculta': 2,
   };
   Map<String, int> cianoseMap = {
     'Não (>92%)': 0,
@@ -54,17 +54,17 @@ class DesconfortoController extends ChangeNotifier {
   calcularCuidado() {
     if (score < 4) {
       scoreText = 'Leve';
-      color = const Color(0xFF0BC212);
       cuidados = ['O2 (<5l/min)', 'CPAP'];
+      color = const Color(0xFF0BC212);
     }
     if (score >= 4 && score <= 6) {
-      cuidados = ['O2 (<5l/min)', 'CNAF', 'BIPAP'];
       scoreText = 'Moderado';
+      cuidados = ['O2 (<5l/min)', 'CNAF', 'BIPAP'];
       color = Colors.orange;
     }
     if (score > 6) {
-      cuidados = ['BIPAP*', 'VMI'];
       scoreText = 'Severo';
+      cuidados = ['BIPAP*', 'VMI'];
       color = const Color(0xFFFF0000);
     }
     notifyListeners();

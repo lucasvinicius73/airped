@@ -179,12 +179,11 @@ class _AboutPageState extends State<AboutPage> {
                               subtitle: "contato@lucasvdev.com"),
                           CustomListeTile(
                               title: "Design feito por:",
-                              isEmail: true,
                               subtitle: "Amanda Fiel Savino"),
                           CustomListeTile(
                               title: "Contato UX Design",
                               isEmail: true,
-                              subtitle: "amandasavino@gmail.com"),
+                              subtitle: "amanda26fsavino@gmail.com"),
                         ],
                       ),
                     ),
