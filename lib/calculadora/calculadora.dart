@@ -36,134 +36,141 @@ class _CalculadoraState extends State<Calculadora> {
   Widget build(BuildContext context) {
     return ListenableBuilder(
       listenable: controller,
-      builder: (context, child) => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 15),
-        decoration: CustomDecoration.shapeDecoration,
-        child: Column(
-          children: [
-            const Text(
-              'Calculadora',
-              style: TextStyle(
-                color: Color(0xFF67ABEB),
-                fontSize: 20,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w600,
-                height: 0,
+      builder: (context, child) => ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 400),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 15),
+          decoration: CustomDecoration.shapeDecoration,
+          child: Column(
+            children: [
+              const Text(
+                'Calculadora',
+                style: TextStyle(
+                  color: Color(0xFF67ABEB),
+                  fontSize: 20,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.w600,
+                  height: 0,
+                ),
               ),
-            ),
-            const SizedBox(height: 25),
-            Row(
-              children: [
-                CustomTextFormCalculadora(
-                    controller: controller.idade,
-                    hintText: 'Idade',
-                    suffixText: controller.showSuffixText
-                        ? ''
-                        : controller.isYear == true
-                            ? 'anos'
-                            : 'meses',
-                    icon: controller.isYear == true
-                        ? Icons.calendar_month
-                        : Icons.calendar_view_day,
-                    onPressed: () {
-                      controller.changeAge();
-                      _showToast();
-                    }),
-                const Spacer(),
-                CustomTextFormCalculadora(
-                    controller: controller.altura,
-                    hintText: 'Altura',
-                    suffixText: 'cm',
-                    icon: Icons.height)
-              ],
-            ),
-            const SizedBox(height: 23),
-            Row(
-              children: [
-                CustomTextFormCalculadora(
-                    controller: controller.peso,
-                    hintText: 'Peso',
-                    suffixText: 'g',
-                    icon: Icons.scale),
-                const Spacer(),
-                Container(
-                  width: 155,
-                  height: 40,
-                  padding: const EdgeInsets.symmetric(horizontal: 12),
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFF1F5F4),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(100),
+              const SizedBox(height: 25),
+              Row(
+                children: [
+                  CustomTextFormCalculadora(
+                      controller: controller.idade,
+                      hintText: 'Idade',
+                      suffixText: controller.showSuffixText
+                          ? ''
+                          : controller.isYear == true
+                              ? 'anos'
+                              : 'meses',
+                      icon: controller.isYear == true
+                          ? Icons.calendar_month
+                          : Icons.calendar_view_day,
+                      onPressed: () {
+                        controller.changeAge();
+                        _showToast();
+                      }),
+                  const Spacer(),
+                  CustomTextFormCalculadora(
+                      controller: controller.altura,
+                      hintText: 'Altura',
+                      suffixText: 'cm',
+                      icon: Icons.height)
+                ],
+              ),
+              const SizedBox(height: 23),
+              Row(
+                children: [
+                  CustomTextFormCalculadora(
+                      controller: controller.peso,
+                      hintText: 'Peso',
+                      suffixText: 'g',
+                      icon: Icons.scale),
+                  const Spacer(),
+                  Container(
+                    width: 155,
+                    height: 40,
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    decoration: ShapeDecoration(
+                      color: const Color(0xFFF1F5F4),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100),
+                      ),
                     ),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        controller.sexo == 'Masculino'
-                            ? Icons.male
-                            : Icons.female,
-                        color: Colors.black,
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      SizedBox(
-                        width: 97,
-                        child: DropdownButtonHideUnderline(
-                          child: DropdownButton(
-                            dropdownColor: const Color(0xFFF1F5F4),
-                            value: controller.sexo,
-                            isExpanded: true,
-                            style: const TextStyle(
-                                overflow: TextOverflow.ellipsis, fontSize: 20),
-                            items:
-                                controller.sexos.map<DropdownMenuItem<String>>(
-                              (value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(
-                                    value,
-                                    style: const TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 18,
-                                        fontFamily: 'Roboto',
-                                        fontWeight: FontWeight.w400,
-                                        height: 0,
-                                        overflow: TextOverflow.ellipsis),
-                                  ),
-                                );
+                    child: Row(
+                      children: [
+                        Icon(
+                          controller.sexo == 'Masculino'
+                              ? Icons.male
+                              : Icons.female,
+                          color: Colors.black,
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        SizedBox(
+                          width: 97,
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton(
+                              dropdownColor: const Color(0xFFF1F5F4),
+                              value: controller.sexo,
+                              isExpanded: true,
+                              style: const TextStyle(
+                                  overflow: TextOverflow.ellipsis,
+                                  fontSize: 20),
+                              items: controller.sexos
+                                  .map<DropdownMenuItem<String>>(
+                                (value) {
+                                  return DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(
+                                      value,
+                                      style: const TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 18,
+                                          fontFamily: 'Roboto',
+                                          fontWeight: FontWeight.w400,
+                                          height: 0,
+                                          overflow: TextOverflow.ellipsis),
+                                    ),
+                                  );
+                                },
+                              ).toList(),
+                              onChanged: (String? value) {
+                                controller.changeDropDown(value);
                               },
-                            ).toList(),
-                            onChanged: (String? value) {
-                              controller.changeDropDown(value);
-                            },
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 34,
-            ),
-            Row(
-              children: [
-                CustomButtonCalculadora(
-                  onPressed: widget.onPressedReset,
-                  title: 'Reset',
-                  color: const Color(0xFFF84040),
-                ),
-                const Spacer(),
-                CustomButtonCalculadora(
-                  onPressed: widget.onPressed,
-                  title: 'Calcular',
-                  color: const Color(0xFF0BC212),
-                )
-              ],
-            )
-          ],
+                ],
+              ),
+              const SizedBox(
+                height: 34,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomButtonCalculadora(
+                    onPressed: widget.onPressedReset,
+                    title: 'Reset',
+                    color: const Color(0xFFF84040),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  CustomButtonCalculadora(
+                    onPressed: widget.onPressed,
+                    title: 'Calcular',
+                    color: const Color(0xFF0BC212),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

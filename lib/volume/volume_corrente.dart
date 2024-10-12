@@ -45,19 +45,15 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
-                    decoration: CustomDecoration.shapeDecoration,
-                    padding: const EdgeInsets.all(18),
-                    child: const Text(
-                      'VOLUME CORRENTE',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Color(0xFF1C72C2),
-                        fontSize: 34,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w600,
-                        height: 0,
-                      ),
+                  const Text(
+                    'VOLUME CORRENTE',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Color(0xFF1C72C2),
+                      fontSize: 34,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.bold,
+                      height: 0,
                     ),
                   ),
                   const SizedBox(height: 28),
@@ -93,6 +89,7 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
                   ),
                   Container(
                     decoration: CustomDecoration.shapeDecoration,
+                    constraints: const BoxConstraints(maxWidth: 400),
                     padding: const EdgeInsets.symmetric(vertical: 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -150,60 +147,59 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
                   ),
                   Container(
                     key: WidgetKeys.volumeKey,
-                    child: Container(
-                      decoration: CustomDecoration.shapeDecoration,
-                      width: 317,
-                      height: 115,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            'Frequência Respiratória',
-                            style: TextStyle(
-                              color: Color(0xFF67ABEB),
-                              fontSize: 20,
-                              fontFamily: 'Roboto',
-                              fontWeight: FontWeight.w600,
-                              height: 0,
-                            ),
+                    constraints: const BoxConstraints(maxWidth: 400),
+                    decoration: CustomDecoration.shapeDecoration,
+                    width: double.infinity,
+                    height: 115,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Frequência Respiratória',
+                          style: TextStyle(
+                            color: Color(0xFF67ABEB),
+                            fontSize: 20,
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.w600,
+                            height: 0,
                           ),
-                          const SizedBox(
-                            height: 13,
-                          ),
-                          Container(
-                              width: 187,
-                              height: 47,
-                              decoration: ShapeDecoration(
-                                color: const Color(0xFFFBFAFA),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(100),
-                                ),
-                                shadows: const [
-                                  BoxShadow(
-                                    color: Color(0x3F000000),
-                                    blurRadius: 4,
-                                    offset: Offset(0, 4),
-                                    spreadRadius: 0,
-                                  )
-                                ],
+                        ),
+                        const SizedBox(
+                          height: 13,
+                        ),
+                        Container(
+                            width: 187,
+                            height: 47,
+                            decoration: ShapeDecoration(
+                              color: const Color(0xFFFBFAFA),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100),
                               ),
-                              child: Center(
-                                child: Text(
-                                  controller.frequencia,
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontFamily: 'Roboto',
-                                    fontWeight: FontWeight.w400,
-                                    height: 0,
-                                  ),
+                              shadows: const [
+                                BoxShadow(
+                                  color: Color(0x3F000000),
+                                  blurRadius: 4,
+                                  offset: Offset(0, 4),
+                                  spreadRadius: 0,
+                                )
+                              ],
+                            ),
+                            child: Center(
+                              child: Text(
+                                controller.frequencia,
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.w400,
+                                  height: 0,
                                 ),
-                              ))
-                        ],
-                      ),
+                              ),
+                            ))
+                      ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
