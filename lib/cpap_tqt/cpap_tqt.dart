@@ -49,10 +49,20 @@ class CpapTqtPage extends StatelessWidget {
                   Calculadora(onPressedReset: () {
                     calculadoraController.reset();
                     controller.reset();
+                  }, onChanged: (p0) {
+                    if (calculadoraController.isNotEmpty()) {
+                      String idade = calculadoraController.idade.text;
+                      if (calculadoraController.isYear == false) {
+                        idade =
+                            '${double.parse(calculadoraController.idade.text) / 12}';
+                      }
+                      controller.calcularTamCanulaCPAP(
+                          calculadoraController.peso.text, idade);
+
+                      controller.calcularTamTQT(idade);
+                    }
                   }, onPressed: () {
-                    if (calculadoraController.idade.text != '' ||
-                        calculadoraController.peso.text != '' ||
-                        calculadoraController.altura.text != '') {
+                    if (calculadoraController.isNotEmpty()) {
                       String idade = calculadoraController.idade.text;
                       if (calculadoraController.isYear == false) {
                         idade =

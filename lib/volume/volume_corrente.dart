@@ -62,7 +62,26 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
                       controller.reset();
                       calculadoraController.reset();
                     },
+                    onChanged: (p0) {
+                      print("OnChanged  Click");
+                      if (calculadoraController.idade.text != '' &&
+                          calculadoraController.peso.text != '' &&
+                          calculadoraController.altura.text != '') {
+                        String idade = calculadoraController.idade.text;
+                        if (calculadoraController.isYear == false) {
+                          idade =
+                              '${double.parse(calculadoraController.idade.text) / 12}';
+                        }
+                        controller.calcularFrequencia(
+                            idade,
+                            calculadoraController.peso.text,
+                            calculadoraController.altura.text);
+                        controller.calcularVolumeCorrente(
+                            calculadoraController.peso.text);
+                      }
+                    },
                     onPressed: () {
+                      print("OnPressed  Click");
                       if (calculadoraController.idade.text != '' ||
                           calculadoraController.peso.text != '' ||
                           calculadoraController.altura.text != '') {

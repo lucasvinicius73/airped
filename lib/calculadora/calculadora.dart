@@ -9,11 +9,13 @@ import 'package:fluttertoast/fluttertoast.dart';
 class Calculadora extends StatefulWidget {
   final Function() onPressed;
   final Function() onPressedReset;
+  final Function(String)? onChanged;
 
   const Calculadora({
     super.key,
     required this.onPressed,
     required this.onPressedReset,
+    this.onChanged,
   });
 
   @override
@@ -57,6 +59,7 @@ class _CalculadoraState extends State<Calculadora> {
               Row(
                 children: [
                   CustomTextFormCalculadora(
+                      onChanged: widget.onChanged,
                       controller: controller.idade,
                       hintText: 'Idade',
                       suffixText: controller.showSuffixText
@@ -73,6 +76,7 @@ class _CalculadoraState extends State<Calculadora> {
                       }),
                   const Spacer(),
                   CustomTextFormCalculadora(
+                      onChanged: widget.onChanged,
                       controller: controller.altura,
                       hintText: 'Altura',
                       suffixText: 'cm',
@@ -83,6 +87,7 @@ class _CalculadoraState extends State<Calculadora> {
               Row(
                 children: [
                   CustomTextFormCalculadora(
+                      onChanged: widget.onChanged,
                       controller: controller.peso,
                       hintText: 'Peso',
                       suffixText: 'g',

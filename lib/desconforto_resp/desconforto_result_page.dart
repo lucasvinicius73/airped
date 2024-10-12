@@ -40,9 +40,9 @@ class DesconfortoResultPage extends StatelessWidget {
                     height: 20,
                   ),
                   Container(
-                    width: 317,
-                    height: 334,
-                    padding: const EdgeInsets.symmetric(vertical: 19),
+                    constraints: const BoxConstraints(maxWidth: 400),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 19, horizontal: 20),
                     decoration: CustomDecoration.shapeDecoration,
                     child: Column(
                       children: [
@@ -109,29 +109,28 @@ class DesconfortoResultPage extends StatelessWidget {
                           height: 5,
                         ),
                         Container(
-                           width: 285,
+                          //width: 285,
                           height: 114,
                           decoration: CustomDecoration.shapeDecoration,
-                          child: Center(
-                            child: ListView.separated(
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemCount: controller.cuidados.length,
-                              itemBuilder: (context, index) => Center(
-                                child: Text(
-                                  '- ${controller.cuidados[index]}',
-                                  style: TextStyle(
-                                    color: controller.color,
-                                    fontSize: 20,
-                                    fontFamily: 'Roboto',
-                                    fontWeight: FontWeight.w400,
-                                    height: 0,
-                                  ),
+                          child: ListView.separated(
+                            padding: const EdgeInsets.symmetric(vertical: 20),
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: controller.cuidados.length,
+                            itemBuilder: (context, index) => Center(
+                              child: Text(
+                                '- ${controller.cuidados[index]}',
+                                style: TextStyle(
+                                  color: controller.color,
+                                  fontSize: 20,
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.w400,
+                                  height: 0,
                                 ),
                               ),
-                              separatorBuilder: (context, index) =>
-                                  const SizedBox(
-                                height: 5,
-                              ),
+                            ),
+                            separatorBuilder: (context, index) =>
+                                const SizedBox(
+                              height: 5,
                             ),
                           ),
                         )

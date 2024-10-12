@@ -11,6 +11,13 @@ class CalculadoraController extends ChangeNotifier {
   bool isYear = true;
   bool showSuffixText = true;
 
+  bool isNotEmpty() {
+    if (idade.text != '' && peso.text != '' && altura.text != '') {
+      return true;
+    }
+    return false;
+  }
+
   changeAge() {
     isYear = !isYear;
     notifyListeners();

@@ -7,6 +7,7 @@ class CustomTextFormCalculadora extends StatelessWidget {
   final String suffixText;
   final IconData icon;
   final Function()? onPressed;
+  final Function(String)? onChanged;
 
   const CustomTextFormCalculadora(
       {super.key,
@@ -14,7 +15,8 @@ class CustomTextFormCalculadora extends StatelessWidget {
       required this.hintText,
       required this.suffixText,
       required this.icon,
-      this.onPressed});
+      this.onPressed,
+      this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class CustomTextFormCalculadora extends StatelessWidget {
       width: 155,
       height: 37,
       child: TextFormField(
+        onChanged: onChanged,
         keyboardType: TextInputType.number,
         controller: controller,
         //textAlign: TextAlign.center,
