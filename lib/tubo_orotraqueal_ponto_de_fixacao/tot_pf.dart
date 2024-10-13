@@ -4,8 +4,8 @@ import 'package:airped/calculadora/calculadora_controller.dart';
 import 'package:airped/Widgets/custom_app_bar.dart';
 import 'package:airped/Widgets/Drawer/custom_drawer.dart';
 import 'package:airped/providers.dart';
-import 'package:airped/tot_pf/Widgets/tot_result.dart';
-import 'package:airped/tot_pf/tot_controller.dart';
+import 'package:airped/tubo_orotraqueal_ponto_de_fixacao/Widgets/tot_result.dart';
+import 'package:airped/tubo_orotraqueal_ponto_de_fixacao/tot_controller.dart';
 import 'package:airped/widget_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -48,6 +48,7 @@ class TotPFPage extends StatelessWidget {
                     calculadoraController.reset();
                     controller.reset();
                   }, onChanged: (p0) {
+                    print("Onchanged na Tubo Orotraqueal");
                     if (calculadoraController.isNotEmpty()) {
                       String idade = calculadoraController.idade.text;
                       if (calculadoraController.isYear == false) {
@@ -64,6 +65,8 @@ class TotPFPage extends StatelessWidget {
                           calculadoraController.altura.text);
                     }
                   }, onPressed: () {
+                    print("OnPressed na Tubo Orotraqueal");
+
                     if (calculadoraController.isNotEmpty()) {
                       String idade = calculadoraController.idade.text;
                       if (calculadoraController.isYear == false) {

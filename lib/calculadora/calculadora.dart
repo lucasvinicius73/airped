@@ -71,6 +71,7 @@ class _CalculadoraState extends State<Calculadora> {
                           ? Icons.calendar_month
                           : Icons.calendar_view_day,
                       onPressed: () {
+                        widget.onChanged!("");
                         controller.changeAge();
                         _showToast();
                       }),
@@ -186,21 +187,7 @@ class _CalculadoraState extends State<Calculadora> {
       height: 60,
       width: 300,
       //padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
-      decoration: ShapeDecoration(
-        color: const Color(0xFFFBFAFA),
-        shape: RoundedRectangleBorder(
-          side: const BorderSide(color: Colors.grey, width: 0.5),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        shadows: const [
-          BoxShadow(
-            color: Color(0x3F000000),
-            blurRadius: 4,
-            offset: Offset(0, 4),
-            spreadRadius: 0,
-          )
-        ],
-      ),
+      decoration: CustomDecoration.shapeDecoration,
       child: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -223,7 +210,7 @@ class _CalculadoraState extends State<Calculadora> {
     fToast.showToast(
       child: toast,
       gravity: ToastGravity.BOTTOM,
-      toastDuration: const Duration(seconds: 2),
+      toastDuration: const Duration(seconds: 1),
     );
   }
 }

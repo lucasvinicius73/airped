@@ -1,3 +1,4 @@
+import 'package:airped/Widgets/custom_decoration.dart';
 import 'package:airped/home/Widgets/menu_button.dart';
 import 'package:flutter/material.dart';
 
@@ -49,31 +50,15 @@ class HomePage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 23),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 23),
           child: Center(
             child: Column(
               children: [
                 Container(
-                  height: 414,
-                  width: 347,
-                  padding: const EdgeInsets.only(
-                      top: 24, left: 14, right: 14, bottom: 23),
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFFBFAFA),
-                    shape: RoundedRectangleBorder(
-                      side:
-                          const BorderSide(width: 1, color: Color(0x7FF1F5F4)),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    shadows: const [
-                      BoxShadow(
-                        color: Color(0x19000000),
-                        blurRadius: 4,
-                        offset: Offset(0, 4),
-                        spreadRadius: 0,
-                      )
-                    ],
-                  ),
+                  constraints: const BoxConstraints(maxWidth: 400),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 11, vertical: 20),
+                  decoration: CustomDecoration.shapeDecoration,
                   child: const Column(
                     children: [
                       Text(
@@ -92,7 +77,7 @@ class HomePage extends StatelessWidget {
                       Row(
                         children: [
                           MenuButton(
-                            title: "Volume corrente",
+                            title: "Volume\n corrente",
                             route: "/volume_corrente_page",
                             icon: 'assets/home/pulmao.png',
                             color: Colors.white,
@@ -101,7 +86,7 @@ class HomePage extends StatelessWidget {
                             width: 19,
                           ),
                           MenuButton(
-                            title: "TOT e Ponto de Fixação",
+                            title: "Tubo Orotraqueal Ponto de Fixação",
                             route: "/tot_pf_page",
                             icon: 'assets/home/tot.png',
                             color: Color(0xFFFCF6BD),
@@ -114,7 +99,7 @@ class HomePage extends StatelessWidget {
                       Row(
                         children: [
                           MenuButton(
-                            title: "CPAP e Cânula TQT",
+                            title: "Pressão Positiva Cânula Traqueostomia",
                             route: "/cpap_tqt_page",
                             icon: 'assets/home/tqt.png',
                             color: Color(0xFFA9DEF9),

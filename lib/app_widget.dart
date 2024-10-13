@@ -4,7 +4,7 @@ import 'package:airped/desconforto_resp/desconforto_resp.dart';
 import 'package:airped/desconforto_resp/desconforto_result_page.dart';
 import 'package:airped/home/home_page.dart';
 import 'package:airped/splash_screen.dart';
-import 'package:airped/tot_pf/tot_pf.dart';
+import 'package:airped/tubo_orotraqueal_ponto_de_fixacao/tot_pf.dart';
 import 'package:airped/volume/volume_corrente.dart';
 import 'package:flutter/material.dart';
 import 'package:airped/theme.dart';

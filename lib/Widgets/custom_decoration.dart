@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomDecoration {
+  final Color? color;
+  CustomDecoration({this.color});
+
   static final ShapeDecoration shapeDecoration = ShapeDecoration(
     color: const Color(0xFFFBFAFA),
     shape: RoundedRectangleBorder(
