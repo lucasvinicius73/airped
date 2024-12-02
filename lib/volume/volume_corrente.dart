@@ -1,4 +1,5 @@
 import 'package:airped/Widgets/custom_decoration.dart';
+import 'package:airped/Widgets/custom_title_page.dart';
 import 'package:airped/calculadora/calculadora.dart';
 import 'package:airped/calculadora/calculadora_controller.dart';
 import 'package:airped/Widgets/custom_app_bar.dart';
@@ -32,7 +33,7 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
     final calculadoraController = getIt<CalculadoraController>();
     final controller = Provider.of<VolumeCorrenteController>(context);
     return Scaffold(
-      backgroundColor: const Color(0xFFFFE9EA),
+      backgroundColor: const Color(0xFF6AC7DE),
       drawer: const CustomDrawer(),
       appBar: const CustomAppBar(),
       body: ListenableBuilder(
@@ -45,17 +46,7 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text(
-                    'VOLUME CORRENTE',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color(0xFF1C72C2),
-                      fontSize: 34,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.bold,
-                      height: 0,
-                    ),
-                  ),
+                  const CustomTitlePage(title: 'VOLUME CORRENTE'),
                   const SizedBox(height: 28),
                   Calculadora(
                     onPressedReset: () {

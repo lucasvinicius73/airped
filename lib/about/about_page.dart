@@ -86,7 +86,7 @@ class _AboutPageState extends State<AboutPage> {
                 Container(
                   constraints: const BoxConstraints(maxWidth: 400),
                   padding:
-                      const EdgeInsets.symmetric(vertical: 20, horizontal: 12),
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                   decoration: CustomDecoration.shapeDecoration,
                   child: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -106,7 +106,7 @@ class _AboutPageState extends State<AboutPage> {
                         height: 13,
                       ),
                       Text(
-                        "Aplicativo é um produto de tese desenvolvido por Jamille no programa de mestrado profissional. Programa credenciado pela CAPES",
+                        "O aplicativo é um produto de tese de mestrado desenvolvido por Jamille Cristina Conceição Santos no programa de mestrado profissional. Programa credenciado pela CAPES",
                         textAlign: TextAlign.justify,
                       ),
                       SizedBox(
@@ -114,31 +114,25 @@ class _AboutPageState extends State<AboutPage> {
                       ),
                       CustomListeTile(
                           title: "Contato",
-                          isEmail: true,
-                          subtitle: "jamille@jamille.com"),
+                          subtitle: "Jamille Cristina Conceição Santos",
+                          email: "jamillefisio52@gmail.com"),
                       CustomListeTile(
                           title: "Orientador(a)",
-                          subtitle: "Prof. Dr. Anderson Bentes de Lima"),
+                          subtitle: "Profa. Dra. Ivete Furtado Ribeiro Caldas"),
                       CustomListeTile(
                           title: "Coorientador(as)",
-                          subtitle: "Prof. Dr. Anderson Bentes de Lima"),
+                          subtitle: "Profa. Ms. Lorena de Oliveira Tannus"),
                       SizedBox(
                         height: 20,
                       ),
                       CustomListeTile(
-                          title: "Desenvolvido por",
-                          subtitle: "Lucas Vinicius Silva Idelfonso"),
-                      CustomListeTile(
+                          subtitle: "Lucas Vinicius Silva Idelfonso",
                           title: "Contato Desenvolvedor",
-                          isEmail: true,
-                          subtitle: "contato@lucasvdev.com"),
+                          email: "contato@lucasvdev.com"),
                       CustomListeTile(
-                          title: "Design feito por:",
-                          subtitle: "Amanda Fiel Savino"),
-                      CustomListeTile(
+                          subtitle: "Amanda Fiel Savino",
                           title: "Contato UX Design",
-                          isEmail: true,
-                          subtitle: "amanda26fsavino@gmail.com"),
+                          email: "amanda26fsavino@gmail.com"),
                     ],
                   ),
                 ),

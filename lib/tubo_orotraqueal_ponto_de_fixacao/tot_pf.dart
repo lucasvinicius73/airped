@@ -1,4 +1,5 @@
 import 'package:airped/Widgets/custom_decoration.dart';
+import 'package:airped/Widgets/custom_title_page.dart';
 import 'package:airped/calculadora/calculadora.dart';
 import 'package:airped/calculadora/calculadora_controller.dart';
 import 'package:airped/Widgets/custom_app_bar.dart';
@@ -21,7 +22,7 @@ class TotPFPage extends StatelessWidget {
     return Scaffold(
       appBar: const CustomAppBar(),
       drawer: const CustomDrawer(),
-      backgroundColor: const Color(0xFFFCF6BD),
+      backgroundColor: const Color(0xFFEBEC95),
       body: SingleChildScrollView(
         child: ListenableBuilder(
           listenable: controller,
@@ -32,17 +33,8 @@ class TotPFPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    'Tubo Orotraqueal e \nPonto de Fixação'.toUpperCase(),
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: Color(0xFF1C72C2),
-                      fontSize: 34,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w600,
-                      height: 0,
-                    ),
-                  ),
+                  const CustomTitlePage(
+                      title: 'TUBO OROTRAQUEAL (TOT)\nFIXAÇÃO DO TOT'),
                   const SizedBox(height: 28),
                   Calculadora(onPressedReset: () {
                     calculadoraController.reset();
@@ -145,7 +137,7 @@ class TotPFPage extends StatelessWidget {
                     child: Column(
                       children: [
                         const Text(
-                          'Ponto de Fixação',
+                          'Fixação do TOT',
                           style: TextStyle(
                             color: Color(0xFF67ABEB),
                             fontSize: 20,

@@ -54,17 +54,17 @@ class DesconfortoController extends ChangeNotifier {
   calcularCuidado() {
     if (score < 4) {
       scoreText = 'Leve';
-      cuidados = ['O2 (<5l/min)', 'CPAP'];
+      cuidados = ['Oxigenoterapia', 'CPAP'];
       color = const Color(0xFF0BC212);
     }
     if (score >= 4 && score <= 6) {
       scoreText = 'Moderado';
-      cuidados = ['O2 (<5l/min)', 'CNAF', 'BIPAP'];
+      cuidados = ['Oxigenoterapia', 'CNAF', 'BIPAP'];
       color = Colors.orange;
     }
     if (score > 6) {
       scoreText = 'Severo';
-      cuidados = ['BIPAP*', 'VMI'];
+      cuidados = ['BIPAP*', 'Ventilação Mecânica Invasiva'];
       color = const Color(0xFFFF0000);
     }
     notifyListeners();

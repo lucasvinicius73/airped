@@ -1,6 +1,7 @@
 import 'package:airped/Widgets/custom_app_bar.dart';
 import 'package:airped/Widgets/Drawer/custom_drawer.dart';
 import 'package:airped/Widgets/custom_decoration.dart';
+import 'package:airped/Widgets/custom_title_page.dart';
 import 'package:airped/desconforto_resp/desconforto_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -25,17 +26,7 @@ class DesconfortoResultPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text(
-                    'DESCONFORTO\nRESPIRATÓRIO',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color(0xFF1C72C2),
-                      fontSize: 34,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w600,
-                      height: 0,
-                    ),
-                  ),
+                  const CustomTitlePage(title: 'DESCONFORTO\nRESPIRATÓRIO'),
                   const SizedBox(
                     height: 20,
                   ),
@@ -96,7 +87,7 @@ class DesconfortoResultPage extends StatelessWidget {
                           height: 35,
                         ),
                         const Text(
-                          'Procedimentos',
+                          'Discussão em Equipe:',
                           style: TextStyle(
                             color: Color(0xFF1C72C2),
                             fontSize: 18,

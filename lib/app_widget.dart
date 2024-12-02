@@ -2,12 +2,11 @@ import 'package:airped/about/about_page.dart';
 import 'package:airped/cpap_tqt/cpap_tqt.dart';
 import 'package:airped/desconforto_resp/desconforto_resp.dart';
 import 'package:airped/desconforto_resp/desconforto_result_page.dart';
-import 'package:airped/home/home_page.dart';
+import 'package:airped/home/new_home_page.dart';
 import 'package:airped/splash_screen.dart';
 import 'package:airped/tubo_orotraqueal_ponto_de_fixacao/tot_pf.dart';
 import 'package:airped/volume/volume_corrente.dart';
 import 'package:flutter/material.dart';
-import 'package:airped/theme.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -26,6 +25,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       builder: FToastBuilder(),
+      debugShowCheckedModeBanner: false,
       title: 'Air Ped',
       theme: ThemeData(
         useMaterial3: true,
@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
       themeMode: ThemeMode.light,
       routes: {
         '/': (context) => const SplashScreen(),
-        '/home': (context) => const HomePage(),
+        '/home': (context) => const NewHomePage(),
         '/volume_corrente_page': (context) => const VolumeCorrentePage(),
         '/tot_pf_page': (context) => const TotPFPage(),
         '/cpap_tqt_page': (context) => const CpapTqtPage(),

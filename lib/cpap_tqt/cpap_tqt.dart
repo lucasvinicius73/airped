@@ -1,4 +1,5 @@
 import 'package:airped/Widgets/custom_decoration.dart';
+import 'package:airped/Widgets/custom_title_page.dart';
 import 'package:airped/calculadora/calculadora.dart';
 import 'package:airped/calculadora/calculadora_controller.dart';
 import 'package:airped/Widgets/custom_app_bar.dart';
@@ -30,21 +31,8 @@ class CpapTqtPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(
-                      width: 280,
-                      //height: 80,
-                      child: Text(
-                        'CPAP e CÂNULA de TQT',
-                        textAlign: TextAlign.center,
-                        maxLines: 2,
-                        style: TextStyle(
-                          color: Color(0xFF1C72C2),
-                          fontSize: 34,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w600,
-                          height: 0,
-                        ),
-                      )),
+                  const CustomTitlePage(
+                      title: 'PRESSÃO POSITIVA \nCÂNULA TRAQUEOSTOMIA'),
                   const SizedBox(height: 25),
                   Calculadora(onPressedReset: () {
                     calculadoraController.reset();
