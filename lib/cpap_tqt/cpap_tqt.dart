@@ -20,14 +20,22 @@ class CpapTqtPage extends StatelessWidget {
     return Scaffold(
       appBar: const CustomAppBar(),
       drawer: const CustomDrawer(),
-      backgroundColor: const Color(0xFFE9F7FD),
       body: SingleChildScrollView(
         child: ListenableBuilder(
           listenable: controller,
           builder: (context, child) => Center(
-            child: Padding(
+            child: Container(
               padding: const EdgeInsets.only(
-                  top: 25, left: 21, right: 22, bottom: 24),
+                  top: 25, left: 20, right: 20, bottom: 36),
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                    Colors.white,
+                    Color(0xFFF9C4E3),
+                    Color(0xFFF9C4E3)
+                  ])),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [

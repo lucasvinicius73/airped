@@ -3,6 +3,7 @@ import 'package:airped/cpap_tqt/cpap_tqt.dart';
 import 'package:airped/desconforto_resp/desconforto_resp.dart';
 import 'package:airped/desconforto_resp/desconforto_result_page.dart';
 import 'package:airped/home/new_home_page.dart';
+import 'package:airped/parametros_ventilatorios/parametros_ventilatorios.dart';
 import 'package:airped/splash_screen.dart';
 import 'package:airped/tubo_orotraqueal_ponto_de_fixacao/tot_pf.dart';
 import 'package:airped/volume/volume_corrente.dart';
@@ -40,6 +41,7 @@ class _MyAppState extends State<MyApp> {
         '/cpap_tqt_page': (context) => const CpapTqtPage(),
         '/desconforto_resp_page': (context) => const DesconfortoRespPage(),
         '/desconforto_result_page': (context) => const DesconfortoResultPage(),
+        '/parametros_page': (context) => const ParametrosVentilatorios(),
         '/about': (context) => const AboutPage(),
       },
     );

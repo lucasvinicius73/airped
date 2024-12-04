@@ -162,8 +162,8 @@ class _CalculadoraState extends State<Calculadora> {
                 children: [
                   CustomButtonCalculadora(
                     onPressed: widget.onPressedReset,
-                    title: 'Reset',
-                    color: const Color(0xFFF84040),
+                    title: 'Limpar',
+                    color: const Color(0xFFD85E5E),
                   ),
                   const SizedBox(
                     width: 20,
@@ -171,7 +171,7 @@ class _CalculadoraState extends State<Calculadora> {
                   CustomButtonCalculadora(
                     onPressed: widget.onPressed,
                     title: 'Calcular',
-                    color: const Color(0xFF0BC212),
+                    color: const Color(0xFF92BD44),
                   )
                 ],
               )

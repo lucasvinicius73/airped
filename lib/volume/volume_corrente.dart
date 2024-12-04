@@ -33,16 +33,24 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
     final calculadoraController = getIt<CalculadoraController>();
     final controller = Provider.of<VolumeCorrenteController>(context);
     return Scaffold(
-      backgroundColor: const Color(0xFF6AC7DE),
       drawer: const CustomDrawer(),
       appBar: const CustomAppBar(),
       body: ListenableBuilder(
         listenable: controller,
         builder: (context, child) => SingleChildScrollView(
           child: Center(
-            child: Padding(
+            child: Container(
               padding: const EdgeInsets.only(
                   top: 25, left: 20, right: 20, bottom: 36),
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                    Colors.white,
+                    Color(0xFF6AC7DE),
+                    Color(0xFF6AC7DE)
+                  ])),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [

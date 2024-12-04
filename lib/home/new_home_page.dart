@@ -1,3 +1,5 @@
+import 'package:airped/Widgets/Drawer/custom_drawer.dart';
+import 'package:airped/Widgets/custom_app_bar.dart';
 import 'package:airped/Widgets/custom_decoration.dart';
 import 'package:airped/home/Widgets/new_menu_button.dart';
 import 'package:flutter/material.dart';
@@ -8,118 +10,157 @@ class NewHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF6EB6E6),
-        centerTitle: true,
-        title: const Padding(
-          padding: EdgeInsets.only(top: 23),
-          child: Text.rich(
-            TextSpan(
-              children: [
-                TextSpan(
-                  text: 'Air',
-                  style: TextStyle(
-                    color: Color(0xFF1C72C2),
-                    fontSize: 26,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.w500,
-                    height: 0,
-                  ),
-                ),
-                TextSpan(
-                  text: 'Ped',
-                  style: TextStyle(
-                    color: Color(0xFFEFCA30),
-                    fontSize: 26,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.w500,
-                    height: 0,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        bottom: const PreferredSize(
-          preferredSize: Size(390, 17),
-          child: Divider(
-            // Linha divisória
-            color: Color(0xFFF1F5F4), // Cor da linha
-            height: 1.0, // Espessura da linha
-          ),
-        ),
-      ),
+      appBar: const CustomAppBar(),
+      drawer: const CustomDrawer(),
       body: SingleChildScrollView(
         child: Container(
           decoration: const BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Colors.white, Colors.white, Color(0xFF67ABEB)])),
+                  colors: [Colors.white, Color(0xFF67ABEB)])),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 23),
           child: Center(
             child: Column(
               children: [
-                Container(
-                  constraints: const BoxConstraints(maxWidth: 400),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
-                  decoration: CustomDecoration.shapeDecoration,
-                  child: const Column(
-                    children: [
-                      Text(
-                        "PROCEDIMENTOS",
-                        style: TextStyle(
-                          color: Color(0xFF1C72C2),
-                          fontSize: 34,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w700,
-                          height: 0,
+                Column(
+                  children: [
+                    const Text(
+                      "PROCEDIMENTOS",
+                      style: TextStyle(
+                        color: Color(0xFF1C72C2),
+                        fontSize: 34,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w700,
+                        height: 0,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 22,
+                    ),
+                    const NewMenuButton(
+                      title: "Volume Corrente e \nFrequencia Respiratoria",
+                      route: "/volume_corrente_page",
+                      icon: 'assets/home/pulmao.png',
+                      color: Color(0xFF6AC7DE),
+                    ),
+                    const NewMenuButton(
+                      title: "Tubo Orotraqueal(TOT) e\nFixação do TOT",
+                      route: "/tot_pf_page",
+                      icon: 'assets/home/tot.png',
+                      color: Color(0xFFEBEC95),
+                    ),
+                    const NewMenuButton(
+                      title:
+                          "Pronga de CPAP Nasal e\nCânula de Traqueostomia(TQT)",
+                      route: "/cpap_tqt_page",
+                      icon: 'assets/home/tqt.png',
+                      color: Color(0xFFF9C4E3),
+                    ),
+                    const NewMenuButton(
+                      title: "Avaliação Respiratoria",
+                      route: "/desconforto_resp_page",
+                      icon: 'assets/home/baby.png',
+                      color: Color(0xFFBDDD80),
+                    ),
+                    const NewMenuButton(
+                      title: "Parametros Ventilatórios Iniciais",
+                      route: "/parametros_page",
+                      icon: 'assets/home/baby.png',
+                      color: Color(0xFFE1EEFE),
+                    ),
+                    // const NewMenuButton(
+                    //   title: "Sobre",
+                    //   route: "/about",
+                    //   icon: 'assets/home/about.png',
+                    //   color: Colors.white,
+                    //   isAboutButton: true,
+                    // ),
+                    Container(
+                      height: 160,
+                      constraints: const BoxConstraints(maxWidth: 400),
+                      padding: const EdgeInsets.only(top: 19, bottom: 33),
+                      decoration: ShapeDecoration(
+                        color: const Color(0xFFFBFAFA),
+                        shape: RoundedRectangleBorder(
+                          side: const BorderSide(
+                              width: 1, color: Color(0x7FF1F5F4)),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        shadows: const [
+                          BoxShadow(
+                            color: Color(0x19000000),
+                            blurRadius: 4,
+                            offset: Offset(0, 4),
+                            spreadRadius: 0,
+                          )
+                        ],
+                      ),
+                      child: Center(
+                        child: Column(
+                          children: [
+                            const Text(
+                              "Informações",
+                              style: TextStyle(
+                                color: Color(0xFF1C72C2),
+                                fontSize: 34,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.w700,
+                                height: 0,
+                              ),
+                            ),
+                            const Spacer(),
+                            InkWell(
+                              onTap: () =>
+                                  Navigator.of(context).pushNamed('/about'),
+                              child: Container(
+                                width: 187,
+                                height: 47,
+                                decoration: ShapeDecoration(
+                                  color: const Color(0xFFFBFAFA),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(100),
+                                  ),
+                                  shadows: const [
+                                    BoxShadow(
+                                      color: Color(0x3F000000),
+                                      blurRadius: 4,
+                                      offset: Offset(0, 4),
+                                      spreadRadius: 0,
+                                    )
+                                  ],
+                                ),
+                                child: const Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.help_outline,
+                                      color: Color(0xFF67ABEB),
+                                      size: 22,
+                                    ),
+                                    SizedBox(
+                                      width: 7,
+                                    ),
+                                    Text(
+                                      'Sobre',
+                                      style: TextStyle(
+                                        color: Color(0xFFEFCA30),
+                                        fontSize: 20,
+                                        fontFamily: 'Roboto',
+                                        fontWeight: FontWeight.w600,
+                                        height: 0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      SizedBox(
-                        height: 22,
-                      ),
-                      NewMenuButton(
-                        title: "• Volume Corrente \n• Frequencia Respiratoria",
-                        route: "/volume_corrente_page",
-                        icon: 'assets/home/pulmao.png',
-                        color: Color(0xFF6AC7DE),
-                      ),
-                      NewMenuButton(
-                        title: "• Tubo Orotraqueal(TOT)\n• Fixação do TOT",
-                        route: "/tot_pf_page",
-                        icon: 'assets/home/tot.png',
-                        color: Color(0xFFEBEC95),
-                      ),
-                      NewMenuButton(
-                        title:
-                            "• Pronga de CPAP Nasal\n• Cânula de Traqueostomia(TQT)",
-                        route: "/cpap_tqt_page",
-                        icon: 'assets/home/tqt.png',
-                        color: Color(0xFFF9C4E3),
-                      ),
-                      NewMenuButton(
-                        title: "• Avaliação Respiratoria",
-                        route: "/desconforto_resp_page",
-                        icon: 'assets/home/baby.png',
-                        color: Color(0xFFBDDD80),
-                      ),
-                      NewMenuButton(
-                        title: "• Parametros Ventilatórios Iniciais",
-                        route: "/desconforto_resp_page",
-                        icon: 'assets/home/baby.png',
-                        color: Color(0xFFE1EEFE),
-                      ),
-                      NewMenuButton(
-                        title: "Sobre",
-                        route: "/about",
-                        icon: 'assets/home/about.png',
-                        color: Colors.white,
-                        isAboutButton: true,
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 )
               ],
             ),

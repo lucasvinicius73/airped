@@ -16,7 +16,7 @@ class CustomButtonCalculadora extends StatelessWidget {
       width: 112,
       height: 37,
       decoration: ShapeDecoration(
-        color: Colors.white,
+        color: color,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(100),
         ),
@@ -34,8 +34,8 @@ class CustomButtonCalculadora extends StatelessWidget {
         child: Center(
           child: Text(
             title,
-            style: TextStyle(
-              color: color,
+            style: const TextStyle(
+              color: Colors.white,
               fontSize: 20,
               fontFamily: 'Roboto',
               fontWeight: FontWeight.w600,

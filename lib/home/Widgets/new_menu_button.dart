@@ -23,6 +23,7 @@ class NewMenuButton extends StatelessWidget {
         onTap: () => Navigator.of(context).pushNamed(route),
         child: Ink(
           child: Container(
+            constraints: const BoxConstraints(maxWidth: 400),
             height: 100,
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
             decoration: ShapeDecoration(

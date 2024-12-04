@@ -33,6 +33,8 @@ flutter:
   - assets/home/tqt.png
   - assets/home/pulmao.png
   - assets/logo.png
+  - assets/logoSemfundo.png
+  - assets/warning.png
   - assets/about/brasaouepa.png
   - assets/about/logoCipe.png
   - assets/about/logoCapes.png

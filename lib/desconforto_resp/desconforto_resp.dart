@@ -16,14 +16,18 @@ class DesconfortoRespPage extends StatelessWidget {
     return Scaffold(
       appBar: const CustomAppBar(),
       drawer: const CustomDrawer(),
-      backgroundColor: const Color(0xFFDEF7E8),
       body: SingleChildScrollView(
         child: ListenableBuilder(
           listenable: controller,
           builder: (context, child) => Center(
-            child: Padding(
+            child: Container(
               padding: const EdgeInsets.only(
-                  top: 25, left: 21, right: 22, bottom: 24),
+                  top: 25, left: 20, right: 20, bottom: 36),
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Colors.white, Color(0xFFBDDD80)])),
               child: Column(
                 children: [
                   const CustomTitlePage(title: 'AVALIAÇÃO\nRESPIRATÓRIA'),
