@@ -20,11 +20,13 @@ class CpapTqtPage extends StatelessWidget {
     return Scaffold(
       appBar: const CustomAppBar(),
       drawer: const CustomDrawer(),
+      backgroundColor: const Color(0xFFF9C4E3),
       body: SingleChildScrollView(
         child: ListenableBuilder(
           listenable: controller,
           builder: (context, child) => Center(
             child: Container(
+              width: double.infinity,
               padding: const EdgeInsets.only(
                   top: 25, left: 20, right: 20, bottom: 36),
               decoration: const BoxDecoration(
@@ -40,7 +42,9 @@ class CpapTqtPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const CustomTitlePage(
-                      title: 'PRESSÃO POSITIVA \nCÂNULA TRAQUEOSTOMIA'),
+                    title: 'Pressão Positiva e \nCânula de Traqueostomia',
+                    icon: 'assets/title/tqt.png',
+                  ),
                   const SizedBox(height: 25),
                   Calculadora(onPressedReset: () {
                     calculadoraController.reset();

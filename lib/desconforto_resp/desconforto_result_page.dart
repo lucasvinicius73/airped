@@ -26,7 +26,7 @@ class DesconfortoResultPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const CustomTitlePage(title: 'DESCONFORTO\nRESPIRATÓRIO'),
+                  const CustomTitlePage(title: 'DESCONFORTO\nRESPIRATÓRIO',icon: '',),
                   const SizedBox(
                     height: 20,
                   ),

@@ -39,7 +39,7 @@ class NewHomePage extends StatelessWidget {
                       height: 22,
                     ),
                     const NewMenuButton(
-                      title: "Volume Corrente e \nFrequencia Respiratoria",
+                      title: "Volume Corrente e Frequência Respiratória",
                       route: "/volume_corrente_page",
                       icon: 'assets/home/pulmao.png',
                       color: Color(0xFF6AC7DE),
@@ -58,15 +58,15 @@ class NewHomePage extends StatelessWidget {
                       color: Color(0xFFF9C4E3),
                     ),
                     const NewMenuButton(
-                      title: "Avaliação Respiratoria",
+                      title: "Avaliação Respiratória",
                       route: "/desconforto_resp_page",
                       icon: 'assets/home/baby.png',
                       color: Color(0xFFBDDD80),
                     ),
                     const NewMenuButton(
-                      title: "Parametros Ventilatórios Iniciais",
+                      title: "Parametros \nVentilatórios Iniciais",
                       route: "/parametros_page",
-                      icon: 'assets/home/baby.png',
+                      icon: 'assets/home/pc.png',
                       color: Color(0xFFE1EEFE),
                     ),
                     // const NewMenuButton(

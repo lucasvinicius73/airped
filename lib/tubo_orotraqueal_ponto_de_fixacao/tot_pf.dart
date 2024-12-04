@@ -22,6 +22,7 @@ class TotPFPage extends StatelessWidget {
     return Scaffold(
       appBar: const CustomAppBar(),
       drawer: const CustomDrawer(),
+      backgroundColor: const Color(0xFFEBEC95),
       body: SingleChildScrollView(
         child: ListenableBuilder(
           listenable: controller,
@@ -42,7 +43,9 @@ class TotPFPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const CustomTitlePage(
-                      title: 'TUBO OROTRAQUEAL (TOT)\nFIXAÇÃO DO TOT'),
+                    title: 'Tubo Orotraqueal (TOT)Fixação do TOT',
+                    icon: 'assets/title/tot.png',
+                  ),
                   const SizedBox(height: 28),
                   Calculadora(onPressedReset: () {
                     calculadoraController.reset();

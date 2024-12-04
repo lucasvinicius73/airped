@@ -32,6 +32,12 @@ flutter:
   - assets/home/tot.png
   - assets/home/tqt.png
   - assets/home/pulmao.png
+  - assets/home/pc.png
+  - assets/title/baby.png
+  - assets/title/tot.png
+  - assets/title/tqt.png
+  - assets/title/lung.png
+  - assets/title/pc.png
   - assets/logo.png
   - assets/logoSemfundo.png
   - assets/warning.png
