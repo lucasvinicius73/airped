@@ -1,3 +1,5 @@
+import 'package:airped/Widgets/Drawer/drawer_controller.dart';
+import 'package:airped/providers.dart';
 import 'package:flutter/material.dart';
 
 class NewMenuButton extends StatelessWidget {
@@ -8,19 +10,26 @@ class NewMenuButton extends StatelessWidget {
     required this.route,
     required this.color,
     this.isAboutButton = false,
+    required this.index,
   });
   final String title;
   final String icon;
   final String route;
+  final int index;
   final Color color;
   final bool isAboutButton;
 
   @override
   Widget build(BuildContext context) {
+    final drawerController = getIt<CustomDrawerController>();
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: InkWell(
-        onTap: () => Navigator.of(context).pushNamed(route),
+        onTap: () {
+          drawerController.changeIndex(index);
+          Navigator.of(context).pushNamed(route);
+        },
         child: Ink(
           child: Container(
             constraints: const BoxConstraints(maxWidth: 400),

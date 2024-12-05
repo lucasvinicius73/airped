@@ -1,5 +1,4 @@
 import 'package:airped/Widgets/Drawer/drawer_item.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -16,7 +15,7 @@ class CustomDrawer extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () => Navigator.of(context).pop(),
-              icon: const Icon(Icons.more_vert),
+              icon: const Icon(Icons.close),
               color: Colors.white,
             ),
             const Center(
@@ -37,26 +36,36 @@ class CustomDrawer extends StatelessWidget {
             ),
             const DrawerItem(
               index: 0,
+              title: 'Tela Inicial',
+              navigator: "/home",
+            ),
+            const DrawerItem(
+              index: 1,
               title: 'Volume Corrente',
               navigator: "/volume_corrente_page",
             ),
             const DrawerItem(
-              index: 1,
+              index: 2,
               title: 'TOT e Ponto de Fixação',
               navigator: "/tot_pf_page",
             ),
             const DrawerItem(
-              index: 2,
+              index: 3,
               title: 'CPAP e Cânula de TQT',
               navigator: "/cpap_tqt_page",
             ),
             const DrawerItem(
-              index: 3,
+              index: 4,
               title: 'Desconforto Respiratório',
               navigator: "/desconforto_resp_page",
             ),
             const DrawerItem(
-              index: 4,
+              index: 5,
+              title: 'Parâmetros Ventilatórios Iniciais',
+              navigator: "/parametros_page",
+            ),
+            const DrawerItem(
+              index: 6,
               title: 'Sobre ',
               navigator: "/about",
             ),
