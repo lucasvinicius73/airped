@@ -129,11 +129,6 @@ class DesconfortoRespPage extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            CustomButtonCalculadora(
-                              onPressed: () {},
-                              title: 'Reset',
-                              color: const Color(0xFFF84040),
-                            ),
                             const SizedBox(
                               width: 20,
                             ),
@@ -146,7 +141,7 @@ class DesconfortoRespPage extends StatelessWidget {
                                     .pushNamed('/desconforto_result_page');
                               },
                               title: 'Calcular',
-                              color: const Color(0xFF0BC212),
+                              color: const Color(0xFF92BD44),
                             ),
                           ],
                         ),

@@ -29,7 +29,7 @@ class DropDownDesconfortoResp extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 4,
+            height: 6,
           ),
           Container(
               width: 285,
@@ -63,7 +63,7 @@ class DropDownDesconfortoResp extends StatelessWidget {
                         child: Text(
                           entry.key,
                           style: const TextStyle(
-                            color: Color(0x667C7C7C),
+                            color: Colors.black,
                             fontSize: 17,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w400,

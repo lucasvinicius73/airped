@@ -1,5 +1,6 @@
 import 'package:airped/Widgets/custom_app_bar.dart';
 import 'package:airped/Widgets/Drawer/custom_drawer.dart';
+import 'package:airped/Widgets/custom_button.dart';
 import 'package:airped/Widgets/custom_decoration.dart';
 import 'package:airped/Widgets/custom_title_page.dart';
 import 'package:airped/desconforto_resp/desconforto_controller.dart';
@@ -15,18 +16,31 @@ class DesconfortoResultPage extends StatelessWidget {
     return Scaffold(
       appBar: const CustomAppBar(),
       drawer: const CustomDrawer(),
-      backgroundColor: const Color(0xFFDEF7E8),
+      backgroundColor: const Color(0xFFBDDD80),
       body: SingleChildScrollView(
         child: ListenableBuilder(
           listenable: controller,
           builder: (context, child) => Center(
-            child: Padding(
+            child: Container(
+              width: double.infinity,
               padding: const EdgeInsets.only(
-                  top: 25, left: 21, right: 22, bottom: 24),
+                  top: 25, left: 20, right: 20, bottom: 36),
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                    Colors.white,
+                    Color(0xFFBDDD80),
+                    Color(0xFFBDDD80)
+                  ])),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const CustomTitlePage(title: 'DESCONFORTO\nRESPIRATÓRIO',icon: '',),
+                  const CustomTitlePage(
+                    title: 'Avaliação Respiratória',
+                    icon: 'assets/title/baby.png',
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -38,7 +52,7 @@ class DesconfortoResultPage extends StatelessWidget {
                     child: Column(
                       children: [
                         const Text(
-                          'Resultado',
+                          'Resultado:',
                           style: TextStyle(
                             color: Color(0xFF67ABEB),
                             fontSize: 20,
@@ -124,10 +138,39 @@ class DesconfortoResultPage extends StatelessWidget {
                               height: 5,
                             ),
                           ),
-                        )
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const Text(
+                          'Calcular Novamente:',
+                          style: TextStyle(
+                            color: Color(0xFF1C72C2),
+                            fontSize: 18,
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.w600,
+                            height: 0,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        SizedBox(
+                          height: 45,
+                          child: FilledButton.icon(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            icon: const Icon(Icons.arrow_back),
+                            label: const Text("Voltar"),
+                            style: const ButtonStyle(
+                                backgroundColor:
+                                    WidgetStatePropertyAll(Color(0xFF92BD44))),
+                          ),
+                        ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
