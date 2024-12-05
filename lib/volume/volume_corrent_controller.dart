@@ -9,7 +9,7 @@ class VolumeCorrenteController extends ChangeNotifier {
   String vc8 = '';
   // Obtém os valores dos campos de entrada
 
-  calcularFrequencia(String idadeText, String pesoText, String alturaText) {
+  calcularFrequencia(String idadeText, String alturaText) {
     double idade = double.parse(idadeText);
     if (idade < 1) {
       frequencia = '30-60 ipm';
@@ -29,18 +29,17 @@ class VolumeCorrenteController extends ChangeNotifier {
     double idade = double.parse(idadeText);
   }
 
-  calcularVolumeCorrente(String pesoText) {
-    double peso = double.parse(pesoText) / 1000;
+  calcularVolumeCorrente(double pesoIdeal) {
     // Calcula o volume corrente
-    vc4 = '${peso * 4}';
+    vc4 = '${pesoIdeal * 4}';
 
-    vc5 = '${peso * 5}';
+    vc5 = '${pesoIdeal * 5}';
 
-    vc6 = '${peso * 6}';
+    vc6 = '${pesoIdeal * 6}';
 
-    vc7 = '${peso * 7}';
+    vc7 = '${pesoIdeal * 7}';
 
-    vc8 = '${peso * 8}';
+    vc8 = '${pesoIdeal * 8}';
     notifyListeners();
   }
 
@@ -173,6 +172,4 @@ class VolumeCorrenteController extends ChangeNotifier {
     178: {"male": 74.84, "female": 70.34},
     180: {"male": 76.68, "female": 72.18},
   };
-
-  
 }

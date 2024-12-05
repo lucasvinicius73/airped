@@ -28,6 +28,7 @@ class TotPFPage extends StatelessWidget {
           listenable: controller,
           builder: (context, child) => Center(
             child: Container(
+              width: double.infinity,
               padding: const EdgeInsets.only(
                   top: 25, left: 20, right: 20, bottom: 36),
               decoration: const BoxDecoration(
@@ -60,11 +61,9 @@ class TotPFPage extends StatelessWidget {
                       }
                       controller.calcularEscolhaTOTcomCUFF(
                           idade,
-                          calculadoraController.peso.text,
                           calculadoraController.altura.text);
                       controller.calcularEscolhaTOTsemCUFF(
                           idade,
-                          calculadoraController.peso.text,
                           calculadoraController.altura.text);
                     }
                   }, onPressed: () {
@@ -78,11 +77,9 @@ class TotPFPage extends StatelessWidget {
                       }
                       controller.calcularEscolhaTOTcomCUFF(
                           idade,
-                          calculadoraController.peso.text,
                           calculadoraController.altura.text);
                       controller.calcularEscolhaTOTsemCUFF(
                           idade,
-                          calculadoraController.peso.text,
                           calculadoraController.altura.text);
                       Scrollable.ensureVisible(
                           WidgetKeys.totKey.currentContext!,

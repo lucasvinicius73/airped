@@ -14,7 +14,7 @@ class ParametrosVentilatorios extends StatelessWidget {
     return Scaffold(
       drawer: const CustomDrawer(),
       appBar: const CustomAppBar(),
-      backgroundColor: const Color(0xFFE1EEFE),
+      backgroundColor: const Color(0xFFD6A0F5),
       body: SingleChildScrollView(
         child: Container(
             width: double.infinity,
@@ -26,8 +26,8 @@ class ParametrosVentilatorios extends StatelessWidget {
                     end: Alignment.bottomCenter,
                     colors: [
                   Colors.white,
-                  Color(0xFFE1EEFE),
-                  Color(0xFFE1EEFE),
+                  Color(0xFFD6A0F5),
+                  Color(0xFFD6A0F5),
                 ])),
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -38,13 +38,14 @@ class ParametrosVentilatorios extends StatelessWidget {
                   ),
                   const SizedBox(height: 28),
                   Container(
-                    constraints: const BoxConstraints(maxWidth: 380),
-                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    constraints: const BoxConstraints(maxWidth: 350),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 10),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFF2F8FF),
+                      color: Colors.white,
                       border: Border.all(
                         width: 2,
-                        color: const Color(0xFF215670),
+                        color: Colors.black,
                       ),
                       borderRadius: BorderRadius.circular(20),
                     ),
@@ -54,7 +55,7 @@ class ParametrosVentilatorios extends StatelessWidget {
                           RichText(
                               text: const TextSpan(
                                   style: TextStyle(
-                                    color: Color(0xFF215670),
+                                    color: Colors.black,
                                     fontSize: 16,
                                   ),
                                   children: [
@@ -91,7 +92,7 @@ class ParametrosVentilatorios extends StatelessWidget {
                     height: 40,
                   ),
                   Container(
-                    constraints: const BoxConstraints(maxWidth: 300),
+                    constraints: const BoxConstraints(maxWidth: 350),
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: Colors.black,
@@ -104,7 +105,8 @@ class ParametrosVentilatorios extends StatelessWidget {
                           children: [
                             TableContainer(
                               title: "IDADE",
-                              color: Color(0xFF6DC6DE),
+                              color: Color(0xFFA3D8F4),
+                              isBold: true,
                             ),
                             SizedBox(
                               height: 30,
@@ -116,7 +118,8 @@ class ParametrosVentilatorios extends StatelessWidget {
                             ),
                             TableContainer(
                               title: "FR (irpm)",
-                              color: Color(0xFF6DC6DE),
+                              color: Color(0xFFA3D8F4),
+                              isBold: true,
                             ),
                             SizedBox(
                               height: 30,
@@ -128,7 +131,8 @@ class ParametrosVentilatorios extends StatelessWidget {
                             ),
                             TableContainer(
                               title: "T Insp (seg)",
-                              color: Color(0xFF6DC6DE),
+                              color: Color(0xFFA3D8F4),
+                              isBold: true,
                             ),
                           ],
                         ),
@@ -281,7 +285,7 @@ class ParametrosVentilatorios extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Stack(
                     alignment: Alignment.topCenter,
@@ -291,9 +295,9 @@ class ParametrosVentilatorios extends StatelessWidget {
                         child: Container(
                           padding: const EdgeInsets.symmetric(
                               vertical: 10, horizontal: 15),
-                          constraints: const BoxConstraints(maxWidth: 300),
+                          constraints: const BoxConstraints(maxWidth: 350),
                           decoration: BoxDecoration(
-                            color: const Color(0xFFF2F8FF),
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: const Text(

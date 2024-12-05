@@ -68,7 +68,6 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
                   onChanged: (p0) {
                     print("OnChanged  Click");
                     if (calculadoraController.idade.text != '' &&
-                        calculadoraController.peso.text != '' &&
                         calculadoraController.altura.text != '') {
                       String idade = calculadoraController.idade.text;
                       if (calculadoraController.isYear == false) {
@@ -76,17 +75,14 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
                             '${double.parse(calculadoraController.idade.text) / 12}';
                       }
                       controller.calcularFrequencia(
-                          idade,
-                          calculadoraController.peso.text,
-                          calculadoraController.altura.text);
+                          idade, calculadoraController.altura.text);
                       controller.calcularVolumeCorrente(
-                          calculadoraController.peso.text);
+                          calculadoraController.pesoIdeal);
                     }
                   },
                   onPressed: () {
                     print("OnPressed  Click");
                     if (calculadoraController.idade.text != '' ||
-                        calculadoraController.peso.text != '' ||
                         calculadoraController.altura.text != '') {
                       String idade = calculadoraController.idade.text;
                       if (calculadoraController.isYear == false) {
@@ -94,11 +90,9 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
                             '${double.parse(calculadoraController.idade.text) / 12}';
                       }
                       controller.calcularFrequencia(
-                          idade,
-                          calculadoraController.peso.text,
-                          calculadoraController.altura.text);
+                          idade, calculadoraController.altura.text);
                       controller.calcularVolumeCorrente(
-                          calculadoraController.peso.text);
+                          calculadoraController.pesoIdeal);
 
                       Scrollable.ensureVisible(
                           WidgetKeys.volumeKey.currentContext!,

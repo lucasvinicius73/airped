@@ -57,7 +57,7 @@ class CpapTqtPage extends StatelessWidget {
                             '${double.parse(calculadoraController.idade.text) / 12}';
                       }
                       controller.calcularTamCanulaCPAP(
-                          calculadoraController.peso.text, idade);
+                          calculadoraController.pesoIdeal, idade);
 
                       controller.calcularTamTQT(idade);
                     }
@@ -69,7 +69,7 @@ class CpapTqtPage extends StatelessWidget {
                             '${double.parse(calculadoraController.idade.text) / 12}';
                       }
                       controller.calcularTamCanulaCPAP(
-                          calculadoraController.peso.text, idade);
+                          calculadoraController.pesoIdeal, idade);
 
                       controller.calcularTamTQT(idade);
                       Scrollable.ensureVisible(

@@ -68,15 +68,9 @@ class NewHomePage extends StatelessWidget {
                       title: "Parâmetros \nVentilatórios Iniciais",
                       route: "/parametros_page",
                       icon: 'assets/home/pc.png',
-                      color: Color(0xFFE1EEFE),
+                      color: Color(0xFFD6A0F5),
                     ),
-                    // const NewMenuButton(
-                    //   title: "Sobre",
-                    //   route: "/about",
-                    //   icon: 'assets/home/about.png',
-                    //   color: Colors.white,
-                    //   isAboutButton: true,
-                    // ),
+                   
                     Container(
                       height: 160,
                       constraints: const BoxConstraints(maxWidth: 400),

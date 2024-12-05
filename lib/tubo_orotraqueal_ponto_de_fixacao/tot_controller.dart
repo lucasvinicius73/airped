@@ -8,7 +8,7 @@ class TotController extends ChangeNotifier {
   String pontoFixacaoSemCUFF = '';
 
   calcularEscolhaTOTcomCUFF(
-      String idadeText, String pesoText, String alturaText) {
+      String idadeText, String alturaText) {
     double idade = double.parse(idadeText);
 
     if (idade < 2) {
@@ -21,7 +21,7 @@ class TotController extends ChangeNotifier {
   }
 
   calcularEscolhaTOTsemCUFF(
-      String idadeText, String pesoText, String alturaText) {
+      String idadeText, String alturaText) {
     double idade = double.parse(idadeText);
     escolharTOTsemCUFF = ((idade / 4) + 4).toStringAsFixed(2);
     calcularPontoFixacaoSemCUFF(escolharTOTsemCUFF);
