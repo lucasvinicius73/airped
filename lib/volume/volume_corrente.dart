@@ -42,7 +42,7 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
           child: Container(
             width: double.infinity,
             padding:
-                const EdgeInsets.only(top: 25, left: 20, right: 20, bottom: 36),
+                const EdgeInsets.only(top: 25, left: 15, right: 15, bottom: 36),
             decoration: const BoxDecoration(
                 gradient: LinearGradient(
                     begin: Alignment.topCenter,
@@ -69,17 +69,17 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
                     print("OnChanged  Click");
                     if (calculadoraController.idade.text != '' &&
                         calculadoraController.altura.text != '') {
+                      String idade = calculadoraController.idade.text;
+                      if (calculadoraController.isYear == false) {
+                        idade =
+                            '${double.parse(calculadoraController.idade.text) / 12}';
+                      }
                       calculadoraController.calcularPesoIdeal(
-                          calculadoraController.idade.text,
+                          idade,
                           calculadoraController.altura.text,
                           calculadoraController.sexo);
 
                       if (calculadoraController.pesoIdeal > 0) {
-                        String idade = calculadoraController.idade.text;
-                        if (calculadoraController.isYear == false) {
-                          idade =
-                              '${double.parse(calculadoraController.idade.text) / 12}';
-                        }
                         controller.calcularFrequencia(
                             idade, calculadoraController.altura.text);
                         controller.calcularVolumeCorrente(
@@ -89,17 +89,24 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
                   },
                   onPressed: () {
                     print("OnPressed  Click");
-                    if (calculadoraController.idade.text != '' ||
+                    if (calculadoraController.idade.text != '' &&
                         calculadoraController.altura.text != '') {
                       String idade = calculadoraController.idade.text;
                       if (calculadoraController.isYear == false) {
                         idade =
                             '${double.parse(calculadoraController.idade.text) / 12}';
                       }
-                      controller.calcularFrequencia(
-                          idade, calculadoraController.altura.text);
-                      controller.calcularVolumeCorrente(
-                          calculadoraController.pesoIdeal);
+                      calculadoraController.calcularPesoIdeal(
+                          idade,
+                          calculadoraController.altura.text,
+                          calculadoraController.sexo);
+
+                      if (calculadoraController.pesoIdeal > 0) {
+                        controller.calcularFrequencia(
+                            idade, calculadoraController.altura.text);
+                        controller.calcularVolumeCorrente(
+                            calculadoraController.pesoIdeal);
+                      }
 
                       Scrollable.ensureVisible(
                           WidgetKeys.volumeKey.currentContext!,

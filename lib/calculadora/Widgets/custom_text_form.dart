@@ -20,9 +20,9 @@ class CustomTextFormCalculadora extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 155,
-      height: 40,
+    return Container(
+      width: 170,
+      height: 45,
       child: TextFormField(
         onChanged: onChanged,
         keyboardType: TextInputType.number,
@@ -45,7 +45,7 @@ class CustomTextFormCalculadora extends StatelessWidget {
 
           //alignLabelWithHint: true,
           contentPadding:
-              const EdgeInsets.symmetric(horizontal: 12, vertical: 8.5),
+              const EdgeInsets.symmetric(horizontal: 7, vertical: 13),
           suffixStyle: const TextStyle(
             color: Colors.black,
             fontSize: 17,

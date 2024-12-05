@@ -301,7 +301,7 @@ class ParametrosVentilatorios extends StatelessWidget {
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: const Text(
-                              textAlign: TextAlign.center,
+                              textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 15,
                               ),

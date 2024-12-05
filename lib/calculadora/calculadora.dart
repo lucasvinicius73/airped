@@ -61,7 +61,9 @@ class _CalculadoraState extends State<Calculadora> {
                   CustomTextFormCalculadora(
                     onChanged: widget.onChanged,
                     controller: controller.idade,
-                    hintText: 'Idade',
+                    hintText: controller.isYear == true
+                        ? 'Idade(anos)'
+                        : 'Idade(meses)',
                     suffixText: controller.showSuffixText
                         ? ''
                         : controller.isYear == true
@@ -70,9 +72,10 @@ class _CalculadoraState extends State<Calculadora> {
                     icon: controller.isYear == true
                         ? Icons.calendar_month
                         : Icons.calendar_view_day,
-                    onPressed: () {
-                      widget.onChanged!("");
-                      controller.changeAge();
+                    onPressed: () async {
+                      await controller.changeAge();
+                      await widget.onChanged!("");
+
                       _showToast();
                     },
                   ),
@@ -89,8 +92,8 @@ class _CalculadoraState extends State<Calculadora> {
               Row(
                 children: [
                   Container(
-                    width: 155,
-                    height: 40,
+                    width: 170,
+                    height: 45,
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     decoration: ShapeDecoration(
                       color: const Color(0xFFDFE1E1),
@@ -119,7 +122,7 @@ class _CalculadoraState extends State<Calculadora> {
                           width: 5,
                         ),
                         SizedBox(
-                          width: 97,
+                          width: 117,
                           child: DropdownButtonHideUnderline(
                             child: DropdownButton(
                               dropdownColor: const Color(0xFFF1F5F4),
@@ -127,7 +130,7 @@ class _CalculadoraState extends State<Calculadora> {
                               isExpanded: true,
                               style: const TextStyle(
                                 color: Colors.black,
-                                fontSize: 20,
+                                fontSize: 19,
                                 fontFamily: 'Roboto',
                                 fontWeight: FontWeight.w400,
                                 height: 0,
@@ -142,7 +145,7 @@ class _CalculadoraState extends State<Calculadora> {
                                       value,
                                       style: const TextStyle(
                                         color: Colors.black,
-                                        fontSize: 20,
+                                        fontSize: 19,
                                         fontFamily: 'Roboto',
                                         fontWeight: FontWeight.w400,
                                         height: 0,
@@ -164,8 +167,8 @@ class _CalculadoraState extends State<Calculadora> {
                   ),
                   const Spacer(),
                   Container(
-                    width: 155,
-                    height: 40,
+                    width: 170,
+                    height: 45,
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
@@ -182,7 +185,7 @@ class _CalculadoraState extends State<Calculadora> {
                               ? "${controller.pesoIdeal} kg"
                               : "Peso Ideal",
                           style: const TextStyle(
-                            fontSize: 20,
+                            fontSize: 19,
                             fontFamily: 'Roboto',
                             color: Colors.black,
                             fontWeight: FontWeight.w400,
