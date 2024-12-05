@@ -49,8 +49,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         title: Padding(
           padding: const EdgeInsets.only(top: 0),
           child: GestureDetector(
-              onTap: () => Navigator.of(context)
-                  .pushNamedAndRemoveUntil('/home', (route) => false),
+              onTap: drawerController.indexPage == 0
+                  ? null
+                  : () {
+                      drawerController.changeIndex(0);
+                      Navigator.of(context)
+                          .pushNamedAndRemoveUntil('/home', (route) => false);
+                    },
               child: SizedBox(
                   height: 60,
                   child: Image.asset('assets/logoSemfundo.png',

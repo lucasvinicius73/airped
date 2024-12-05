@@ -236,7 +236,9 @@ class _CalculadoraState extends State<Calculadora> {
       height: 60,
       width: 300,
       //padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
-      decoration: CustomDecoration.shapeDecoration,
+      decoration: BoxDecoration(
+          color: const Color(0xFFDFE1E1),
+          borderRadius: BorderRadius.circular(10)),
       child: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -246,16 +248,23 @@ class _CalculadoraState extends State<Calculadora> {
               width: 12.0,
             ),
             RichText(
-                text: TextSpan(children: [
-              const TextSpan(
-                  text: "Você mudou a Idade para ",
-                  style: TextStyle(color: Colors.black)),
-              controller.isYear
-                  ? const TextSpan(
-                      text: "\"anos\"", style: TextStyle(color: Colors.blue))
-                  : const TextSpan(
-                      text: "\"meses\"", style: TextStyle(color: Colors.red))
-            ])),
+                text: TextSpan(
+                    style: const TextStyle(
+                      color: Colors.black,
+                    ),
+                    children: [
+                  const TextSpan(
+                    text: "Você mudou a Idade para ",
+                  ),
+                  controller.isYear
+                      ? const TextSpan(
+                          text: "\"anos\"",
+                          style: TextStyle(color: Colors.blue))
+                      : const TextSpan(
+                          text: "\"meses\"",
+                          style: TextStyle(color: Colors.red)),
+                  const TextSpan(text: ".")
+                ])),
           ],
         ),
       ),
@@ -264,7 +273,7 @@ class _CalculadoraState extends State<Calculadora> {
     fToast.showToast(
       child: toast,
       gravity: ToastGravity.BOTTOM,
-      toastDuration: const Duration(seconds: 2),
+      toastDuration: const Duration(seconds: 3),
     );
   }
 }
