@@ -20,32 +20,28 @@ class CustomTextFormCalculadora extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 170,
+    return SizedBox(
+      width: 165,
       height: 45,
       child: TextFormField(
         onChanged: onChanged,
         keyboardType: TextInputType.number,
         controller: controller,
-        //textAlign: TextAlign.center,
-
         inputFormatters: [
           FilteringTextInputFormatter.digitsOnly,
         ],
         style: const TextStyle(
-          fontSize: 20,
+          fontSize: 19,
           fontFamily: 'Roboto',
           color: Colors.black,
           fontWeight: FontWeight.w400,
-          height: 1,
+          height: 1.2, // Ajusta o espaçamento vertical do texto
         ),
         decoration: InputDecoration(
           hintText: hintText,
           suffixText: suffixText,
-
-          //alignLabelWithHint: true,
           contentPadding:
-              const EdgeInsets.symmetric(horizontal: 7, vertical: 13),
+              const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
           suffixStyle: TextStyle(
             color: suffixText == 'anos'
                 ? Colors.blue
@@ -55,19 +51,18 @@ class CustomTextFormCalculadora extends StatelessWidget {
             fontSize: 17,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w400,
-            height: 0,
+            height: 1.2, // Ajusta o alinhamento vertical do texto do sufixo
             overflow: TextOverflow.clip,
           ),
           hintStyle: const TextStyle(
             color: Colors.black,
-            fontSize: 20,
+            fontSize: 19,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w400,
-            height: 0,
+            height: 1.2, // Ajusta o alinhamento vertical do texto de dica
             overflow: TextOverflow.clip,
           ),
           fillColor: const Color(0xFFDFE1E1),
-
           filled: true,
           prefixIcon: onPressed != null
               ? IconButton(
@@ -76,14 +71,13 @@ class CustomTextFormCalculadora extends StatelessWidget {
                 )
               : icon,
           prefixIconConstraints: const BoxConstraints(
-            minHeight: 48,
-            minWidth: 38,
+            maxWidth: 36,
           ),
-          enabledBorder: UnderlineInputBorder(
+          enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: const BorderSide(color: Color(0xFFDFE1E1), width: 3),
           ),
-          focusedBorder: UnderlineInputBorder(
+          focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: const BorderSide(color: Color(0xFFDFE1E1), width: 3),
           ),

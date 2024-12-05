@@ -41,7 +41,7 @@ class _CalculadoraState extends State<Calculadora> {
       builder: (context, child) => ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 400),
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
           decoration: CustomDecoration.shapeDecoration,
           child: Column(
             children: [
@@ -98,9 +98,9 @@ class _CalculadoraState extends State<Calculadora> {
               Row(
                 children: [
                   Container(
-                    width: 170,
+                    width: 165,
                     height: 45,
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
                     decoration: ShapeDecoration(
                       color: const Color(0xFFDFE1E1),
                       shape: RoundedRectangleBorder(
@@ -118,19 +118,13 @@ class _CalculadoraState extends State<Calculadora> {
                                 Icons.female,
                                 color: Colors.pink,
                               ),
-                        // Icon(
-                        //   controller.sexo == 'Masculino'
-                        //       ? Icons.male
-                        //       : Icons.female,
-                        //   color: Colors.black,
-                        // ),
                         const SizedBox(
-                          width: 5,
+                          width: 2,
                         ),
-                        SizedBox(
-                          width: 117,
+                        Expanded(
                           child: DropdownButtonHideUnderline(
                             child: DropdownButton(
+                              iconSize: 30,
                               dropdownColor: const Color(0xFFF1F5F4),
                               value: controller.sexo,
                               isExpanded: true,
@@ -173,7 +167,7 @@ class _CalculadoraState extends State<Calculadora> {
                   ),
                   const Spacer(),
                   Container(
-                    width: 170,
+                    width: 165,
                     height: 45,
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     decoration: BoxDecoration(

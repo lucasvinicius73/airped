@@ -25,6 +25,9 @@ class _VolumeCorrenteResultState extends State<VolumeCorrenteResult> {
             height: 0,
           ),
         ),
+        const SizedBox(
+          height: 5,
+        ),
         Container(
           width: 128,
           height: 46,
