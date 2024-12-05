@@ -53,8 +53,8 @@ class CustomTitlePage extends StatelessWidget {
               ),
               child: Center(
                 child: SizedBox(
-                  height: 42,
-                  width: 45,
+                  height: 50,
+                  width: 50,
                   child: Image.asset(
                     icon,
                   ),

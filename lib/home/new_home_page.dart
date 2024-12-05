@@ -10,6 +10,7 @@ class NewHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF67ABEB),
       appBar: const CustomAppBar(),
       drawer: const CustomDrawer(),
       body: SingleChildScrollView(
@@ -64,7 +65,7 @@ class NewHomePage extends StatelessWidget {
                       color: Color(0xFFBDDD80),
                     ),
                     const NewMenuButton(
-                      title: "Parametros \nVentilatórios Iniciais",
+                      title: "Parâmetros \nVentilatórios Iniciais",
                       route: "/parametros_page",
                       icon: 'assets/home/pc.png',
                       color: Color(0xFFE1EEFE),

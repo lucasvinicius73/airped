@@ -87,31 +87,33 @@ class _CalculadoraState extends State<Calculadora> {
               const SizedBox(height: 23),
               Row(
                 children: [
-                  CustomTextFormCalculadora(
-                      onChanged: widget.onChanged,
-                      controller: controller.peso,
-                      hintText: 'Peso',
-                      suffixText: 'g',
-                      icon: Icons.scale),
-                  const Spacer(),
                   Container(
                     width: 155,
                     height: 40,
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     decoration: ShapeDecoration(
-                      color: const Color(0xFFF1F5F4),
+                      color: const Color(0xFFDFE1E1),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                     child: Row(
                       children: [
-                        Icon(
-                          controller.sexo == 'Masculino'
-                              ? Icons.male
-                              : Icons.female,
-                          color: Colors.black,
-                        ),
+                        controller.sexo == 'Masculino'
+                            ? const Icon(
+                                Icons.male,
+                                color: Colors.blue,
+                              )
+                            : const Icon(
+                                Icons.female,
+                                color: Colors.pink,
+                              ),
+                        // Icon(
+                        //   controller.sexo == 'Masculino'
+                        //       ? Icons.male
+                        //       : Icons.female,
+                        //   color: Colors.black,
+                        // ),
                         const SizedBox(
                           width: 5,
                         ),
@@ -123,8 +125,13 @@ class _CalculadoraState extends State<Calculadora> {
                               value: controller.sexo,
                               isExpanded: true,
                               style: const TextStyle(
-                                  overflow: TextOverflow.ellipsis,
-                                  fontSize: 20),
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.w400,
+                                height: 0,
+                                overflow: TextOverflow.clip,
+                              ),
                               items: controller.sexos
                                   .map<DropdownMenuItem<String>>(
                                 (value) {
@@ -133,12 +140,13 @@ class _CalculadoraState extends State<Calculadora> {
                                     child: Text(
                                       value,
                                       style: const TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 18,
-                                          fontFamily: 'Roboto',
-                                          fontWeight: FontWeight.w400,
-                                          height: 0,
-                                          overflow: TextOverflow.ellipsis),
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                        fontFamily: 'Roboto',
+                                        fontWeight: FontWeight.w400,
+                                        height: 0,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
                                     ),
                                   );
                                 },
@@ -149,6 +157,34 @@ class _CalculadoraState extends State<Calculadora> {
                             ),
                           ),
                         ),
+                      ],
+                    ),
+                  ),
+                  const Spacer(),
+                  Container(
+                    width: 155,
+                    height: 40,
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: const Color(0xFFDFE1E1),
+                    ),
+                    child: const Row(
+                      children: [
+                        Icon(Icons.scale),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "Peso Ideal",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontFamily: 'Roboto',
+                            color: Colors.black,
+                            fontWeight: FontWeight.w400,
+                            height: 1,
+                          ),
+                        )
                       ],
                     ),
                   ),

@@ -45,15 +45,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 child: Image.asset('assets/logoSemfundo.png',
                     fit: BoxFit.contain))),
       ),
-      bottom: const PreferredSize(
-        preferredSize: Size(390, 0),
-        child: Divider(
-          // Linha divisória
-          color: Colors.white,
-// Cor da linha
-          height: 2.0, // Espessura da linha
-        ),
-      ),
       toolbarHeight: 80,
     );
   }

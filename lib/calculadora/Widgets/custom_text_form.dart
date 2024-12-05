@@ -22,7 +22,7 @@ class CustomTextFormCalculadora extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 155,
-      height: 37,
+      height: 40,
       child: TextFormField(
         onChanged: onChanged,
         keyboardType: TextInputType.number,
@@ -42,11 +42,10 @@ class CustomTextFormCalculadora extends StatelessWidget {
         decoration: InputDecoration(
           hintText: hintText,
           suffixText: suffixText,
-          contentPadding: const EdgeInsets.only(
-            bottom: 5,
-            top: 2,
-            right: 10,
-          ),
+
+          //alignLabelWithHint: true,
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 12, vertical: 8.5),
           suffixStyle: const TextStyle(
             color: Colors.black,
             fontSize: 17,
@@ -63,7 +62,8 @@ class CustomTextFormCalculadora extends StatelessWidget {
             height: 0,
             overflow: TextOverflow.clip,
           ),
-          fillColor: const Color(0xFFF1F5F4),
+          fillColor: const Color(0xFFDFE1E1),
+
           filled: true,
           prefixIcon: onPressed != null
               ? IconButton(
@@ -84,12 +84,12 @@ class CustomTextFormCalculadora extends StatelessWidget {
             minWidth: 38,
           ),
           enabledBorder: UnderlineInputBorder(
-            borderRadius: BorderRadius.circular(100),
-            borderSide: const BorderSide(color: Color(0xFFF1F5F4), width: 3),
+            borderRadius: BorderRadius.circular(10),
+            borderSide: const BorderSide(color: Color(0xFFDFE1E1), width: 3),
           ),
           focusedBorder: UnderlineInputBorder(
-            borderRadius: BorderRadius.circular(100),
-            borderSide: const BorderSide(color: Color(0xFFF1F5F4), width: 3),
+            borderRadius: BorderRadius.circular(10),
+            borderSide: const BorderSide(color: Color(0xFFDFE1E1), width: 3),
           ),
         ),
       ),
