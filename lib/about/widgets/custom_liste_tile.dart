@@ -20,7 +20,9 @@ class CustomListeTile extends StatelessWidget {
           Text(
             "$title:",
             style: const TextStyle(
-                fontSize: 19, fontWeight: FontWeight.bold, color: Colors.grey),
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF67ABEB)),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 10),
@@ -30,7 +32,7 @@ class CustomListeTile extends StatelessWidget {
                 Text(
                   "• $subtitle",
                   style: const TextStyle(
-                    fontSize: 16,
+                    fontSize: 15,
                   ),
                 ),
                 email != null
@@ -44,7 +46,7 @@ class CustomListeTile extends StatelessWidget {
                           TextSpan(
                             text: email,
                             style: const TextStyle(
-                              fontSize: 16,
+                              fontSize: 15,
                               color: Colors.blue,
                               decorationColor: Colors.blue,
                               decoration: TextDecoration.underline,
