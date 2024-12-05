@@ -37,7 +37,7 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
       drawer: const CustomDrawer(),
       appBar: const CustomAppBar(),
       body: ListenableBuilder(
-        listenable: controller,
+        listenable: Listenable.merge([controller, calculadoraController]),
         builder: (context, child) => SingleChildScrollView(
           child: Container(
             width: double.infinity,
@@ -69,15 +69,22 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
                     print("OnChanged  Click");
                     if (calculadoraController.idade.text != '' &&
                         calculadoraController.altura.text != '') {
-                      String idade = calculadoraController.idade.text;
-                      if (calculadoraController.isYear == false) {
-                        idade =
-                            '${double.parse(calculadoraController.idade.text) / 12}';
+                      calculadoraController.calcularPesoIdeal(
+                          calculadoraController.idade.text,
+                          calculadoraController.altura.text,
+                          calculadoraController.sexo);
+
+                      if (calculadoraController.pesoIdeal > 0) {
+                        String idade = calculadoraController.idade.text;
+                        if (calculadoraController.isYear == false) {
+                          idade =
+                              '${double.parse(calculadoraController.idade.text) / 12}';
+                        }
+                        controller.calcularFrequencia(
+                            idade, calculadoraController.altura.text);
+                        controller.calcularVolumeCorrente(
+                            calculadoraController.pesoIdeal);
                       }
-                      controller.calcularFrequencia(
-                          idade, calculadoraController.altura.text);
-                      controller.calcularVolumeCorrente(
-                          calculadoraController.pesoIdeal);
                     }
                   },
                   onPressed: () {

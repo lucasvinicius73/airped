@@ -59,22 +59,23 @@ class _CalculadoraState extends State<Calculadora> {
               Row(
                 children: [
                   CustomTextFormCalculadora(
-                      onChanged: widget.onChanged,
-                      controller: controller.idade,
-                      hintText: 'Idade',
-                      suffixText: controller.showSuffixText
-                          ? ''
-                          : controller.isYear == true
-                              ? 'anos'
-                              : 'meses',
-                      icon: controller.isYear == true
-                          ? Icons.calendar_month
-                          : Icons.calendar_view_day,
-                      onPressed: () {
-                        widget.onChanged!("");
-                        controller.changeAge();
-                        _showToast();
-                      }),
+                    onChanged: widget.onChanged,
+                    controller: controller.idade,
+                    hintText: 'Idade',
+                    suffixText: controller.showSuffixText
+                        ? ''
+                        : controller.isYear == true
+                            ? 'anos'
+                            : 'meses',
+                    icon: controller.isYear == true
+                        ? Icons.calendar_month
+                        : Icons.calendar_view_day,
+                    onPressed: () {
+                      widget.onChanged!("");
+                      controller.changeAge();
+                      _showToast();
+                    },
+                  ),
                   const Spacer(),
                   CustomTextFormCalculadora(
                       onChanged: widget.onChanged,
@@ -153,6 +154,7 @@ class _CalculadoraState extends State<Calculadora> {
                               ).toList(),
                               onChanged: (String? value) {
                                 controller.changeDropDown(value);
+                                widget.onChanged!("");
                               },
                             ),
                           ),
@@ -169,15 +171,17 @@ class _CalculadoraState extends State<Calculadora> {
                       borderRadius: BorderRadius.circular(10),
                       color: const Color(0xFFDFE1E1),
                     ),
-                    child: const Row(
+                    child: Row(
                       children: [
-                        Icon(Icons.scale),
-                        SizedBox(
+                        const Icon(Icons.scale),
+                        const SizedBox(
                           width: 5,
                         ),
                         Text(
-                          "Peso Ideal",
-                          style: TextStyle(
+                          controller.pesoIdeal > 0
+                              ? "${controller.pesoIdeal} kg"
+                              : "Peso Ideal",
+                          style: const TextStyle(
                             fontSize: 20,
                             fontFamily: 'Roboto',
                             color: Colors.black,
