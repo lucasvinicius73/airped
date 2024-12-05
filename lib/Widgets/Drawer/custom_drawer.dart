@@ -71,32 +71,39 @@ class CustomDrawer extends StatelessWidget {
             ),
             const Spacer(),
             Center(
-              child: Container(
-                padding: const EdgeInsets.all(5),
-                constraints: const BoxConstraints(maxWidth: 200),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      height: 65,
-                      width: 55,
-                      child: Image.asset("assets/about/brasaouepa.png"),
-                    ),
-                    const Spacer(),
-                    SizedBox(
-                      height: 60,
-                      width: 55,
-                      child: Image.asset("assets/about/logoCipe.png"),
-                    ),
-                    const Spacer(),
-                    SizedBox(
-                      height: 60,
-                      width: 55,
-                      child: Image.asset("assets/about/logoCapes.png"),
-                    ),
-                  ],
-                ),
+              child: SizedBox(
+                height: 80,
+                width: 80,
+                child: Image.asset("assets/logoSemfundo.png"),
               ),
             ),
+            // Center(
+            //   child: Container(
+            //     padding: const EdgeInsets.all(5),
+            //     constraints: const BoxConstraints(maxWidth: 200),
+            //     child: Row(
+            //       children: [
+            //         SizedBox(
+            //           height: 65,
+            //           width: 55,
+            //           child: Image.asset("assets/about/brasaouepa.png"),
+            //         ),
+            //         const Spacer(),
+            //         SizedBox(
+            //           height: 60,
+            //           width: 55,
+            //           child: Image.asset("assets/about/logoCipe.png"),
+            //         ),
+            //         const Spacer(),
+            //         SizedBox(
+            //           height: 60,
+            //           width: 55,
+            //           child: Image.asset("assets/about/logoCapes.png"),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
