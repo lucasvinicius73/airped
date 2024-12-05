@@ -5,7 +5,7 @@ class CustomTextFormCalculadora extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final String suffixText;
-  final IconData icon;
+  final Icon icon;
   final Function()? onPressed;
   final Function(String)? onChanged;
 
@@ -46,8 +46,12 @@ class CustomTextFormCalculadora extends StatelessWidget {
           //alignLabelWithHint: true,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 7, vertical: 13),
-          suffixStyle: const TextStyle(
-            color: Colors.black,
+          suffixStyle: TextStyle(
+            color: suffixText == 'anos'
+                ? Colors.blue
+                : suffixText == 'meses'
+                    ? Colors.red
+                    : Colors.black,
             fontSize: 17,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w400,
@@ -67,18 +71,10 @@ class CustomTextFormCalculadora extends StatelessWidget {
           filled: true,
           prefixIcon: onPressed != null
               ? IconButton(
-                  icon: Icon(
-                    icon,
-                    color: Colors.black,
-                    size: 22,
-                  ),
+                  icon: icon,
                   onPressed: onPressed,
                 )
-              : Icon(
-                  icon,
-                  color: Colors.black,
-                  size: 22,
-                ),
+              : icon,
           prefixIconConstraints: const BoxConstraints(
             minHeight: 48,
             minWidth: 38,

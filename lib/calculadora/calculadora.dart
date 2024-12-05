@@ -70,8 +70,14 @@ class _CalculadoraState extends State<Calculadora> {
                             ? 'anos'
                             : 'meses',
                     icon: controller.isYear == true
-                        ? Icons.calendar_month
-                        : Icons.calendar_view_day,
+                        ? const Icon(
+                            Icons.calendar_month_outlined,
+                            color: Colors.blue,
+                          )
+                        : const Icon(
+                            Icons.calendar_view_month,
+                            color: Colors.red,
+                          ),
                     onPressed: () async {
                       await controller.changeAge();
                       await widget.onChanged!("");
@@ -85,7 +91,7 @@ class _CalculadoraState extends State<Calculadora> {
                       controller: controller.altura,
                       hintText: 'Altura',
                       suffixText: 'cm',
-                      icon: Icons.height)
+                      icon: const Icon(Icons.height))
                 ],
               ),
               const SizedBox(height: 23),
@@ -239,12 +245,17 @@ class _CalculadoraState extends State<Calculadora> {
             const SizedBox(
               width: 12.0,
             ),
-            Text(
+            RichText(
+                text: TextSpan(children: [
+              const TextSpan(
+                  text: "Você mudou a Idade para ",
+                  style: TextStyle(color: Colors.black)),
               controller.isYear
-                  ? "Você mudou a Idade para anos!"
-                  : "Você mudou a Idade para meses!",
-              style: const TextStyle(),
-            ),
+                  ? const TextSpan(
+                      text: "\"anos\"", style: TextStyle(color: Colors.blue))
+                  : const TextSpan(
+                      text: "\"meses\"", style: TextStyle(color: Colors.red))
+            ])),
           ],
         ),
       ),
@@ -253,7 +264,7 @@ class _CalculadoraState extends State<Calculadora> {
     fToast.showToast(
       child: toast,
       gravity: ToastGravity.BOTTOM,
-      toastDuration: const Duration(seconds: 1),
+      toastDuration: const Duration(seconds: 2),
     );
   }
 }

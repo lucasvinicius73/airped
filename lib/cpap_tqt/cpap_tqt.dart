@@ -1,3 +1,4 @@
+import 'package:airped/Widgets/aviso.dart';
 import 'package:airped/Widgets/custom_decoration.dart';
 import 'package:airped/Widgets/custom_title_page.dart';
 import 'package:airped/calculadora/calculadora.dart';
@@ -45,6 +46,7 @@ class CpapTqtPage extends StatelessWidget {
                     title: 'Pressão Positiva e \nCânula de Traqueostomia',
                     icon: 'assets/title/tqt.png',
                   ),
+                  const Aviso(),
                   const SizedBox(height: 25),
                   Calculadora(onPressedReset: () {
                     calculadoraController.reset();
@@ -56,10 +58,16 @@ class CpapTqtPage extends StatelessWidget {
                         idade =
                             '${double.parse(calculadoraController.idade.text) / 12}';
                       }
-                      controller.calcularTamCanulaCPAP(
-                          calculadoraController.pesoIdeal, idade);
+                      calculadoraController.calcularPesoIdeal(
+                          idade,
+                          calculadoraController.altura.text,
+                          calculadoraController.sexo);
+                      if (calculadoraController.pesoIdeal > 0) {
+                        controller.calcularTamCanulaCPAP(
+                            calculadoraController.pesoIdeal, idade);
 
-                      controller.calcularTamTQT(idade);
+                        controller.calcularTamTQT(idade);
+                      }
                     }
                   }, onPressed: () {
                     if (calculadoraController.isNotEmpty()) {

@@ -1,3 +1,4 @@
+import 'package:airped/Widgets/aviso.dart';
 import 'package:airped/Widgets/custom_decoration.dart';
 import 'package:airped/Widgets/custom_title_page.dart';
 import 'package:airped/calculadora/calculadora.dart';
@@ -47,7 +48,8 @@ class TotPFPage extends StatelessWidget {
                     title: 'Tubo Orotraqueal (TOT)Fixação do TOT',
                     icon: 'assets/title/tot.png',
                   ),
-                  const SizedBox(height: 28),
+                  const Aviso(),
+                  const SizedBox(height: 25),
                   Calculadora(onPressedReset: () {
                     calculadoraController.reset();
                     controller.reset();
@@ -60,11 +62,9 @@ class TotPFPage extends StatelessWidget {
                             '${double.parse(calculadoraController.idade.text) / 12}';
                       }
                       controller.calcularEscolhaTOTcomCUFF(
-                          idade,
-                          calculadoraController.altura.text);
+                          idade, calculadoraController.altura.text);
                       controller.calcularEscolhaTOTsemCUFF(
-                          idade,
-                          calculadoraController.altura.text);
+                          idade, calculadoraController.altura.text);
                     }
                   }, onPressed: () {
                     print("OnPressed na Tubo Orotraqueal");
@@ -76,11 +76,9 @@ class TotPFPage extends StatelessWidget {
                             '${double.parse(calculadoraController.idade.text) / 12}';
                       }
                       controller.calcularEscolhaTOTcomCUFF(
-                          idade,
-                          calculadoraController.altura.text);
+                          idade, calculadoraController.altura.text);
                       controller.calcularEscolhaTOTsemCUFF(
-                          idade,
-                          calculadoraController.altura.text);
+                          idade, calculadoraController.altura.text);
                       Scrollable.ensureVisible(
                           WidgetKeys.totKey.currentContext!,
                           alignment: BorderSide.strokeAlignCenter);

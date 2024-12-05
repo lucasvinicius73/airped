@@ -8,19 +8,19 @@ class CpapTqtController extends ChangeNotifier {
     double idade = double.parse(idadeText);
     tamCanulaCPAP = '0';
 
-    if (pesoIdeal >= 1000 && pesoIdeal <= 1250) {
+    if (pesoIdeal >= 1 && pesoIdeal <= 1.250) {
       tamCanulaCPAP = '1';
     }
-    if (pesoIdeal > 1250 && pesoIdeal <= 2000) {
+    if (pesoIdeal > 1.250 && pesoIdeal <= 2.000) {
       tamCanulaCPAP = '2';
     }
-    if (pesoIdeal > 2000 && pesoIdeal <= 3000) {
+    if (pesoIdeal > 2.000 && pesoIdeal <= 3.000) {
       tamCanulaCPAP = '3';
     }
-    if (pesoIdeal > 3000 && idade < 1) {
+    if (pesoIdeal > 3.000 && idade < 1) {
       tamCanulaCPAP = '4';
     }
-    if (pesoIdeal > 3000 && idade >= 1 && idade <= 2) {
+    if (pesoIdeal > 3.000 && idade >= 1) {
       tamCanulaCPAP = '5';
     }
     notifyListeners();

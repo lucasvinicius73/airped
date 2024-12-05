@@ -1,3 +1,4 @@
+import 'package:airped/Widgets/aviso.dart';
 import 'package:airped/Widgets/custom_decoration.dart';
 import 'package:airped/Widgets/custom_title_page.dart';
 import 'package:airped/calculadora/calculadora.dart';
@@ -59,7 +60,8 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
                   title: 'Volume Corrente e Frequência Respiratória',
                   icon: 'assets/title/lung.png',
                 ),
-                const SizedBox(height: 28),
+                const Aviso(),
+                const SizedBox(height: 25),
                 Calculadora(
                   onPressedReset: () {
                     controller.reset();
