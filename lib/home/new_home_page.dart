@@ -165,24 +165,25 @@ class NewHomePage extends StatelessWidget {
                   height: 22,
                 ),
                 Container(
-                  constraints: const BoxConstraints(maxWidth: 300),
+                  padding: const EdgeInsets.all(5),
+                  constraints: const BoxConstraints(maxWidth: 200),
                   child: Row(
                     children: [
                       SizedBox(
-                        height: 80,
-                        width: 75,
+                        height: 65,
+                        width: 55,
                         child: Image.asset("assets/about/brasaouepa.png"),
                       ),
                       const Spacer(),
                       SizedBox(
-                        height: 80,
-                        width: 75,
+                        height: 60,
+                        width: 55,
                         child: Image.asset("assets/about/logoCipe.png"),
                       ),
                       const Spacer(),
                       SizedBox(
-                        height: 80,
-                        width: 75,
+                        height: 60,
+                        width: 55,
                         child: Image.asset("assets/about/logoCapes.png"),
                       ),
                     ],

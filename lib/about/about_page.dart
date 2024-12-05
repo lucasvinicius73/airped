@@ -107,7 +107,7 @@ class _AboutPageState extends State<AboutPage> {
                       height: 13,
                     ),
                     Text(
-                      "O aplicativo é um produto de tese de mestrado desenvolvido por Jamille Cristina Conceição Santos no programa de mestrado profissional. Programa credenciado pela CAPES.",
+                      "O aplicativo AirPed© é um produto de tese de mestrado desenvolvido por Jamille Cristina Conceição Santos no programa de mestrado profissional. Programa credenciado pela CAPES.",
                       textAlign: TextAlign.justify,
                     ),
                     SizedBox(
