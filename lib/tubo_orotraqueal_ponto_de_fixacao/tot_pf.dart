@@ -31,7 +31,7 @@ class TotPFPage extends StatelessWidget {
             child: Container(
               width: double.infinity,
               padding: const EdgeInsets.only(
-                  top: 25, left: 20, right: 20, bottom: 36),
+                  top: 25, left: 15, right: 15, bottom: 36),
               decoration: const BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,

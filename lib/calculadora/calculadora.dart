@@ -169,14 +169,17 @@ class _CalculadoraState extends State<Calculadora> {
                   Container(
                     width: 165,
                     height: 45,
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: const Color(0xFFDFE1E1),
                     ),
                     child: Row(
                       children: [
-                        const Icon(Icons.scale),
+                        const Icon(
+                          Icons.scale,
+                          size: 23,
+                        ),
                         const SizedBox(
                           width: 5,
                         ),

@@ -1,3 +1,4 @@
+import 'package:airped/Widgets/custom_decoration.dart';
 import 'package:flutter/material.dart';
 
 class Aviso extends StatelessWidget {
@@ -13,10 +14,7 @@ class Aviso extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
             constraints: const BoxConstraints(maxWidth: 400),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(20),
-            ),
+            decoration: CustomDecoration.shapeDecoration,
             child: RichText(
                 textAlign: TextAlign.justify,
                 text: const TextSpan(
@@ -27,7 +25,12 @@ class Aviso extends StatelessWidget {
                     children: [
                       TextSpan(text: "Clique no icone de calendário "),
                       TextSpan(
-                          text: "azul", style: TextStyle(color: Colors.blue)),
+                          text: "azul ", style: TextStyle(color: Colors.blue)),
+                      WidgetSpan(
+                          child: Icon(
+                        Icons.calendar_month_outlined,
+                        color: Colors.blue,
+                      )),
                       TextSpan(
                         text: " dentro do campo Idade para alterar a idade de ",
                       ),
@@ -36,8 +39,13 @@ class Aviso extends StatelessWidget {
                           style: TextStyle(color: Colors.blue)),
                       TextSpan(text: " para "),
                       TextSpan(
-                          text: "\"meses\"",
+                          text: "\"meses\" ",
                           style: TextStyle(color: Colors.red)),
+                      WidgetSpan(
+                          child: Icon(
+                        Icons.calendar_view_month,
+                        color: Colors.red,
+                      )),
                       TextSpan(text: "."),
                     ])),
           ),
