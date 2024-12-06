@@ -1,6 +1,7 @@
 import 'package:airped/Widgets/Drawer/custom_drawer.dart';
 import 'package:airped/Widgets/Drawer/drawer_controller.dart';
 import 'package:airped/Widgets/custom_app_bar.dart';
+import 'package:airped/home/Widgets/about_button.dart';
 import 'package:airped/home/Widgets/new_menu_button.dart';
 import 'package:airped/providers.dart';
 import 'package:flutter/material.dart';
@@ -10,12 +11,14 @@ class NewHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final drawerController = getIt<CustomDrawerController>();
-
     return Scaffold(
       backgroundColor: const Color(0xFF67ABEB),
-      appBar: const CustomAppBar(),
-      drawer: const CustomDrawer(),
+      appBar: const CustomAppBar(
+        isHome: true,
+      ),
+      drawer: const CustomDrawer(
+        isHome: true,
+      ),
       body: SingleChildScrollView(
         child: Container(
           decoration: const BoxDecoration(
@@ -95,10 +98,10 @@ class NewHomePage extends StatelessWidget {
                       )
                     ],
                   ),
-                  child: Center(
+                  child: const Center(
                     child: Column(
                       children: [
-                        const Text(
+                        Text(
                           "Informações",
                           style: TextStyle(
                             color: Color(0xFF1C72C2),
@@ -108,55 +111,8 @@ class NewHomePage extends StatelessWidget {
                             height: 0,
                           ),
                         ),
-                        const Spacer(),
-                        InkWell(
-                          onTap: () {
-                            drawerController.changeIndex(6);
-                            Navigator.of(context).pushNamed('/about');
-                          },
-                          child: Container(
-                            width: 187,
-                            height: 47,
-                            decoration: ShapeDecoration(
-                              color: const Color(0xFFFBFAFA),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                              shadows: const [
-                                BoxShadow(
-                                  color: Color(0x3F000000),
-                                  blurRadius: 4,
-                                  offset: Offset(0, 4),
-                                  spreadRadius: 0,
-                                )
-                              ],
-                            ),
-                            child: const Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.help_outline,
-                                  color: Color(0xFF67ABEB),
-                                  size: 22,
-                                ),
-                                SizedBox(
-                                  width: 7,
-                                ),
-                                Text(
-                                  'Sobre',
-                                  style: TextStyle(
-                                    color: Color(0xFFEFCA30),
-                                    fontSize: 20,
-                                    fontFamily: 'Roboto',
-                                    fontWeight: FontWeight.w600,
-                                    height: 0,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                        Spacer(),
+                        AboutButton()
                       ],
                     ),
                   ),

@@ -1,15 +1,37 @@
+import 'package:airped/Widgets/Drawer/drawer_controller.dart';
 import 'package:airped/Widgets/Drawer/drawer_item.dart';
+import 'package:airped/providers.dart';
 import 'package:flutter/material.dart';
 
-class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({super.key});
+class CustomDrawer extends StatefulWidget {
+  const CustomDrawer({this.isHome = false, super.key});
+  final bool isHome;
+
+  @override
+  State<CustomDrawer> createState() => _CustomDrawerState();
+}
+
+class _CustomDrawerState extends State<CustomDrawer> {
+  final controller = getIt<CustomDrawerController>();
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (widget.isHome) {
+        controller.changeIndex(0);
+      }
+    });
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      width: 320,
       backgroundColor: const Color(0xFF67ABEB),
       child: Padding(
-        padding: const EdgeInsets.all(21.0),
+        padding: const EdgeInsets.only(top: 50, bottom: 20, left: 5, right: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -41,22 +63,22 @@ class CustomDrawer extends StatelessWidget {
             ),
             const DrawerItem(
               index: 1,
-              title: 'Volume Corrente',
+              title: 'Volume Corrente e \nFrequência Respiratória',
               navigator: "/volume_corrente_page",
             ),
             const DrawerItem(
               index: 2,
-              title: 'TOT e Ponto de Fixação',
+              title: 'Tubo Orotraqueal(TOT) e Fixação do TOT',
               navigator: "/tot_pf_page",
             ),
             const DrawerItem(
               index: 3,
-              title: 'CPAP e Cânula de TQT',
+              title: 'Pronga de CPAP Nasal e Cânula de Traqueostomia(TQT)',
               navigator: "/cpap_tqt_page",
             ),
             const DrawerItem(
               index: 4,
-              title: 'Desconforto Respiratório',
+              title: 'Avaliação Respiratória',
               navigator: "/desconforto_resp_page",
             ),
             const DrawerItem(

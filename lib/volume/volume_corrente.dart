@@ -34,7 +34,7 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
     final calculadoraController = getIt<CalculadoraController>();
     final controller = Provider.of<VolumeCorrenteController>(context);
     return Scaffold(
-      backgroundColor: const Color(0xFF67ABEB),
+      backgroundColor: const Color(0xFF6AC7DE),
       drawer: const CustomDrawer(),
       appBar: const CustomAppBar(),
       body: ListenableBuilder(

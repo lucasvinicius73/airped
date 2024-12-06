@@ -4,7 +4,8 @@ import 'package:airped/providers.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  const CustomAppBar({this.isHome = false, super.key});
+  final bool isHome;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
         actions: [
-          drawerController.indexPage > 0
+          !isHome
               ? Padding(
                   padding: const EdgeInsets.only(top: 0, right: 22),
                   child: SizedBox(
@@ -49,7 +50,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         title: Padding(
           padding: const EdgeInsets.only(top: 0),
           child: GestureDetector(
-              onTap: drawerController.indexPage == 0
+              onTap: isHome
                   ? null
                   : () {
                       drawerController.changeIndex(0);
