@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 class CalculadoraController extends ChangeNotifier {
   TextEditingController idade = TextEditingController(text: '');
   TextEditingController altura = TextEditingController();
+  TextEditingController pesoReal = TextEditingController();
 
   List sexos = ['Masculino', 'Feminino'];
   String sexo = 'Masculino';

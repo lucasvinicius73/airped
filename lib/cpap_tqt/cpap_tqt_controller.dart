@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CpapTqtController extends ChangeNotifier {
-  String tamCanulaCPAP = '';
-  String canulaTQT = '';
+  String tamCanulaCPAP = '0';
+  String canulaTQT = '0';
 
   calcularTamCanulaCPAP(double pesoIdeal, String idadeText) {
     double idade = double.parse(idadeText);
@@ -23,6 +23,9 @@ class CpapTqtController extends ChangeNotifier {
     if (pesoIdeal > 3.000 && idade >= 1) {
       tamCanulaCPAP = '5';
     }
+    if (idade >= 2) {
+      tamCanulaCPAP = 'Inadequado para\nessa idade';
+    }
     notifyListeners();
   }
 
@@ -38,14 +41,14 @@ class CpapTqtController extends ChangeNotifier {
       canulaTQT = '4.0 mm - 4.5 mm';
     }
     if (idade >= 2) {
-      canulaTQT = '${idade + 16.4} mm';
+      canulaTQT = '${((idade + 16) / 4).toStringAsFixed(1)} mm';
     }
     notifyListeners();
   }
 
   reset() {
-    tamCanulaCPAP = '';
-    canulaTQT = '';
+    tamCanulaCPAP = '0';
+    canulaTQT = '0';
     notifyListeners();
   }
 }

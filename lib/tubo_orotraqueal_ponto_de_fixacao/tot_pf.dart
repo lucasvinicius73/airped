@@ -112,18 +112,18 @@ class TotPFPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             TotResult(
-                                firstText: 'Canula ',
+                                firstText: 'Cânula ',
                                 colorText: 'sem ',
-                                thirdText: 'CUFF (mm DI)',
+                                thirdText: 'CUFF (mm)',
                                 color: const Color(0xFFFF0000),
                                 result: controller.escolharTOTsemCUFF),
                             const SizedBox(
                               width: 25,
                             ),
                             TotResult(
-                                firstText: 'Canula ',
+                                firstText: 'Cânula ',
                                 colorText: 'com ',
-                                thirdText: 'CUFF (cm)',
+                                thirdText: 'CUFF (mm)',
                                 color: const Color(0xFF0BC212),
                                 result: controller.escolhaTOTcomCUFF),
                           ],
@@ -159,7 +159,7 @@ class TotPFPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             TotResult(
-                                firstText: 'Canula ',
+                                firstText: 'Cânula ',
                                 colorText: 'sem ',
                                 thirdText: 'CUFF (cm)',
                                 color: const Color(0xFFFF0000),
@@ -168,7 +168,7 @@ class TotPFPage extends StatelessWidget {
                               width: 25,
                             ),
                             TotResult(
-                                firstText: 'Canula ',
+                                firstText: 'Cânula ',
                                 colorText: 'com ',
                                 thirdText: 'CUFF (cm)',
                                 color: const Color(0xFF0BC212),

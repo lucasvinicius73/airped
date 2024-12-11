@@ -43,48 +43,53 @@ class CpapTqtPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const CustomTitlePage(
-                    title: 'Pressão Positiva e \nCânula de Traqueostomia',
+                    title:
+                        'Pronga de CPAP Nasal e\nCânula de Traqueostomia (TQT)',
                     icon: 'assets/title/tqt.png',
                   ),
                   const Aviso(),
                   const SizedBox(height: 25),
-                  Calculadora(onPressedReset: () {
-                    calculadoraController.reset();
-                    controller.reset();
-                  }, onChanged: (p0) {
-                    if (calculadoraController.isNotEmpty()) {
-                      String idade = calculadoraController.idade.text;
-                      if (calculadoraController.isYear == false) {
-                        idade =
-                            '${double.parse(calculadoraController.idade.text) / 12}';
-                      }
-                      calculadoraController.calcularPesoIdeal(
-                          idade,
-                          calculadoraController.altura.text,
-                          calculadoraController.sexo);
-                      if (calculadoraController.pesoIdeal > 0) {
-                        controller.calcularTamCanulaCPAP(
-                            calculadoraController.pesoIdeal, idade);
+                  Calculadora(
+                      isRealWeight: true,
+                      onPressedReset: () {
+                        calculadoraController.reset();
+                        controller.reset();
+                      },
+                      onChanged: (p0) {
+                        if (calculadoraController.isNotEmpty()) {
+                          String idade = calculadoraController.idade.text;
+                          if (calculadoraController.isYear == false) {
+                            idade =
+                                '${double.parse(calculadoraController.idade.text) / 12}';
+                          }
+                          calculadoraController.calcularPesoIdeal(
+                              idade,
+                              calculadoraController.altura.text,
+                              calculadoraController.sexo);
+                          if (calculadoraController.pesoIdeal > 0) {
+                            controller.calcularTamCanulaCPAP(
+                                calculadoraController.pesoIdeal, idade);
 
-                        controller.calcularTamTQT(idade);
-                      }
-                    }
-                  }, onPressed: () {
-                    if (calculadoraController.isNotEmpty()) {
-                      String idade = calculadoraController.idade.text;
-                      if (calculadoraController.isYear == false) {
-                        idade =
-                            '${double.parse(calculadoraController.idade.text) / 12}';
-                      }
-                      controller.calcularTamCanulaCPAP(
-                          calculadoraController.pesoIdeal, idade);
+                            controller.calcularTamTQT(idade);
+                          }
+                        }
+                      },
+                      onPressed: () {
+                        if (calculadoraController.isNotEmpty()) {
+                          String idade = calculadoraController.idade.text;
+                          if (calculadoraController.isYear == false) {
+                            idade =
+                                '${double.parse(calculadoraController.idade.text) / 12}';
+                          }
+                          controller.calcularTamCanulaCPAP(
+                              calculadoraController.pesoIdeal, idade);
 
-                      controller.calcularTamTQT(idade);
-                      Scrollable.ensureVisible(
-                          WidgetKeys.cpapKey.currentContext!,
-                          alignment: BorderSide.strokeAlignCenter);
-                    }
-                  }),
+                          controller.calcularTamTQT(idade);
+                          Scrollable.ensureVisible(
+                              WidgetKeys.cpapKey.currentContext!,
+                              alignment: BorderSide.strokeAlignCenter);
+                        }
+                      }),
                   const SizedBox(
                     height: 28,
                   ),
@@ -130,6 +135,7 @@ class CpapTqtPage extends StatelessWidget {
                                   Container(
                                     width: 130,
                                     height: 46,
+                                    padding: const EdgeInsets.all(4),
                                     decoration: ShapeDecoration(
                                       color: const Color(0xFFF1F5F4),
                                       shape: RoundedRectangleBorder(
@@ -145,7 +151,23 @@ class CpapTqtPage extends StatelessWidget {
                                       ],
                                     ),
                                     child: Center(
-                                      child: Text(controller.tamCanulaCPAP),
+                                      child: FittedBox(
+                                        fit: BoxFit.scaleDown,
+                                        child: Text(
+                                          textAlign: TextAlign.center,
+                                          controller.tamCanulaCPAP,
+                                          style: TextStyle(
+                                            color: controller.tamCanulaCPAP ==
+                                                    "Inadequado para\nessa idade"
+                                                ? Colors.red
+                                                : null,
+                                            fontSize: 20,
+                                            fontFamily: 'Roboto',
+                                            fontWeight: FontWeight.w400,
+                                            height: 0,
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                   )
                                 ],

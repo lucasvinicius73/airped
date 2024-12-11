@@ -70,9 +70,8 @@ class CustomTextFormCalculadora extends StatelessWidget {
                   onPressed: onPressed,
                 )
               : icon,
-          prefixIconConstraints: const BoxConstraints(
-            maxWidth: 36,
-          ),
+          prefixIconConstraints:
+              const BoxConstraints(maxWidth: 36, minWidth: 36),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: const BorderSide(color: Color(0xFFDFE1E1), width: 3),

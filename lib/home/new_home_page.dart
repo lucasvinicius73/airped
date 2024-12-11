@@ -51,14 +51,15 @@ class NewHomePage extends StatelessWidget {
                   index: 1,
                 ),
                 const NewMenuButton(
-                  title: "Tubo Orotraqueal(TOT) e\nFixação do TOT",
+                  title: "Tubo Orotraqueal (TOT) e\nFixação do TOT",
                   route: "/tot_pf_page",
                   icon: 'assets/home/tot.png',
                   color: Color(0xFFEBEC95),
                   index: 2,
                 ),
                 const NewMenuButton(
-                  title: "Pronga de CPAP Nasal e\nCânula de Traqueostomia(TQT)",
+                  title:
+                      "Pronga de CPAP Nasal e\nCânula de Traqueostomia (TQT)",
                   route: "/cpap_tqt_page",
                   icon: 'assets/home/tqt.png',
                   color: Color(0xFFF9C4E3),

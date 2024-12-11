@@ -82,7 +82,7 @@ class DesconfortoRespPage extends StatelessWidget {
                         },
                       ),
                       DropDownDesconfortoResp(
-                        title: 'Dissociação Toraco-Abdominal',
+                        title: 'Assincronia Toraco-Abdominal',
                         value: controller.values[1],
                         values: controller.disssociacaoMap,
                         onChanged: (int? value) {
@@ -98,7 +98,7 @@ class DesconfortoRespPage extends StatelessWidget {
                         },
                       ),
                       DropDownDesconfortoResp(
-                        title: 'Sibilos Expiratótios',
+                        title: 'Sibilos Expiratórios',
                         value: controller.values[3],
                         values: controller.sibilosMap,
                         onChanged: (int? value) {

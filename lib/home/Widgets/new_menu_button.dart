@@ -69,8 +69,7 @@ class NewMenuButton extends StatelessWidget {
                 const SizedBox(
                   width: 8,
                 ),
-                SizedBox(
-                  width: 250,
+                Flexible(
                   child: Text(
                     title,
                     maxLines: 3,

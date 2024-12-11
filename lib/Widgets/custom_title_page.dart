@@ -8,8 +8,8 @@ class CustomTitlePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 73,
-      width: 320,
+      height: 78,
+      width: 370,
       child: Stack(
         clipBehavior: Clip.none,
         alignment: Alignment.center,
@@ -17,8 +17,8 @@ class CustomTitlePage extends StatelessWidget {
           Positioned(
             top: 10,
             child: Container(
-              width: 320,
-              height: 55,
+              width: 370,
+              height: 60,
               padding: const EdgeInsets.only(left: 68, right: 20),
               decoration: BoxDecoration(
                   border: Border.all(
