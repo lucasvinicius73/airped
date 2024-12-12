@@ -57,7 +57,7 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const CustomTitlePage(
-                  title: 'Volume Corrente e Frequência Respiratória',
+                  title: 'Volume Corrente e \nFrequência Respiratória',
                   icon: 'assets/title/lung.png',
                 ),
                 const Aviso(),

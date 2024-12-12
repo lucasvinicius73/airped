@@ -56,22 +56,20 @@ class CpapTqtPage extends StatelessWidget {
                         controller.reset();
                       },
                       onChanged: (p0) {
-                        if (calculadoraController.isNotEmpty()) {
+                        if (calculadoraController.idade.text != '' &&
+                            calculadoraController.altura.text != '' &&
+                            calculadoraController.pesoReal.text != '') {
                           String idade = calculadoraController.idade.text;
                           if (calculadoraController.isYear == false) {
                             idade =
                                 '${double.parse(calculadoraController.idade.text) / 12}';
                           }
-                          calculadoraController.calcularPesoIdeal(
-                              idade,
-                              calculadoraController.altura.text,
-                              calculadoraController.sexo);
-                          if (calculadoraController.pesoIdeal > 0) {
-                            controller.calcularTamCanulaCPAP(
-                                calculadoraController.pesoIdeal, idade);
 
-                            controller.calcularTamTQT(idade);
-                          }
+                          controller.calcularTamCanulaCPAP(
+                              double.parse(calculadoraController.pesoReal.text),
+                              idade);
+
+                          controller.calcularTamTQT(idade);
                         }
                       },
                       onPressed: () {
@@ -81,13 +79,12 @@ class CpapTqtPage extends StatelessWidget {
                             idade =
                                 '${double.parse(calculadoraController.idade.text) / 12}';
                           }
+
                           controller.calcularTamCanulaCPAP(
-                              calculadoraController.pesoIdeal, idade);
+                              double.parse(calculadoraController.pesoReal.text),
+                              idade);
 
                           controller.calcularTamTQT(idade);
-                          Scrollable.ensureVisible(
-                              WidgetKeys.cpapKey.currentContext!,
-                              alignment: BorderSide.strokeAlignCenter);
                         }
                       }),
                   const SizedBox(
@@ -117,11 +114,11 @@ class CpapTqtPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SizedBox(
-                              width: 130,
+                              width: 180,
                               child: Column(
                                 children: [
                                   const Text(
-                                    'Tamanho da Cânula',
+                                    'Tamanho \nda Cânula',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       color: Color(0xFF1C72C2),
@@ -133,7 +130,7 @@ class CpapTqtPage extends StatelessWidget {
                                   ),
                                   const SizedBox(height: 7),
                                   Container(
-                                    width: 130,
+                                    //width: 130,
                                     height: 46,
                                     padding: const EdgeInsets.all(4),
                                     decoration: ShapeDecoration(
@@ -197,20 +194,8 @@ class CpapTqtPage extends StatelessWidget {
                                     height: 46,
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 13),
-                                    decoration: ShapeDecoration(
-                                      color: const Color(0xFFF1F5F4),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      shadows: const [
-                                        BoxShadow(
-                                          color: Color(0x3F000000),
-                                          blurRadius: 4,
-                                          offset: Offset(0, 4),
-                                          spreadRadius: 0,
-                                        )
-                                      ],
-                                    ),
+                                    decoration:
+                                        CustomDecoration.shapeDecoration,
                                     child: const Row(
                                       children: [
                                         Icon(Icons.play_arrow),
@@ -243,7 +228,7 @@ class CpapTqtPage extends StatelessWidget {
                     key: WidgetKeys.cpapKey,
                     constraints: const BoxConstraints(maxWidth: 400),
                     padding: const EdgeInsets.only(
-                        left: 17, bottom: 18, right: 15, top: 16),
+                        left: 17, bottom: 18, right: 15, top: 16.89),
                     decoration: CustomDecoration.shapeDecoration,
                     child: Column(
                       children: [
@@ -258,51 +243,108 @@ class CpapTqtPage extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(
-                          height: 12,
+                          height: 17.11,
                         ),
-                        const Text(
-                          'Cânula Recomendada',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Color(0xFF1C72C2),
-                            fontSize: 18,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w600,
-                            height: 0,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 4,
-                        ),
-                        Container(
-                          width: 225,
-                          height: 46,
-                          decoration: ShapeDecoration(
-                            color: const Color(0xFFF1F5F4),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            shadows: const [
-                              BoxShadow(
-                                color: Color(0x3F000000),
-                                blurRadius: 4,
-                                offset: Offset(0, 4),
-                                spreadRadius: 0,
-                              )
-                            ],
-                          ),
-                          child: Center(
-                            child: Text(
-                              controller.canulaTQT,
-                              style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w400,
-                                height: 0,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 180,
+                              child: Column(
+                                children: [
+                                  const Text(
+                                    'Cânula\n Recomendada',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Color(0xFF1C72C2),
+                                      fontSize: 18,
+                                      fontFamily: 'Roboto',
+                                      fontWeight: FontWeight.w600,
+                                      height: 0,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 4,
+                                  ),
+                                  Container(
+                                    //width: 225,
+                                    height: 46,
+                                    decoration: ShapeDecoration(
+                                      color: const Color(0xFFF1F5F4),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      shadows: const [
+                                        BoxShadow(
+                                          color: Color(0x3F000000),
+                                          blurRadius: 4,
+                                          offset: Offset(0, 4),
+                                          spreadRadius: 0,
+                                        )
+                                      ],
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        controller.canulaTQT,
+                                        style: const TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 20,
+                                          fontFamily: 'Roboto',
+                                          fontWeight: FontWeight.w400,
+                                          height: 0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ),
+                            const SizedBox(
+                              width: 12,
+                            ),
+                            SizedBox(
+                              width: 130,
+                              child: Column(
+                                children: [
+                                  const Text(
+                                    'Como instalar Cânula',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Color(0xFF1C72C2),
+                                      fontSize: 18,
+                                      fontFamily: 'Roboto',
+                                      fontWeight: FontWeight.w600,
+                                      height: 0,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 7),
+                                  Container(
+                                    width: 130,
+                                    height: 46,
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 13),
+                                    decoration:
+                                        CustomDecoration.shapeDecoration,
+                                    child: const Row(
+                                      children: [
+                                        Icon(Icons.play_arrow),
+                                        Text(
+                                          'Acesse',
+                                          style: TextStyle(
+                                            color: Color(0xFF67ABEB),
+                                            fontSize: 20,
+                                            fontFamily: 'Roboto',
+                                            fontWeight: FontWeight.w600,
+                                            height: 0,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
                         )
                       ],
                     ),

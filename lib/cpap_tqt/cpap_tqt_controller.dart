@@ -4,28 +4,30 @@ class CpapTqtController extends ChangeNotifier {
   String tamCanulaCPAP = '0';
   String canulaTQT = '0';
 
-  calcularTamCanulaCPAP(double pesoIdeal, String idadeText) {
+  calcularTamCanulaCPAP(double pesoReal, String idadeText) {
     double idade = double.parse(idadeText);
     tamCanulaCPAP = '0';
 
-    if (pesoIdeal >= 1 && pesoIdeal <= 1.250) {
+    if (pesoReal < 700) {
+      tamCanulaCPAP = '00';
+    } else if (pesoReal >= 700 && pesoReal < 1000) {
+      tamCanulaCPAP = '0';
+    } else if (pesoReal >= 1000 && pesoReal < 1250) {
       tamCanulaCPAP = '1';
-    }
-    if (pesoIdeal > 1.250 && pesoIdeal <= 2.000) {
+    } else if (pesoReal >= 1250 && pesoReal < 2000) {
       tamCanulaCPAP = '2';
-    }
-    if (pesoIdeal > 2.000 && pesoIdeal <= 3.000) {
+    } else if (pesoReal >= 2000 && pesoReal < 3000) {
       tamCanulaCPAP = '3';
     }
-    if (pesoIdeal > 3.000 && idade < 1) {
+    if (pesoReal >= 3000) {
       tamCanulaCPAP = '4';
     }
-    if (pesoIdeal > 3.000 && idade >= 1) {
+    if (pesoReal >= 3000 && idade >= 1 && idade < 2) {
       tamCanulaCPAP = '5';
-    }
-    if (idade >= 2) {
+    } else if (idade >= 2) {
       tamCanulaCPAP = 'Inadequado para\nessa idade';
     }
+
     notifyListeners();
   }
 

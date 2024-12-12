@@ -45,7 +45,7 @@ class TotPFPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const CustomTitlePage(
-                    title: 'Tubo Orotraqueal (TOT)Fixação do TOT',
+                    title: 'Tubo Orotraqueal (TOT) e\n Fixação do TOT',
                     icon: 'assets/title/tot.png',
                   ),
                   const Aviso(),
@@ -174,6 +174,42 @@ class TotPFPage extends StatelessWidget {
                                 color: const Color(0xFF0BC212),
                                 result: controller.pontoFixacaoComCUFF),
                           ],
+                        ),
+                        const SizedBox(
+                          height: 18,
+                        ),
+                        const Text(
+                          'Como instalar Cânula',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Color(0xFF1C72C2),
+                            fontSize: 18,
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.w600,
+                            height: 0,
+                          ),
+                        ),
+                        const SizedBox(height: 7),
+                        Container(
+                          width: 130,
+                          height: 46,
+                          padding: const EdgeInsets.symmetric(horizontal: 13),
+                          decoration: CustomDecoration.shapeDecoration,
+                          child: const Row(
+                            children: [
+                              Icon(Icons.play_arrow),
+                              Text(
+                                'Acesse',
+                                style: TextStyle(
+                                  color: Color(0xFF67ABEB),
+                                  fontSize: 20,
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.w600,
+                                  height: 0,
+                                ),
+                              )
+                            ],
+                          ),
                         )
                       ],
                     ),

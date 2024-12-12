@@ -38,6 +38,8 @@ class CalculadoraController extends ChangeNotifier {
   reset() {
     idade.text = '';
     altura.text = '';
+    pesoReal.text = '';
+    pesoIdeal = 0;
     notifyListeners();
   }
 
