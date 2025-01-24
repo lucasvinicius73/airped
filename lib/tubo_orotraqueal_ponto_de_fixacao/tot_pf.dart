@@ -11,7 +11,6 @@ import 'package:airped/tubo_orotraqueal_ponto_de_fixacao/Widgets/tot_result.dart
 import 'package:airped/tubo_orotraqueal_ponto_de_fixacao/tot_controller.dart';
 import 'package:airped/widget_keys.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class TotPFPage extends StatefulWidget {
   const TotPFPage({super.key});
