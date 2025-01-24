@@ -24,7 +24,7 @@ class CpapTqtController extends ChangeNotifier {
     }
     if (pesoReal >= 3000 && idade >= 1 && idade < 2) {
       tamCanulaCPAP = '5';
-    } else if (idade >= 2) {
+    } else if (idade >= 3) {
       tamCanulaCPAP = 'Inadequado para\nessa idade';
     }
 

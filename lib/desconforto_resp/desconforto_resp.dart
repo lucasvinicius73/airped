@@ -106,7 +106,7 @@ class DesconfortoRespPage extends StatelessWidget {
                         },
                       ),
                       DropDownDesconfortoResp(
-                        title: 'Cianose e SaO2',
+                        title: 'SpO2',
                         value: controller.values[4],
                         values: controller.cianoseMap,
                         onChanged: (int? value) {

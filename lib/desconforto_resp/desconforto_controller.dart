@@ -23,9 +23,9 @@ class DesconfortoController extends ChangeNotifier {
     'Audível sem ausculta': 2,
   };
   Map<String, int> cianoseMap = {
-    'Não (>92%)': 0,
-    'Em ar ambiente (<92%)': 1,
-    '<92% Com FiO2 > 0.4': 2,
+    '>90% em ar ambiente': 0,
+    '<90% em ar ambiente': 1,
+    '<90% em oxigenioterapia': 2,
   };
   Map<String, int> coscienciaMap = {
     'Normal': 0,

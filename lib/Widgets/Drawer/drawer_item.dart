@@ -54,7 +54,7 @@ class DrawerItem extends StatelessWidget {
                       Flexible(
                         child: Text(
                           title,
-                          maxLines: 3,
+                          maxLines: 2,
                           style: TextStyle(
                             color: controller.indexPage == index
                                 ? const Color(0xFF67ABEB)

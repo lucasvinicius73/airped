@@ -179,7 +179,7 @@ class TotPFPage extends StatelessWidget {
                           height: 18,
                         ),
                         const Text(
-                          'Como instalar Cânula',
+                          'Como realizar fixação do TOT:',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Color(0xFF1C72C2),

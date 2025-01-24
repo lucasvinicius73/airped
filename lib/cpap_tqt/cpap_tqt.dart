@@ -307,7 +307,7 @@ class CpapTqtPage extends StatelessWidget {
                               child: Column(
                                 children: [
                                   const Text(
-                                    'Como instalar Cânula',
+                                    'Como realizar aspiração de TQT',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       color: Color(0xFF1C72C2),
