@@ -47,11 +47,9 @@ class _CalculadoraState extends State<Calculadora> {
           decoration: CustomDecoration.shapeDecoration,
           child: Column(
             children: [
-              Text(
-                widget.isRealWeight
-                    ? 'Calculadora Peso Real'
-                    : 'Calculadora Peso Ideal',
-                style: const TextStyle(
+              const Text(
+                'Calculadora',
+                style: TextStyle(
                   color: Color(0xFF67ABEB),
                   fontSize: 20,
                   fontFamily: 'Roboto',
@@ -170,46 +168,58 @@ class _CalculadoraState extends State<Calculadora> {
                     ),
                   ),
                   const Spacer(),
-                  !widget.isRealWeight
-                      ? Container(
-                          width: 165,
-                          height: 45,
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: const Color(0xFFDFE1E1),
-                          ),
-                          child: Row(
-                            children: [
-                              const Icon(
-                                Icons.scale,
-                                size: 23,
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                controller.pesoIdeal > 0
-                                    ? "${controller.pesoIdeal} kg"
-                                    : "Peso Ideal",
-                                style: const TextStyle(
-                                  fontSize: 19,
-                                  fontFamily: 'Roboto',
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w400,
-                                  height: 1,
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      : CustomTextFormCalculadora(
-                          onChanged: widget.onChanged,
-                          controller: controller.pesoReal,
-                          hintText: 'Peso(g)',
-                          suffixText: 'g',
-                          icon: const Icon(Icons.scale_outlined)),
+                  CustomTextFormCalculadora(
+                      onChanged: widget.onChanged,
+                      controller: controller.pesoReal,
+                      hintText: 'Peso(g)',
+                      suffixText: 'g',
+                      icon: const Icon(Icons.scale_outlined)),
                 ],
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const Text(
+                'Peso Ideal:',
+                style: TextStyle(
+                  color: Color(0xFF67ABEB),
+                  fontSize: 18,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.w600,
+                  height: 0,
+                ),
+              ),
+              Container(
+                width: 165,
+                height: 45,
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color(0xFFDFE1E1),
+                ),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.scale,
+                      size: 23,
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      controller.pesoIdeal > 0
+                          ? "${controller.pesoIdeal} kg"
+                          : "Peso Ideal",
+                      style: const TextStyle(
+                        fontSize: 19,
+                        fontFamily: 'Roboto',
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                        height: 1,
+                      ),
+                    )
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 34,

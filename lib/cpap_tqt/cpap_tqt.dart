@@ -1,6 +1,7 @@
 import 'package:airped/Widgets/aviso.dart';
 import 'package:airped/Widgets/custom_decoration.dart';
 import 'package:airped/Widgets/custom_title_page.dart';
+import 'package:airped/Widgets/youtube_button.dart';
 import 'package:airped/calculadora/calculadora.dart';
 import 'package:airped/calculadora/calculadora_controller.dart';
 import 'package:airped/Widgets/custom_app_bar.dart';
@@ -64,6 +65,10 @@ class CpapTqtPage extends StatelessWidget {
                             idade =
                                 '${double.parse(calculadoraController.idade.text) / 12}';
                           }
+                          calculadoraController.calcularPesoIdeal(
+                              idade,
+                              calculadoraController.altura.text,
+                              calculadoraController.sexo);
 
                           controller.calcularTamCanulaCPAP(
                               double.parse(calculadoraController.pesoReal.text),
@@ -79,6 +84,10 @@ class CpapTqtPage extends StatelessWidget {
                             idade =
                                 '${double.parse(calculadoraController.idade.text) / 12}';
                           }
+                          calculadoraController.calcularPesoIdeal(
+                              idade,
+                              calculadoraController.altura.text,
+                              calculadoraController.sexo);
 
                           controller.calcularTamCanulaCPAP(
                               double.parse(calculadoraController.pesoReal.text),
@@ -189,29 +198,8 @@ class CpapTqtPage extends StatelessWidget {
                                     ),
                                   ),
                                   const SizedBox(height: 7),
-                                  Container(
-                                    width: 130,
-                                    height: 46,
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 13),
-                                    decoration:
-                                        CustomDecoration.shapeDecoration,
-                                    child: const Row(
-                                      children: [
-                                        Icon(Icons.play_arrow),
-                                        Text(
-                                          'Acesse',
-                                          style: TextStyle(
-                                            color: Color(0xFF67ABEB),
-                                            fontSize: 20,
-                                            fontFamily: 'Roboto',
-                                            fontWeight: FontWeight.w600,
-                                            height: 0,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  )
+                                  YoutubeButton(
+                                      link: "https://youtu.be/8OFDHaOf79Y")
                                 ],
                               ),
                             ),
@@ -302,11 +290,11 @@ class CpapTqtPage extends StatelessWidget {
                             const SizedBox(
                               width: 12,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 130,
                               child: Column(
                                 children: [
-                                  const Text(
+                                  Text(
                                     'Como realizar aspiração de TQT',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
@@ -317,30 +305,9 @@ class CpapTqtPage extends StatelessWidget {
                                       height: 0,
                                     ),
                                   ),
-                                  const SizedBox(height: 7),
-                                  Container(
-                                    width: 130,
-                                    height: 46,
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 13),
-                                    decoration:
-                                        CustomDecoration.shapeDecoration,
-                                    child: const Row(
-                                      children: [
-                                        Icon(Icons.play_arrow),
-                                        Text(
-                                          'Acesse',
-                                          style: TextStyle(
-                                            color: Color(0xFF67ABEB),
-                                            fontSize: 20,
-                                            fontFamily: 'Roboto',
-                                            fontWeight: FontWeight.w600,
-                                            height: 0,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  )
+                                  SizedBox(height: 7),
+                                  YoutubeButton(
+                                      link: "https://youtu.be/ALpYoZ_tjdQ")
                                 ],
                               ),
                             ),

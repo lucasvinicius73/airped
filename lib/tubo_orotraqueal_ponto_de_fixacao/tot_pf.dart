@@ -1,6 +1,7 @@
 import 'package:airped/Widgets/aviso.dart';
 import 'package:airped/Widgets/custom_decoration.dart';
 import 'package:airped/Widgets/custom_title_page.dart';
+import 'package:airped/Widgets/youtube_button.dart';
 import 'package:airped/calculadora/calculadora.dart';
 import 'package:airped/calculadora/calculadora_controller.dart';
 import 'package:airped/Widgets/custom_app_bar.dart';
@@ -190,27 +191,8 @@ class TotPFPage extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 7),
-                        Container(
-                          width: 130,
-                          height: 46,
-                          padding: const EdgeInsets.symmetric(horizontal: 13),
-                          decoration: CustomDecoration.shapeDecoration,
-                          child: const Row(
-                            children: [
-                              Icon(Icons.play_arrow),
-                              Text(
-                                'Acesse',
-                                style: TextStyle(
-                                  color: Color(0xFF67ABEB),
-                                  fontSize: 20,
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.w600,
-                                  height: 0,
-                                ),
-                              )
-                            ],
-                          ),
-                        )
+                        const YoutubeButton(
+                            link: "https://youtu.be/Fl8WwPZSY4c")
                       ],
                     ),
                   )
