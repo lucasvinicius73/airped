@@ -1,9 +1,7 @@
 import 'package:airped/Widgets/Drawer/custom_drawer.dart';
-import 'package:airped/Widgets/Drawer/drawer_controller.dart';
 import 'package:airped/Widgets/custom_app_bar.dart';
 import 'package:airped/home/Widgets/about_button.dart';
 import 'package:airped/home/Widgets/new_menu_button.dart';
-import 'package:airped/providers.dart';
 import 'package:flutter/material.dart';
 
 class NewHomePage extends StatelessWidget {

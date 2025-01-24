@@ -10,7 +10,6 @@ import 'package:airped/volume/Widgets/volume_corrente_result.dart';
 import 'package:airped/volume/volume_corrent_controller.dart';
 import 'package:airped/widget_keys.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
 class VolumeCorrentePage extends StatefulWidget {

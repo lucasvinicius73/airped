@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class CustomBoxShadow extends BoxShadow {
+  @override
   final BlurStyle blurStyle;
 
   const CustomBoxShadow({
