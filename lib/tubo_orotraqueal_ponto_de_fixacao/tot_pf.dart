@@ -13,14 +13,25 @@ import 'package:airped/widget_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class TotPFPage extends StatelessWidget {
+class TotPFPage extends StatefulWidget {
   const TotPFPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final controller = Provider.of<TotController>(context);
-    final calculadoraController = getIt<CalculadoraController>();
+  State<TotPFPage> createState() => _TotPFPageState();
+}
 
+class _TotPFPageState extends State<TotPFPage> {
+  final controller = getIt<TotController>();
+  final calculadoraController = getIt<CalculadoraController>();
+
+  @override
+  void initState() {
+    super.initState();
+    calcularTOT();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(),
       drawer: const CustomDrawer(),
@@ -51,40 +62,18 @@ class TotPFPage extends StatelessWidget {
                   ),
                   const Aviso(),
                   const SizedBox(height: 25),
-                  Calculadora(onPressedReset: () {
-                    calculadoraController.reset();
-                    controller.reset();
-                  }, onChanged: (p0) {
-                    print("Onchanged na Tubo Orotraqueal");
-                    if (calculadoraController.isNotEmpty()) {
-                      String idade = calculadoraController.idade.text;
-                      if (calculadoraController.isYear == false) {
-                        idade =
-                            '${double.parse(calculadoraController.idade.text) / 12}';
-                      }
-                      controller.calcularEscolhaTOTcomCUFF(
-                          idade, calculadoraController.altura.text);
-                      controller.calcularEscolhaTOTsemCUFF(
-                          idade, calculadoraController.altura.text);
-                    }
-                  }, onPressed: () {
-                    print("OnPressed na Tubo Orotraqueal");
-
-                    if (calculadoraController.isNotEmpty()) {
-                      String idade = calculadoraController.idade.text;
-                      if (calculadoraController.isYear == false) {
-                        idade =
-                            '${double.parse(calculadoraController.idade.text) / 12}';
-                      }
-                      controller.calcularEscolhaTOTcomCUFF(
-                          idade, calculadoraController.altura.text);
-                      controller.calcularEscolhaTOTsemCUFF(
-                          idade, calculadoraController.altura.text);
-                      Scrollable.ensureVisible(
-                          WidgetKeys.totKey.currentContext!,
-                          alignment: BorderSide.strokeAlignCenter);
-                    }
-                  }),
+                  Calculadora(
+                      onPressedReset: () {
+                        calculadoraController.reset();
+                        controller.reset();
+                      },
+                      onChanged: (p0) => calcularTOT(),
+                      onPressed: () {
+                        calcularTOT();
+                        Scrollable.ensureVisible(
+                            WidgetKeys.totKey.currentContext!,
+                            alignment: BorderSide.strokeAlignCenter);
+                      }),
                   const SizedBox(
                     height: 28,
                   ),
@@ -203,5 +192,18 @@ class TotPFPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  calcularTOT() {
+    if (calculadoraController.isNotEmpty()) {
+      String idade = calculadoraController.idade.text;
+      if (calculadoraController.isYear == false) {
+        idade = '${double.parse(calculadoraController.idade.text) / 12}';
+      }
+      controller.calcularEscolhaTOTcomCUFF(
+          idade, calculadoraController.altura.text);
+      controller.calcularEscolhaTOTsemCUFF(
+          idade, calculadoraController.altura.text);
+    }
   }
 }

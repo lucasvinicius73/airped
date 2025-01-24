@@ -24,14 +24,15 @@ FocusNode focusNode = FocusNode();
 class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    calculoVolume();
   }
+
+  final calculadoraController = getIt<CalculadoraController>();
+  final controller = getIt<VolumeCorrenteController>();
 
   @override
   Widget build(BuildContext context) {
-    final calculadoraController = getIt<CalculadoraController>();
-    final controller = Provider.of<VolumeCorrenteController>(context);
     return Scaffold(
       backgroundColor: const Color(0xFF6AC7DE),
       drawer: const CustomDrawer(),
@@ -66,53 +67,12 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
                     controller.reset();
                     calculadoraController.reset();
                   },
-                  onChanged: (p0) {
-                    print("OnChanged  Click");
-                    if (calculadoraController.idade.text != '' &&
-                        calculadoraController.altura.text != '') {
-                      String idade = calculadoraController.idade.text;
-                      if (calculadoraController.isYear == false) {
-                        idade =
-                            '${double.parse(calculadoraController.idade.text) / 12}';
-                      }
-                      calculadoraController.calcularPesoIdeal(
-                          idade,
-                          calculadoraController.altura.text,
-                          calculadoraController.sexo);
-
-                      if (calculadoraController.pesoIdeal > 0) {
-                        controller.calcularFrequencia(
-                            idade, calculadoraController.altura.text);
-                        controller.calcularVolumeCorrente(
-                            calculadoraController.pesoIdeal);
-                      }
-                    }
-                  },
+                  onChanged: (p0) => calculoVolume(),
                   onPressed: () {
-                    print("OnPressed  Click");
-                    if (calculadoraController.idade.text != '' &&
-                        calculadoraController.altura.text != '') {
-                      String idade = calculadoraController.idade.text;
-                      if (calculadoraController.isYear == false) {
-                        idade =
-                            '${double.parse(calculadoraController.idade.text) / 12}';
-                      }
-                      calculadoraController.calcularPesoIdeal(
-                          idade,
-                          calculadoraController.altura.text,
-                          calculadoraController.sexo);
-
-                      if (calculadoraController.pesoIdeal > 0) {
-                        controller.calcularFrequencia(
-                            idade, calculadoraController.altura.text);
-                        controller.calcularVolumeCorrente(
-                            calculadoraController.pesoIdeal);
-                      }
-
-                      Scrollable.ensureVisible(
-                          WidgetKeys.volumeKey.currentContext!,
-                          alignment: BorderSide.strokeAlignCenter);
-                    }
+                    calculoVolume();
+                    Scrollable.ensureVisible(
+                        WidgetKeys.volumeKey.currentContext!,
+                        alignment: BorderSide.strokeAlignCenter);
                   },
                 ),
                 const SizedBox(
@@ -236,5 +196,23 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
         ),
       ),
     );
+  }
+
+  calculoVolume() {
+    print("OnChanged  Click");
+    if (calculadoraController.idade.text != '' &&
+        calculadoraController.altura.text != '') {
+      String idade = calculadoraController.idade.text;
+      if (calculadoraController.isYear == false) {
+        idade = '${double.parse(calculadoraController.idade.text) / 12}';
+      }
+      calculadoraController.calcularPesoIdeal(
+          idade, calculadoraController.altura.text, calculadoraController.sexo);
+
+      if (calculadoraController.pesoIdeal > 0) {
+        controller.calcularFrequencia(idade, calculadoraController.altura.text);
+        controller.calcularVolumeCorrente(calculadoraController.pesoIdeal);
+      }
+    }
   }
 }

@@ -11,14 +11,25 @@ import 'package:airped/providers.dart';
 import 'package:airped/widget_keys.dart';
 import 'package:flutter/material.dart';
 
-class CpapTqtPage extends StatelessWidget {
+class CpapTqtPage extends StatefulWidget {
   const CpapTqtPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final calculadoraController = getIt<CalculadoraController>();
-    final controller = getIt<CpapTqtController>();
+  State<CpapTqtPage> createState() => _CpapTqtPageState();
+}
 
+class _CpapTqtPageState extends State<CpapTqtPage> {
+  final calculadoraController = getIt<CalculadoraController>();
+  final controller = getIt<CpapTqtController>();
+
+  @override
+  void initState() {
+    super.initState();
+    calcularCPAP();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(),
       drawer: const CustomDrawer(),
@@ -56,46 +67,8 @@ class CpapTqtPage extends StatelessWidget {
                         calculadoraController.reset();
                         controller.reset();
                       },
-                      onChanged: (p0) {
-                        if (calculadoraController.idade.text != '' &&
-                            calculadoraController.altura.text != '' &&
-                            calculadoraController.pesoReal.text != '') {
-                          String idade = calculadoraController.idade.text;
-                          if (calculadoraController.isYear == false) {
-                            idade =
-                                '${double.parse(calculadoraController.idade.text) / 12}';
-                          }
-                          calculadoraController.calcularPesoIdeal(
-                              idade,
-                              calculadoraController.altura.text,
-                              calculadoraController.sexo);
-
-                          controller.calcularTamCanulaCPAP(
-                              double.parse(calculadoraController.pesoReal.text),
-                              idade);
-
-                          controller.calcularTamTQT(idade);
-                        }
-                      },
-                      onPressed: () {
-                        if (calculadoraController.isNotEmpty()) {
-                          String idade = calculadoraController.idade.text;
-                          if (calculadoraController.isYear == false) {
-                            idade =
-                                '${double.parse(calculadoraController.idade.text) / 12}';
-                          }
-                          calculadoraController.calcularPesoIdeal(
-                              idade,
-                              calculadoraController.altura.text,
-                              calculadoraController.sexo);
-
-                          controller.calcularTamCanulaCPAP(
-                              double.parse(calculadoraController.pesoReal.text),
-                              idade);
-
-                          controller.calcularTamTQT(idade);
-                        }
-                      }),
+                      onChanged: (p0) => calcularCPAP(),
+                      onPressed: () => calcularCPAP()),
                   const SizedBox(
                     height: 28,
                   ),
@@ -182,11 +155,11 @@ class CpapTqtPage extends StatelessWidget {
                             const SizedBox(
                               width: 12,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 130,
                               child: Column(
                                 children: [
-                                  const Text(
+                                  Text(
                                     'Como instalar CPAP',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
@@ -197,7 +170,7 @@ class CpapTqtPage extends StatelessWidget {
                                       height: 0,
                                     ),
                                   ),
-                                  const SizedBox(height: 7),
+                                  SizedBox(height: 7),
                                   YoutubeButton(
                                       link: "https://youtu.be/8OFDHaOf79Y")
                                 ],
@@ -323,5 +296,23 @@ class CpapTqtPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  calcularCPAP() {
+    if (calculadoraController.idade.text != '' &&
+        calculadoraController.altura.text != '' &&
+        calculadoraController.pesoReal.text != '') {
+      String idade = calculadoraController.idade.text;
+      if (calculadoraController.isYear == false) {
+        idade = '${double.parse(calculadoraController.idade.text) / 12}';
+      }
+      calculadoraController.calcularPesoIdeal(
+          idade, calculadoraController.altura.text, calculadoraController.sexo);
+
+      controller.calcularTamCanulaCPAP(
+          double.parse(calculadoraController.pesoReal.text), idade);
+
+      controller.calcularTamTQT(idade);
+    }
   }
 }
