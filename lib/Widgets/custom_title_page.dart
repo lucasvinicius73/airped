@@ -16,6 +16,7 @@ class CustomTitlePage extends StatelessWidget {
         children: [
           Positioned(
             top: 10,
+            left: 0,
             child: Container(
               width: 360,
               height: 60,

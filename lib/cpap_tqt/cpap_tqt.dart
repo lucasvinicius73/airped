@@ -261,10 +261,10 @@ class _CpapTqtPageState extends State<CpapTqtPage> {
                               ),
                             ),
                             const SizedBox(
-                              width: 12,
+                              width: 8,
                             ),
                             const SizedBox(
-                              width: 130,
+                              width: 160,
                               child: Column(
                                 children: [
                                   Text(
