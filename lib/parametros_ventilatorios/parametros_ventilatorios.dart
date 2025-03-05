@@ -11,7 +11,6 @@ class ParametrosVentilatorios extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const CustomDrawer(),
       appBar: const CustomAppBar(),
       backgroundColor: const Color(0xFFD6A0F5),
       body: SingleChildScrollView(

@@ -15,18 +15,20 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       listenable: drawerController,
       builder: (context, child) => AppBar(
         backgroundColor: const Color(0xFF6EB6E6),
-        leading: Padding(
-          padding: const EdgeInsets.only(top: 0, left: 21),
-          child: SizedBox(
-            width: 30,
-            height: 30,
-            child: IconButton(
-              icon: const Icon(Icons.menu),
-              color: Colors.white,
-              onPressed: () => Scaffold.of(context).openDrawer(),
-            ),
-          ),
-        ),
+        leading: isHome
+            ? Padding(
+                padding: const EdgeInsets.only(top: 0, left: 21),
+                child: SizedBox(
+                  width: 30,
+                  height: 30,
+                  child: IconButton(
+                    icon: const Icon(Icons.menu),
+                    color: Colors.white,
+                    onPressed: () => Scaffold.of(context).openDrawer(),
+                  ),
+                ),
+              )
+            : null,
         actions: [
           !isHome
               ? Padding(

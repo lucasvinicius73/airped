@@ -17,7 +17,6 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(),
-      drawer: const CustomDrawer(),
       backgroundColor: const Color(0xFFDEF7E8),
       body: SingleChildScrollView(
         child: Container(
