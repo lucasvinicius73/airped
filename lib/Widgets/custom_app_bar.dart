@@ -16,38 +16,40 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       builder: (context, child) => AppBar(
         backgroundColor: const Color(0xFF6EB6E6),
         leading: isHome
-            ? Padding(
-                padding: const EdgeInsets.only(top: 0, left: 21),
-                child: SizedBox(
-                  width: 30,
-                  height: 30,
-                  child: IconButton(
-                    icon: const Icon(Icons.menu),
-                    color: Colors.white,
-                    onPressed: () => Scaffold.of(context).openDrawer(),
-                  ),
+            ? SizedBox(
+                width: 30,
+                height: 30,
+                child: IconButton(
+                  icon: const Icon(Icons.menu),
+                  color: Colors.white,
+                  onPressed: () => Scaffold.of(context).openDrawer(),
                 ),
               )
-            : null,
-        actions: [
-          !isHome
-              ? Padding(
-                  padding: const EdgeInsets.only(top: 0, right: 22),
-                  child: SizedBox(
-                    width: 30,
-                    height: 30,
-                    child: IconButton(
-                        color: Colors.white,
-                        icon: const Icon(Icons.home_outlined),
-                        onPressed: () {
-                          drawerController.changeIndex(0);
-                          Navigator.of(context).pushNamedAndRemoveUntil(
-                              '/home', (route) => false);
-                        }),
-                  ),
-                )
-              : const SizedBox()
-        ],
+            : SizedBox(
+                width: 30,
+                height: 30,
+                child: IconButton(
+                  icon: const Icon(Icons.arrow_back),
+                  color: Colors.white,
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ),
+        // actions: [
+        //   !isHome
+        //       ? SizedBox(
+        //           width: 30,
+        //           height: 30,
+        //           child: IconButton(
+        //               color: Colors.white,
+        //               icon: const Icon(Icons.home_outlined),
+        //               onPressed: () {
+        //                 drawerController.changeIndex(0);
+        //                 Navigator.of(context)
+        //                     .pushNamedAndRemoveUntil('/home', (route) => false);
+        //               }),
+        //         )
+        //       : const SizedBox()
+        // ],
         centerTitle: true,
         title: Padding(
           padding: const EdgeInsets.only(top: 0),
