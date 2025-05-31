@@ -4,7 +4,6 @@ import 'package:airped/Widgets/custom_title_page.dart';
 import 'package:airped/calculadora/calculadora.dart';
 import 'package:airped/calculadora/calculadora_controller.dart';
 import 'package:airped/Widgets/custom_app_bar.dart';
-import 'package:airped/Widgets/Drawer/custom_drawer.dart';
 import 'package:airped/providers.dart';
 import 'package:airped/volume/Widgets/volume_corrente_result.dart';
 import 'package:airped/volume/volume_corrent_controller.dart';

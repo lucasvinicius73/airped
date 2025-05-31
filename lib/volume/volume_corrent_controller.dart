@@ -25,9 +25,7 @@ class VolumeCorrenteController extends ChangeNotifier {
     notifyListeners();
   }
 
-  calcularPesoIdeal(String idadeText) {
-    double idade = double.parse(idadeText);
-  }
+
 
   calcularVolumeCorrente(double pesoIdeal) {
     // Calcula o volume corrente

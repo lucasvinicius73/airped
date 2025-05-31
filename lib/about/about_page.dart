@@ -1,5 +1,4 @@
 import 'package:airped/Widgets/custom_app_bar.dart';
-import 'package:airped/Widgets/Drawer/custom_drawer.dart';
 import 'package:airped/Widgets/custom_decoration.dart';
 import 'package:airped/Widgets/custom_title_page.dart';
 import 'package:airped/about/widgets/custom_liste_tile.dart';
