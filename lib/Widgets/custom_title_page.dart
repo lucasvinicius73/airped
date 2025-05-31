@@ -17,7 +17,8 @@ class CustomTitlePage extends StatelessWidget {
           // Container com texto
           Positioned(
             top: 10,
-            left: 0,
+            left: 35, // Garante que haja espaço para o ícone
+            right: 20,
             child: Container(
               height: 60,
               width: double.infinity, // Melhor responsividade
