@@ -209,7 +209,7 @@ class _CpapTqtPageState extends State<CpapTqtPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SizedBox(
-                              width: 180,
+                              width: 158,
                               child: Column(
                                 children: [
                                   const Text(
@@ -260,7 +260,7 @@ class _CpapTqtPageState extends State<CpapTqtPage> {
                               ),
                             ),
                             const SizedBox(
-                              width: 8,
+                              width: 5,
                             ),
                             const SizedBox(
                               width: 160,
