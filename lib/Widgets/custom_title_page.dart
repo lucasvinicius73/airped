@@ -8,24 +8,29 @@ class CustomTitlePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 78,
-      width: 360,
+      height: 80,
+      width: double.infinity, // Melhor responsividade
       child: Stack(
         clipBehavior: Clip.none,
-        alignment: Alignment.center,
+        alignment: Alignment.centerLeft,
         children: [
+          // Container com texto
           Positioned(
             top: 10,
+            left: 35, // Garante que haja espaço para o ícone
+            right: 20,
             child: Container(
-              width: 360,
               height: 60,
-              padding: const EdgeInsets.only(left: 68, right: 20),
+              width: double.infinity, // Melhor responsividade
+
+              padding: const EdgeInsets.only(left: 55, right: 20),
               decoration: BoxDecoration(
-                  border: Border.all(
-                    color: const Color(0xFF6EB6E6),
-                    width: 2.5,
-                  ),
-                  borderRadius: BorderRadius.circular(30)),
+                border: Border.all(
+                  color: const Color(0xFF6EB6E6),
+                  width: 2.5,
+                ),
+                borderRadius: BorderRadius.circular(30),
+              ),
               child: Center(
                 child: Text(
                   title,
@@ -36,14 +41,17 @@ class CustomTitlePage extends StatelessWidget {
                     fontSize: 18,
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.w600,
-                    height: 0,
+                    // height: 0, // Removido
                   ),
                 ),
               ),
             ),
           ),
+
+          // Ícone circular
           Positioned(
-            left: 0,
+            top: 5,
+            left: 15,
             child: Container(
               width: 70,
               height: 70,
@@ -55,9 +63,7 @@ class CustomTitlePage extends StatelessWidget {
                 child: SizedBox(
                   height: 50,
                   width: 50,
-                  child: Image.asset(
-                    icon,
-                  ),
+                  child: Image.asset(icon),
                 ),
               ),
             ),
