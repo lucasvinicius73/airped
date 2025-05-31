@@ -19,8 +19,8 @@ class YoutubeButton extends StatelessWidget {
             height: 46,
             padding: const EdgeInsets.symmetric(horizontal: 13),
             decoration: CustomDecoration.shapeDecoration,
-            child: Row(
-              children: const [
+            child: const Row(
+              children: [
                 Icon(Icons.play_arrow),
                 SizedBox(width: 8), // Espaço entre o ícone e o texto
                 Text(

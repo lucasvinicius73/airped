@@ -14,7 +14,6 @@ class DesconfortoResultPage extends StatelessWidget {
     final controller = Provider.of<DesconfortoController>(context);
     return Scaffold(
       appBar: const CustomAppBar(),
-      drawer: const CustomDrawer(),
       backgroundColor: const Color(0xFFBDDD80),
       body: SingleChildScrollView(
         child: ListenableBuilder(

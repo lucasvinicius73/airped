@@ -32,7 +32,6 @@ class _CpapTqtPageState extends State<CpapTqtPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(),
-      drawer: const CustomDrawer(),
       backgroundColor: const Color(0xFFF9C4E3),
       body: SingleChildScrollView(
         child: ListenableBuilder(
@@ -189,7 +188,7 @@ class _CpapTqtPageState extends State<CpapTqtPage> {
                     key: WidgetKeys.cpapKey,
                     constraints: const BoxConstraints(maxWidth: 400),
                     padding: const EdgeInsets.only(
-                        left: 17, bottom: 18, right: 15, top: 16.89),
+                        left: 15, bottom: 18, right: 15, top: 16.89),
                     decoration: CustomDecoration.shapeDecoration,
                     child: Column(
                       children: [
@@ -261,10 +260,10 @@ class _CpapTqtPageState extends State<CpapTqtPage> {
                               ),
                             ),
                             const SizedBox(
-                              width: 12,
+                              width: 8,
                             ),
                             const SizedBox(
-                              width: 130,
+                              width: 160,
                               child: Column(
                                 children: [
                                   Text(

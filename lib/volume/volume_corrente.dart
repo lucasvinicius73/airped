@@ -34,7 +34,6 @@ class _VolumeCorrentePageState extends State<VolumeCorrentePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF6AC7DE),
-      drawer: const CustomDrawer(),
       appBar: const CustomAppBar(),
       body: ListenableBuilder(
         listenable: Listenable.merge([controller, calculadoraController]),

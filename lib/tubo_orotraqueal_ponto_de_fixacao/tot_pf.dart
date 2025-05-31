@@ -33,7 +33,6 @@ class _TotPFPageState extends State<TotPFPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(),
-      drawer: const CustomDrawer(),
       backgroundColor: const Color(0xFFEBEC95),
       body: SingleChildScrollView(
         child: ListenableBuilder(
