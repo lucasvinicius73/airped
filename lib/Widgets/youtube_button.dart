@@ -27,7 +27,7 @@ class YoutubeButton extends StatelessWidget {
                   'Acesse',
                   style: TextStyle(
                     color: Color(0xFF67ABEB),
-                    fontSize: 20,
+                    fontSize: 19,
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.w600,
                     height: 1.2,
