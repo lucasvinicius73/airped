@@ -170,7 +170,8 @@ class _CpapTqtPageState extends State<CpapTqtPage> {
                                   ),
                                   SizedBox(height: 7),
                                   YoutubeButton(
-                                      link: "https://youtu.be/rni2bjg0-qM")
+                                      link:
+                                          "https://www.youtube.com/watch?v=-kN-DNuJ6vc")
                                 ],
                               ),
                             ),
@@ -278,7 +279,8 @@ class _CpapTqtPageState extends State<CpapTqtPage> {
                                   ),
                                   SizedBox(height: 7),
                                   YoutubeButton(
-                                      link: "https://youtu.be/XLn2-WZbb34")
+                                      link:
+                                          "https://www.youtube.com/watch?v=jA3_j6lUnOc")
                                 ],
                               ),
                             ),

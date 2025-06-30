@@ -7,9 +7,11 @@ class CustomTitlePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      constraints: const BoxConstraints(maxWidth: 435),
+
       height: 80,
-      width: double.infinity, // Melhor responsividade
+      // width: double.infinity, // Melhor responsividade
       child: Stack(
         clipBehavior: Clip.none,
         alignment: Alignment.centerLeft,

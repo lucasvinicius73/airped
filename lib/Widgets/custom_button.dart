@@ -13,7 +13,7 @@ class CustomButtonCalculadora extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 117,
+      width: 180,
       height: 42,
       decoration: ShapeDecoration(
         color: color,

@@ -91,7 +91,7 @@ class _AboutPageState extends State<AboutPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Linha de atuação cientifico tecnologica:",
+                      "Linha de atuação científico tecnológico:",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Color(0xFF67ABEB),

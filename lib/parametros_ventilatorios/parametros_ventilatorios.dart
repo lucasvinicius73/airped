@@ -84,8 +84,7 @@ class ParametrosVentilatorios extends StatelessWidget {
                                               fontWeight: FontWeight.bold)),
                                       TextSpan(text: " para "),
                                       TextSpan(
-                                          text:
-                                              "SpO2> 92% (>90% em prematuros)",
+                                          text: "SpO2 > 90%",
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold)),
                                     ])),

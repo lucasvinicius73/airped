@@ -232,14 +232,6 @@ class _CalculadoraState extends State<Calculadora> {
                     title: 'Limpar',
                     color: const Color(0xFFD85E5E),
                   ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  CustomButtonCalculadora(
-                    onPressed: widget.onPressed,
-                    title: 'Calcular',
-                    color: const Color(0xFF92BD44),
-                  )
                 ],
               )
             ],
