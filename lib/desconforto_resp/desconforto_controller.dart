@@ -54,7 +54,11 @@ class DesconfortoController extends ChangeNotifier {
   calcularCuidado() {
     if (score < 4) {
       scoreText = 'Leve';
-      cuidados = ['Oxigenoterapia', 'Ventilação Não Invasiva'];
+      cuidados = [
+        'Oxigenoterapia',
+        'Ventilação Não Invasiva',
+        'Monitotização Ventilatória'
+      ];
       color = const Color(0xFF0BC212);
     }
     if (score >= 4 && score <= 6) {
