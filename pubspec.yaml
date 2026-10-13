@@ -1,12 +1,12 @@
 name: airped
 description: "A new Flutter project."
 
-publish_to: 'none' 
+publish_to: "none"
 
-version: 1.0.0+2
+version: 1.0.0+3
 
 environment:
-  sdk: '>=3.3.4 <4.0.0'
+  sdk: ">=3.3.4 <4.0.0"
 
 dependencies:
   flutter:
@@ -17,7 +17,7 @@ dependencies:
   get_it: ^7.7.0
   url_launcher: ^6.3.1
   fluttertoast: ^8.2.10
-  
+
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
   flutter_test:
@@ -27,27 +27,25 @@ flutter_icons:
   android: true
   ios: true
   image_path: "assets/logo.png"
-  
 
 flutter:
   uses-material-design: true
   assets:
-  - assets/home/about.png
-  - assets/home/baby.png
-  - assets/home/tot.png
-  - assets/home/tqt.png
-  - assets/home/pulmao.png
-  - assets/home/pc.png
-  - assets/title/baby.png
-  - assets/title/tot.png
-  - assets/title/tqt.png
-  - assets/title/lung.png
-  - assets/title/pc.png
-  - assets/title/about.png
-  - assets/logo.png
-  - assets/logoSemfundo.png
-  - assets/warning.png
-  - assets/about/brasaouepa.png
-  - assets/about/logoCipe.png
-  - assets/about/logoCapes.png
- 
+    - assets/home/about.png
+    - assets/home/baby.png
+    - assets/home/tot.png
+    - assets/home/tqt.png
+    - assets/home/pulmao.png
+    - assets/home/pc.png
+    - assets/title/baby.png
+    - assets/title/tot.png
+    - assets/title/tqt.png
+    - assets/title/lung.png
+    - assets/title/pc.png
+    - assets/title/about.png
+    - assets/logo.png
+    - assets/logoSemfundo.png
+    - assets/warning.png
+    - assets/about/brasaouepa.png
+    - assets/about/logoCipe.png
+    - assets/about/logoCapes.png
